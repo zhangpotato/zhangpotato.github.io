@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Potato博客</title>
   
-  
+  <subtitle>分享、成长！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -43,7 +43,7 @@
     <link href="http://yoursite.com/2018/09/07/front-master/"/>
     <id>http://yoursite.com/2018/09/07/front-master/</id>
     <published>2018-09-07T01:25:00.000Z</published>
-    <updated>2019-01-16T05:48:09.047Z</updated>
+    <updated>2019-01-16T06:57:27.561Z</updated>
     
     <summary type="html">
     
