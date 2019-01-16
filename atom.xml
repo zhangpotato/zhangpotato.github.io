@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>张宏涛博客</title>
+  <title>Potato博客</title>
   
   
   <link href="/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Potato</name>
     
   </author>
   
@@ -43,7 +43,7 @@
     <link href="http://yoursite.com/2018/09/07/front-master/"/>
     <id>http://yoursite.com/2018/09/07/front-master/</id>
     <published>2018-09-07T01:25:00.000Z</published>
-    <updated>2019-01-16T05:40:35.498Z</updated>
+    <updated>2019-01-16T05:48:09.047Z</updated>
     
     <summary type="html">
     
