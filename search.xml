@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2019/01/16/front-master/"/>
+      <url>/2019/01/16/front-master/</url>
+      
+        <content type="html"><![CDATA[<p>title: typora-vue-theme主题介绍<br>date: 2018-09-07 09:25:00<br>author: 赵奇<br>img: /source/images/xxx.jpg # 或者:<a href="http://xxx.com/xxx.jpg" target="_blank" rel="noopener">http://xxx.com/xxx.jpg</a><br>top: true # 如果top值为true，则会是首页推荐文章</p><h1 id="本文章是否开启mathjax，且需要在主题的-config-yml文件中也需要开启才行"><a href="#本文章是否开启mathjax，且需要在主题的-config-yml文件中也需要开启才行" class="headerlink" title="本文章是否开启mathjax，且需要在主题的_config.yml文件中也需要开启才行"></a>本文章是否开启mathjax，且需要在主题的_config.yml文件中也需要开启才行</h1><p>mathjax: false<br>categories: Markdown<br>tags:</p><ul><li>Typora</li><li>Markdown</li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2019/01/16/hello-world/"/>
       <url>/2019/01/16/hello-world/</url>
