@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-16T14:27:32.139Z</updated>
+  <updated>2019-01-29T06:06:50.255Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HDP安装——基础环境配置</title>
+    <link href="http://yoursite.com/2019/01/29/hdp-an-zhuang-ji-chu-pei-zhi/"/>
+    <id>http://yoursite.com/2019/01/29/hdp-an-zhuang-ji-chu-pei-zhi/</id>
+    <published>2019-01-29T05:39:00.000Z</published>
+    <updated>2019-01-29T06:06:50.255Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、下载安装包&quot;&gt;&lt;a href=&quot;#一、下载安装包&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="HDP安装配置" scheme="http://yoursite.com/categories/HDP%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="HDP" scheme="http://yoursite.com/tags/HDP/"/>
+    
+      <category term="BigData" scheme="http://yoursite.com/tags/BigData/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
