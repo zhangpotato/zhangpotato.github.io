@@ -5,9 +5,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Potato博客">
-    <meta name="description" content="title: Yarn Register Dns 端口冲突date: 2019-01-29 15:39:00author: Potatotop: true # 如果top值为true，则会是首页推荐文章
-本文章是否开启mathjax，且需要">
+    <meta name="keywords" content="Yarn Register DNS 端口占用, Potato博客">
+    <meta name="description" content="如果在安装时看到与YARN Registry DNS Bind Port相关的错误。可以参考以下步骤操作：
+1、打开Ambari管理界面并进入YARN管理界面
+2、点击CONFIGS，进入配置界面
+3、点击ADVANCED进入高级设置中修改">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Potato博客</title>
+    <title>Yarn Register DNS 端口占用 | Potato博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -274,13 +276,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        
+                        Yarn Register DNS 端口占用
                     </div>
                 </div>
             </div>
@@ -298,7 +300,25 @@
     <div class="card">
         <div class="card-content article-info">
             
+            <div class="article-tag">
+                
+                <a href="/tags/HDP/" target="_blank">
+                    <span class="chip bg-color">HDP</span>
+                </a>
+                
+            </div>
+            
             <div class="post-info">
+                
+                <span class="post-cate">
+                <!--<span class="post-cate" style="margin-right: 0px">-->
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/HDP安装报错/" class="post-category" target="_blank">
+                        HDP安装报错
+                    </a>
+                    
+                </span>
                 
 
                 <span class="post-date">
@@ -314,13 +334,10 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>title: Yarn Register Dns 端口冲突<br>date: 2019-01-29 15:39:00<br>author: Potato<br>top: true # 如果top值为true，则会是首页推荐文章</p>
-<h1 id="本文章是否开启mathjax，且需要在主题的-config-yml文件中也需要开启才行"><a href="#本文章是否开启mathjax，且需要在主题的-config-yml文件中也需要开启才行" class="headerlink" title="本文章是否开启mathjax，且需要在主题的_config.yml文件中也需要开启才行"></a>本文章是否开启mathjax，且需要在主题的_config.yml文件中也需要开启才行</h1><p>mathjax: false<br>categories: HDP安装报错<br>tags:</p>
-<ul>
-<li>HDP</li>
-</ul>
-<p>如果在安装时看到与YARN Registry DNS Bind Port相关的错误。可以参考以下步骤操作：</p>
-<h2 id="1、打开Ambari管理界面并进入YARN管理界面"><a href="#1、打开Ambari管理界面并进入YARN管理界面" class="headerlink" title="1、打开Ambari管理界面并进入YARN管理界面"></a>1、打开Ambari管理界面并进入YARN管理界面</h2><h2 id="2、点击CONFIGS，进入配置界面"><a href="#2、点击CONFIGS，进入配置界面" class="headerlink" title="2、点击CONFIGS，进入配置界面"></a>2、点击CONFIGS，进入配置界面</h2><h2 id="3、点击ADVANCED进入高级设置中修改DNS端口号"><a href="#3、点击ADVANCED进入高级设置中修改DNS端口号" class="headerlink" title="3、点击ADVANCED进入高级设置中修改DNS端口号"></a>3、点击ADVANCED进入高级设置中修改DNS端口号</h2><p><strong>将53修改成其他不被占用的端口即可</strong></p>
+                <p>如果在安装时看到与YARN Registry DNS Bind Port相关的错误。可以参考以下步骤操作：</p>
+<h2 id="1、打开Ambari管理界面并进入YARN管理界面"><a href="#1、打开Ambari管理界面并进入YARN管理界面" class="headerlink" title="1、打开Ambari管理界面并进入YARN管理界面"></a>1、打开Ambari管理界面并进入YARN管理界面</h2><p><img src="../../images/yarn-register-dns1.png" alt="Alt text"></p>
+<h2 id="2、点击CONFIGS，进入配置界面"><a href="#2、点击CONFIGS，进入配置界面" class="headerlink" title="2、点击CONFIGS，进入配置界面"></a>2、点击CONFIGS，进入配置界面</h2><p><img src="../../images/yarn-register-dns2.png" alt="Alt text"></p>
+<h2 id="3、点击ADVANCED进入高级设置中修改DNS端口号"><a href="#3、点击ADVANCED进入高级设置中修改DNS端口号" class="headerlink" title="3、点击ADVANCED进入高级设置中修改DNS端口号"></a>3、点击ADVANCED进入高级设置中修改DNS端口号</h2><p><strong>将53修改成其他不被占用的端口即可</strong></p>
 <h2 id="4、重启集群，YARN正常启动"><a href="#4、重启集群，YARN正常启动" class="headerlink" title="4、重启集群，YARN正常启动"></a>4、重启集群，YARN正常启动</h2><p>参考文献：<a href="https://community.hortonworks.com/articles/225841/yarn-registry-dns-port-conflict-issue.html" target="_blank" rel="noopener">Hortonworks</a></p>
 
             </div>
@@ -460,7 +477,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">Potato博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/01/29/yarn-register-dns/" class="b-link-green"></a>
+                    <a href="/2019/01/29/yarn-register-dns/" class="b-link-green">Yarn Register DNS 端口占用</a>
                 </p>
             </div>
         </div>
@@ -488,27 +505,41 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Yarn Register DNS 端口占用">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Yarn Register DNS 端口占用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">title: Yarn Register Dns 端口冲突date: 2019-01-29 15:39:00author: Potatotop: true # 如果top值为true，则会是首页推荐文章
-本文章是否开启mathjax，且需要</div>
+                    <div class="summary">如果在安装时看到与YARN Registry DNS Bind Port相关的错误。可以参考以下步骤操作：
+1、打开Ambari管理界面并进入YARN管理界面
+2、点击CONFIGS，进入配置界面
+3、点击ADVANCED进入高级设置中修改</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-29
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Potato
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/HDP安装报错/" class="post-category" target="_blank">
+                                    HDP安装报错
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/HDP/" target="_blank">
+                        <span class="chip bg-color">HDP</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
