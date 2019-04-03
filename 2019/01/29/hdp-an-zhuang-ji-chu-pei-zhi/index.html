@@ -505,7 +505,7 @@ tar -xvzf HDP-UTILS-1.1.0.22-centos7.tar.gz
 #打开http://192.168.0.80/ambari 查看是否有结果
 </code></pre>
 <h3 id="3、制作本地源"><a href="#3、制作本地源" class="headerlink" title="3、制作本地源"></a>3、制作本地源</h3><pre class=" language-shell"><code class="language-shell">#在master01上执行
-#创建源目录
+#在/var/www/html/ambari目录下创建yum源
 yum install yum-utils createrepo yum-plugin-priorities -y
 createrepo  ./
 </code></pre>
@@ -595,11 +595,13 @@ wget https://cdn.mysql.com//Downloads/Connector-J/mysql-connector-java-5.1.47.ta
 tar -xvzf mysql-connector-java-5.1.47.tar.gz
 cp /data/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47* /usr/share/java/
 cd /usr/share/java/
-mv mysql-connector-java-5.1.47 mysql-connector-java.jar
+mv mysql-connector-java-5.1.47.jar mysql-connector-java.jar
 cp /usr/share/java/mysql-connector-java.jar /var/lib/ambari-server/resources/mysql-jdbc-driver.jar
 </code></pre>
 <h3 id="3、初始化ambari-server并启动"><a href="#3、初始化ambari-server并启动" class="headerlink" title="3、初始化ambari-server并启动"></a>3、初始化ambari-server并启动</h3><pre class=" language-shell"><code class="language-shell">#初始化
 ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql-connector-java.jar
+#配置ambari
+ambari-server setup
 #所有选项选择y即可，当遇到如下选项时
 #配置JDK环境
 Checking JDK...
@@ -653,7 +655,10 @@ drop database hive;
 drop database oozie;
 #重新创建数据库
 </code></pre>
-<h3 id="5、安装向导本地源库地址"><a href="#5、安装向导本地源库地址" class="headerlink" title="5、安装向导本地源库地址"></a>5、安装向导本地源库地址</h3><pre class=" language-shell"><code class="language-shell">#HDP
+<h3 id="5、清除已经安装的包"><a href="#5、清除已经安装的包" class="headerlink" title="5、清除已经安装的包"></a>5、清除已经安装的包</h3><pre class=" language-shell"><code class="language-shell">#在ambari-server启动的状态下执行命令，清除已经安装的软件包
+python /usr/lib/python2.6/site-packages/ambari_agent/HostCleanup.py --silent
+</code></pre>
+<h3 id="6、安装向导本地源库地址"><a href="#6、安装向导本地源库地址" class="headerlink" title="6、安装向导本地源库地址"></a>6、安装向导本地源库地址</h3><pre class=" language-shell"><code class="language-shell">#HDP
 http://192.168.0.80/ambari/HDP/centos7/3.1.0.0-78/
 #HDP-UTILS
 http://192.168.0.80/ambari/HDP-UTILS/centos7/1.1.0.22/

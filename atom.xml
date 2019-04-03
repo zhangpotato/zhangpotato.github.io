@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-29T09:04:19.906Z</updated>
+  <updated>2019-03-27T01:44:22.654Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,87 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搭建HDP集群报OPEN SSL问题解决方法</title>
+    <link href="http://yoursite.com/2019/03/27/open-ssl-bao-cuo/"/>
+    <id>http://yoursite.com/2019/03/27/open-ssl-bao-cuo/</id>
+    <published>2019-03-27T01:27:00.000Z</published>
+    <updated>2019-03-27T01:44:22.654Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;报错：&lt;/p&gt;
+&lt;pre class=&quot; language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;ERROR 2015-09-23 09:47:07,402 NetUtil.py:77 - [Errno 8] _ssl.c:492:
+        
+      
+    
+    </summary>
+    
+      <category term="Hadoop问题总结" scheme="http://yoursite.com/categories/Hadoop%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HDFS WEB UI上缺少datanode的问题解决方法</title>
+    <link href="http://yoursite.com/2019/03/19/web-ui-shang-que-shao-datanode/"/>
+    <id>http://yoursite.com/2019/03/19/web-ui-shang-que-shao-datanode/</id>
+    <published>2019-03-19T06:25:00.000Z</published>
+    <updated>2019-03-19T06:52:50.964Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、集群结构&quot;&gt;&lt;a href=&quot;#1、集群结构&quot; class=&quot;headerlink&quot; title=&quot;1、集群结构&quot;&gt;&lt;/a&gt;1、集群结构&lt;/h2&gt;&lt;pre class=&quot; language-sh&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+      <category term="Hadoop问题总结" scheme="http://yoursite.com/categories/Hadoop%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SM学习总结</title>
+    <link href="http://yoursite.com/2019/03/19/sm-wen-ti-zong-jie/"/>
+    <id>http://yoursite.com/2019/03/19/sm-wen-ti-zong-jie/</id>
+    <published>2019-03-19T06:25:00.000Z</published>
+    <updated>2019-03-27T05:44:08.121Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;SM学习总结&quot;&gt;&lt;a href=&quot;#SM学习总结&quot; class=&quot;headerlink&quot; title=&quot;SM学习总结&quot;&gt;&lt;/a&gt;SM学习总结&lt;/h1&gt;&lt;h2 id=&quot;基本环境参数&quot;&gt;&lt;a href=&quot;#基本环境参数&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Splice Machine" scheme="http://yoursite.com/categories/Splice-Machine/"/>
+    
+    
+      <category term="Splice Machine" scheme="http://yoursite.com/tags/Splice-Machine/"/>
+    
+      <category term="SQL" scheme="http://yoursite.com/tags/SQL/"/>
+    
+  </entry>
   
   <entry>
     <title>Yarn Register DNS 端口占用</title>
@@ -48,7 +129,7 @@
     <link href="http://yoursite.com/2019/01/29/hdp-an-zhuang-ji-chu-pei-zhi/"/>
     <id>http://yoursite.com/2019/01/29/hdp-an-zhuang-ji-chu-pei-zhi/</id>
     <published>2019-01-29T05:39:00.000Z</published>
-    <updated>2019-01-29T06:06:50.255Z</updated>
+    <updated>2019-03-19T06:18:12.327Z</updated>
     
     <summary type="html">
     

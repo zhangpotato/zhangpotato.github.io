@@ -5,11 +5,14 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Yarn Register DNS 端口占用, Potato博客">
-    <meta name="description" content="如果在安装时看到与YARN Registry DNS Bind Port相关的错误。可以参考以下步骤操作：
-1、打开Ambari管理界面并进入YARN管理界面
-2、点击CONFIGS，进入配置界面
-3、点击ADVANCED进入高级设置中修改">
+    <meta name="keywords" content="HDFS WEB UI上缺少datanode的问题解决方法, Potato博客">
+    <meta name="description" content="1、集群结构192.168.0.60 host0
+192.168.0.61 host1
+192.168.0.62 host2
+192.168.0.63 host3
+192.168.0.64 host4
+
+2、问题状况#HDFS上显示存活的d">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Yarn Register DNS 端口占用 | Potato博客</title>
+    <title>HDFS WEB UI上缺少datanode的问题解决方法 | Potato博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -276,13 +279,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Yarn Register DNS 端口占用
+                        HDFS WEB UI上缺少datanode的问题解决方法
                     </div>
                 </div>
             </div>
@@ -302,8 +305,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/HDP/" target="_blank">
-                    <span class="chip bg-color">HDP</span>
+                <a href="/tags/Hadoop/" target="_blank">
+                    <span class="chip bg-color">Hadoop</span>
                 </a>
                 
             </div>
@@ -314,15 +317,15 @@
                 <!--<span class="post-cate" style="margin-right: 0px">-->
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/HDP安装报错/" class="post-category" target="_blank">
-                        HDP安装报错
+                    <a href="/categories/Hadoop问题总结/" class="post-category" target="_blank">
+                        Hadoop问题总结
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2019-01-29
+                    <i class="fa fa-clock-o fa-fw"></i>2019-03-19
                 </span>
 				
 				
@@ -334,12 +337,21 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>如果在安装时看到与YARN Registry DNS Bind Port相关的错误。可以参考以下步骤操作：</p>
-<h2 id="1、打开Ambari管理界面并进入YARN管理界面"><a href="#1、打开Ambari管理界面并进入YARN管理界面" class="headerlink" title="1、打开Ambari管理界面并进入YARN管理界面"></a>1、打开Ambari管理界面并进入YARN管理界面</h2><p><img src="/images/yarn-register-dns1.png" alt="Alt text"></p>
-<h2 id="2、点击CONFIGS，进入配置界面"><a href="#2、点击CONFIGS，进入配置界面" class="headerlink" title="2、点击CONFIGS，进入配置界面"></a>2、点击CONFIGS，进入配置界面</h2><p><img src="/images/yarn-register-dns2.png" alt="Alt text"></p>
-<h2 id="3、点击ADVANCED进入高级设置中修改DNS端口号"><a href="#3、点击ADVANCED进入高级设置中修改DNS端口号" class="headerlink" title="3、点击ADVANCED进入高级设置中修改DNS端口号"></a>3、点击ADVANCED进入高级设置中修改DNS端口号</h2><p><img src="/images/yarn-register-dns3.png" alt="Alt text"></p>
-<p><strong>将53修改成其他不被占用的端口即可</strong></p>
-<h2 id="4、重启集群，YARN正常启动"><a href="#4、重启集群，YARN正常启动" class="headerlink" title="4、重启集群，YARN正常启动"></a>4、重启集群，YARN正常启动</h2><p>参考文献：<a href="https://community.hortonworks.com/articles/225841/yarn-registry-dns-port-conflict-issue.html" target="_blank" rel="noopener">Hortonworks</a></p>
+                <h2 id="1、集群结构"><a href="#1、集群结构" class="headerlink" title="1、集群结构"></a>1、集群结构</h2><pre class=" language-sh"><code class="language-sh">192.168.0.60 host0
+192.168.0.61 host1
+192.168.0.62 host2
+192.168.0.63 host3
+192.168.0.64 host4
+</code></pre>
+<h2 id="2、问题状况"><a href="#2、问题状况" class="headerlink" title="2、问题状况"></a>2、问题状况</h2><pre class=" language-sh"><code class="language-sh">#HDFS上显示存活的datanode个数为4个
+#HDFS WEB UI上显示的datanode个数为三个
+#缺少host4节点的datanode
+</code></pre>
+<h2 id="3、问题解决思路"><a href="#3、问题解决思路" class="headerlink" title="3、问题解决思路"></a>3、问题解决思路</h2><pre class=" language-sh"><code class="language-sh">1、检查namenode与host4是否可以ping通
+2、如果不可以ping通，检查host4上的hosts文件，以及网络文件配置
+3、如果可以ping通，则检查host4当前的ip地址，有可能在免密配置完成后，重启主机，ip发生变化，此时192.168.168.0.64的地址仍然可以ping通，但是服务却不能连接，因此会导致在WEB UI上无法显示datanode，只需要修改网络配置文件，设置为静态IP即可，然后重启network。
+4、停止Hadoop所有服务，然后重启Hadoop集群，即可在WEB UI上查看到host4的datanode信息。
+</code></pre>
 
             </div>
             <hr>
@@ -478,7 +490,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">Potato博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/01/29/yarn-register-dns/" class="b-link-green">Yarn Register DNS 端口占用</a>
+                    <a href="/2019/03/19/web-ui-shang-que-shao-datanode/" class="b-link-green">HDFS WEB UI上缺少datanode的问题解决方法</a>
                 </p>
             </div>
         </div>
@@ -502,6 +514,51 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
+                <a href="/2019/03/27/open-ssl-bao-cuo/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="搭建HDP集群报OPEN SSL问题解决方法">
+                        
+                        <span class="card-title">搭建HDP集群报OPEN SSL问题解决方法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">报错：
+ERROR 2015-09-23 09:47:07,402 NetUtil.py:77 - [Errno 8] _ssl.c:492: EOF occurred in violation of protocol
+ERROR 2015</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hadoop问题总结/" class="post-category" target="_blank">
+                                    Hadoop问题总结
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hadoop/" target="_blank">
+                        <span class="chip bg-color">Hadoop</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
                 <a href="/2019/03/19/sm-wen-ti-zong-jie/">
                     <div class="card-image">
                         
@@ -516,9 +573,9 @@
 Dsplice.spark.yarn.executor.memoryOverhead=6144
 Dsplice.spark.executor.m</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -540,58 +597,6 @@ Dsplice.spark.executor.m</div>
                     
                     <a href="/tags/SQL/" target="_blank">
                         <span class="chip bg-color">SQL</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
-            <div class="card">
-                <a href="/2019/01/29/hdp-an-zhuang-ji-chu-pei-zhi/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="HDP安装——基础环境配置">
-                        
-                        <span class="card-title">HDP安装——基础环境配置</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">一、下载安装包注：安装centos7时，安装英文版，避免环境安装时报错
-
-
-
-ambari
-http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.3.0/am</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-29
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/HDP安装配置/" class="post-category" target="_blank">
-                                    HDP安装配置
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/HDP/" target="_blank">
-                        <span class="chip bg-color">HDP</span>
-                    </a>
-                    
-                    <a href="/tags/BigData/" target="_blank">
-                        <span class="chip bg-color">BigData</span>
                     </a>
                     
                 </div>
