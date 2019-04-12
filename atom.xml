@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-27T01:44:22.654Z</updated>
+  <updated>2019-04-12T08:11:23.483Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,93 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>MySQL语句优化</title>
+    <link href="http://yoursite.com/2019/04/12/sql-yu-ju-you-hua/"/>
+    <id>http://yoursite.com/2019/04/12/sql-yu-ju-you-hua/</id>
+    <published>2019-04-12T08:03:00.000Z</published>
+    <updated>2019-04-12T08:11:23.483Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;SQL语句优化&quot;&gt;&lt;a href=&quot;#SQL语句优化&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="MySQL优化" scheme="http://yoursite.com/tags/MySQL%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL综合优化</title>
+    <link href="http://yoursite.com/2019/04/12/sql-zong-he-you-hua/"/>
+    <id>http://yoursite.com/2019/04/12/sql-zong-he-you-hua/</id>
+    <published>2019-04-12T08:03:00.000Z</published>
+    <updated>2019-04-12T08:11:37.890Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;MySQL如何实现优化？&quot;&gt;&lt;a href=&quot;#MySQL如何实现优化？&quot; class=&quot;headerlink&quot; title=&quot;MySQL如何实现优化？&quot;&gt;&lt;/a&gt;&lt;strong&gt;MySQL如何实现优化？&lt;/strong&gt;&lt;/h2&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="MySQL优化" scheme="http://yoursite.com/tags/MySQL%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Trinity调度延迟解决方法</title>
+    <link href="http://yoursite.com/2019/04/09/trinity-diao-du-yan-chi-jie-jue-fang-fa/"/>
+    <id>http://yoursite.com/2019/04/09/trinity-diao-du-yan-chi-jie-jue-fang-fa/</id>
+    <published>2019-04-09T09:15:00.000Z</published>
+    <updated>2019-04-12T08:08:30.513Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、查询各表占用的空间&lt;/p&gt;
+&lt;pre class=&quot; language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt;
+   relname &lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="Trinity" scheme="http://yoursite.com/categories/Trinity/"/>
+    
+    
+      <category term="ETL" scheme="http://yoursite.com/tags/ETL/"/>
+    
+      <category term="Trinity" scheme="http://yoursite.com/tags/Trinity/"/>
+    
+  </entry>
+  
+  <entry>
     <title>搭建HDP集群报OPEN SSL问题解决方法</title>
     <link href="http://yoursite.com/2019/03/27/open-ssl-bao-cuo/"/>
     <id>http://yoursite.com/2019/03/27/open-ssl-bao-cuo/</id>
     <published>2019-03-27T01:27:00.000Z</published>
-    <updated>2019-03-27T01:44:22.654Z</updated>
+    <updated>2019-04-12T08:13:39.828Z</updated>
     
     <summary type="html">
     
@@ -36,10 +118,12 @@
     
     </summary>
     
-      <category term="Hadoop问题总结" scheme="http://yoursite.com/categories/Hadoop%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+      <category term="HDP" scheme="http://yoursite.com/categories/HDP/"/>
     
     
-      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
+      <category term="Hadoop问题" scheme="http://yoursite.com/tags/Hadoop%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="BigData" scheme="http://yoursite.com/tags/BigData/"/>
     
   </entry>
   
@@ -48,7 +132,7 @@
     <link href="http://yoursite.com/2019/03/19/web-ui-shang-que-shao-datanode/"/>
     <id>http://yoursite.com/2019/03/19/web-ui-shang-que-shao-datanode/</id>
     <published>2019-03-19T06:25:00.000Z</published>
-    <updated>2019-03-19T06:52:50.964Z</updated>
+    <updated>2019-04-12T08:13:05.773Z</updated>
     
     <summary type="html">
     
@@ -62,19 +146,21 @@
     
     </summary>
     
-      <category term="Hadoop问题总结" scheme="http://yoursite.com/categories/Hadoop%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+      <category term="HDP" scheme="http://yoursite.com/categories/HDP/"/>
     
     
-      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
+      <category term="Hadoop问题" scheme="http://yoursite.com/tags/Hadoop%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="BigData" scheme="http://yoursite.com/tags/BigData/"/>
     
   </entry>
   
   <entry>
-    <title>SM学习总结</title>
-    <link href="http://yoursite.com/2019/03/19/sm-wen-ti-zong-jie/"/>
-    <id>http://yoursite.com/2019/03/19/sm-wen-ti-zong-jie/</id>
+    <title>Splice Engine历史拉链测试总结</title>
+    <link href="http://yoursite.com/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/"/>
+    <id>http://yoursite.com/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/</id>
     <published>2019-03-19T06:25:00.000Z</published>
-    <updated>2019-03-27T05:44:08.121Z</updated>
+    <updated>2019-04-12T08:12:11.047Z</updated>
     
     <summary type="html">
     
@@ -88,12 +174,10 @@
     
     </summary>
     
-      <category term="Splice Machine" scheme="http://yoursite.com/categories/Splice-Machine/"/>
+      <category term="Splice Engine" scheme="http://yoursite.com/categories/Splice-Engine/"/>
     
     
-      <category term="Splice Machine" scheme="http://yoursite.com/tags/Splice-Machine/"/>
-    
-      <category term="SQL" scheme="http://yoursite.com/tags/SQL/"/>
+      <category term="Splice Engine优化" scheme="http://yoursite.com/tags/Splice-Engine%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
@@ -102,7 +186,7 @@
     <link href="http://yoursite.com/2019/01/29/yarn-register-dns/"/>
     <id>http://yoursite.com/2019/01/29/yarn-register-dns/</id>
     <published>2019-01-29T08:39:00.000Z</published>
-    <updated>2019-01-29T09:04:19.906Z</updated>
+    <updated>2019-04-12T08:14:03.002Z</updated>
     
     <summary type="html">
     
@@ -117,10 +201,12 @@
     
     </summary>
     
-      <category term="HDP安装报错" scheme="http://yoursite.com/categories/HDP%E5%AE%89%E8%A3%85%E6%8A%A5%E9%94%99/"/>
+      <category term="HDP" scheme="http://yoursite.com/categories/HDP/"/>
     
     
-      <category term="HDP" scheme="http://yoursite.com/tags/HDP/"/>
+      <category term="Hadoop问题" scheme="http://yoursite.com/tags/Hadoop%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="BigData" scheme="http://yoursite.com/tags/BigData/"/>
     
   </entry>
   
@@ -129,7 +215,7 @@
     <link href="http://yoursite.com/2019/01/29/hdp-an-zhuang-ji-chu-pei-zhi/"/>
     <id>http://yoursite.com/2019/01/29/hdp-an-zhuang-ji-chu-pei-zhi/</id>
     <published>2019-01-29T05:39:00.000Z</published>
-    <updated>2019-03-19T06:18:12.327Z</updated>
+    <updated>2019-04-12T08:08:49.819Z</updated>
     
     <summary type="html">
     
@@ -143,12 +229,12 @@
     
     </summary>
     
-      <category term="HDP安装配置" scheme="http://yoursite.com/categories/HDP%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+      <category term="HDP" scheme="http://yoursite.com/categories/HDP/"/>
     
-    
-      <category term="HDP" scheme="http://yoursite.com/tags/HDP/"/>
     
       <category term="BigData" scheme="http://yoursite.com/tags/BigData/"/>
+    
+      <category term="HDP安装" scheme="http://yoursite.com/tags/HDP%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   

@@ -5,11 +5,12 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Yarn Register DNS 端口占用, Potato博客">
-    <meta name="description" content="如果在安装时看到与YARN Registry DNS Bind Port相关的错误。可以参考以下步骤操作：
-1、打开Ambari管理界面并进入YARN管理界面
-2、点击CONFIGS，进入配置界面
-3、点击ADVANCED进入高级设置中修改">
+    <meta name="keywords" content="Trinity调度延迟解决方法, Potato博客">
+    <meta name="description" content="1、查询各表占用的空间
+SELECT
+   relname as &#34;Table&#34;,
+   pg_size_pretty(pg_total_relation_size(relid)) As &#34;Size&#34;,
+   pg_size_pretty(">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Yarn Register DNS 端口占用 | Potato博客</title>
+    <title>Trinity调度延迟解决方法 | Potato博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -276,13 +277,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Yarn Register DNS 端口占用
+                        Trinity调度延迟解决方法
                     </div>
                 </div>
             </div>
@@ -302,12 +303,12 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/Hadoop问题/" target="_blank">
-                    <span class="chip bg-color">Hadoop问题</span>
+                <a href="/tags/ETL/" target="_blank">
+                    <span class="chip bg-color">ETL</span>
                 </a>
                 
-                <a href="/tags/BigData/" target="_blank">
-                    <span class="chip bg-color">BigData</span>
+                <a href="/tags/Trinity/" target="_blank">
+                    <span class="chip bg-color">Trinity</span>
                 </a>
                 
             </div>
@@ -318,15 +319,15 @@
                 <!--<span class="post-cate" style="margin-right: 0px">-->
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/HDP/" class="post-category" target="_blank">
-                        HDP
+                    <a href="/categories/Trinity/" class="post-category" target="_blank">
+                        Trinity
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2019-01-29
+                    <i class="fa fa-clock-o fa-fw"></i>2019-04-09
                 </span>
 				
 				
@@ -338,12 +339,23 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>如果在安装时看到与YARN Registry DNS Bind Port相关的错误。可以参考以下步骤操作：</p>
-<h2 id="1、打开Ambari管理界面并进入YARN管理界面"><a href="#1、打开Ambari管理界面并进入YARN管理界面" class="headerlink" title="1、打开Ambari管理界面并进入YARN管理界面"></a>1、打开Ambari管理界面并进入YARN管理界面</h2><p><img src="/images/yarn-register-dns1.png" alt="Alt text"></p>
-<h2 id="2、点击CONFIGS，进入配置界面"><a href="#2、点击CONFIGS，进入配置界面" class="headerlink" title="2、点击CONFIGS，进入配置界面"></a>2、点击CONFIGS，进入配置界面</h2><p><img src="/images/yarn-register-dns2.png" alt="Alt text"></p>
-<h2 id="3、点击ADVANCED进入高级设置中修改DNS端口号"><a href="#3、点击ADVANCED进入高级设置中修改DNS端口号" class="headerlink" title="3、点击ADVANCED进入高级设置中修改DNS端口号"></a>3、点击ADVANCED进入高级设置中修改DNS端口号</h2><p><img src="/images/yarn-register-dns3.png" alt="Alt text"></p>
-<p><strong>将53修改成其他不被占用的端口即可</strong></p>
-<h2 id="4、重启集群，YARN正常启动"><a href="#4、重启集群，YARN正常启动" class="headerlink" title="4、重启集群，YARN正常启动"></a>4、重启集群，YARN正常启动</h2><p>参考文献：<a href="https://community.hortonworks.com/articles/225841/yarn-registry-dns-port-conflict-issue.html" target="_blank" rel="noopener">Hortonworks</a></p>
+                <p>1、查询各表占用的空间</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span>
+   relname <span class="token keyword">as</span> <span class="token string">"Table"</span><span class="token punctuation">,</span>
+   pg_size_pretty<span class="token punctuation">(</span>pg_total_relation_size<span class="token punctuation">(</span>relid<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">As</span> <span class="token string">"Size"</span><span class="token punctuation">,</span>
+   pg_size_pretty<span class="token punctuation">(</span>pg_total_relation_size<span class="token punctuation">(</span>relid<span class="token punctuation">)</span> <span class="token operator">-</span> pg_relation_size<span class="token punctuation">(</span>relid<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token string">"External Size"</span>
+<span class="token keyword">FROM</span> pg_catalog<span class="token punctuation">.</span>pg_statio_user_tables <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> pg_total_relation_size<span class="token punctuation">(</span>relid<span class="token punctuation">)</span> <span class="token keyword">DESC</span><span class="token punctuation">;</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<p>2、需要维护的table</p>
+<pre class=" language-sql"><code class="language-sql">task<span class="token punctuation">,</span> taskdependencyrule<span class="token punctuation">,</span> jobexecution<span class="token punctuation">,</span> jobexecutionschedule<span class="token punctuation">,</span> jobtxdate
+</code></pre>
+<p>3、执行vacuum操作</p>
+<p><img src="/images/Trinity_vacuum/1.jpg" alt=""></p>
+<p>右键需要维护的table-&gt;选择Maintenance-&gt;ANALYZE-&gt;ok</p>
+<p><img src="/images/Trinity_vacuum/2.jpg" alt=""></p>
+<p>再选择Vacuum-&gt;选择full-&gt;ok-&gt;REINDEX-&gt;ok</p>
+<p><img src="/images/Trinity_vacuum/3.jpg" alt=""></p>
 
             </div>
             <hr>
@@ -482,7 +494,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">Potato博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/01/29/yarn-register-dns/" class="b-link-green">Yarn Register DNS 端口占用</a>
+                    <a href="/2019/04/09/trinity-diao-du-yan-chi-jie-jue-fang-fa/" class="b-link-green">Trinity调度延迟解决方法</a>
                 </p>
             </div>
         </div>
@@ -506,29 +518,28 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/">
+                <a href="/2019/04/12/sql-zong-he-you-hua/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Splice Engine历史拉链测试总结">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="MySQL综合优化">
                         
-                        <span class="card-title">Splice Engine历史拉链测试总结</span>
+                        <span class="card-title">MySQL综合优化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">SM学习总结基本环境参数Splice.olap.shuffle.partitions=1200
-Dsplice.spark.yarn.executor.memoryOverhead=6144
-Dsplice.spark.executor.m</div>
+                    <div class="summary">MySQL如何实现优化？1、数据库设计要合理（3F）1F 原子约束当关系模式R的所有属性都不能在分解为更基本的数据单位时，称R是满足第一范式的，简记为1NF。简单的来说就是列无法再进行分割。
+ ①、每一列属性都是不可再分的属性值，确保每一列</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-19
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-12
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Splice-Engine/" class="post-category" target="_blank">
-                                    Splice Engine
+                            <a href="/categories/数据库/" class="post-category" target="_blank">
+                                    数据库
                                 </a>
                             
                             
@@ -538,8 +549,8 @@ Dsplice.spark.executor.m</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Splice-Engine优化/" target="_blank">
-                        <span class="chip bg-color">Splice Engine优化</span>
+                    <a href="/tags/MySQL优化/" target="_blank">
+                        <span class="chip bg-color">MySQL优化</span>
                     </a>
                     
                 </div>
@@ -551,25 +562,22 @@ Dsplice.spark.executor.m</div>
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2019/01/29/hdp-an-zhuang-ji-chu-pei-zhi/">
+                <a href="/2019/03/27/open-ssl-bao-cuo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="HDP安装——基础环境配置">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="搭建HDP集群报OPEN SSL问题解决方法">
                         
-                        <span class="card-title">HDP安装——基础环境配置</span>
+                        <span class="card-title">搭建HDP集群报OPEN SSL问题解决方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">一、下载安装包注：安装centos7时，安装英文版，避免环境安装时报错
-
-
-
-ambari
-http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.3.0/am</div>
+                    <div class="summary">报错：
+ERROR 2015-09-23 09:47:07,402 NetUtil.py:77 - [Errno 8] _ssl.c:492: EOF occurred in violation of protocol
+ERROR 2015</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-29
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-27
                             </span>
                         <span class="publish-author">
                             
@@ -586,12 +594,12 @@ http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.3.0/am</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/BigData/" target="_blank">
-                        <span class="chip bg-color">BigData</span>
+                    <a href="/tags/Hadoop问题/" target="_blank">
+                        <span class="chip bg-color">Hadoop问题</span>
                     </a>
                     
-                    <a href="/tags/HDP安装/" target="_blank">
-                        <span class="chip bg-color">HDP安装</span>
+                    <a href="/tags/BigData/" target="_blank">
+                        <span class="chip bg-color">BigData</span>
                     </a>
                     
                 </div>
