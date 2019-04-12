@@ -479,11 +479,11 @@ db1
   └── t_order_1
 </code></pre>
 <p>首先引入依赖</p>
-<pre><code> &lt;dependency&gt;
+<pre><code>&lt;dependency&gt;
         &lt;groupId&gt;io.shardingjdbc&lt;/groupId&gt;
         &lt;artifactId&gt;sharding-jdbc-core&lt;/artifactId&gt;
         &lt;version&gt;2.0.3&lt;/version&gt;
- &lt;/dependency&gt;
+&lt;/dependency&gt;
 </code></pre><p>配置表分片策略</p>
 <pre class=" language-java"><code class="language-java"> <span class="token annotation punctuation">@Bean</span>
     TableRuleConfiguration <span class="token function">getOrderTableRuleConfiguration</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
