@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-04T03:37:50.691Z</updated>
+  <updated>2019-06-04T03:41:11.730Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CDH5.14.2安装手册</title>
-    <link href="http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/"/>
-    <id>http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/</id>
+    <title>Linux常用命令</title>
+    <link href="http://yoursite.com/2019/06/04/linux-chang-yong-ming-ling/"/>
+    <id>http://yoursite.com/2019/06/04/linux-chang-yong-ming-ling/</id>
     <published>2019-06-04T03:37:00.000Z</published>
-    <updated>2019-06-04T03:37:50.691Z</updated>
+    <updated>2019-06-04T03:41:11.730Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,34 @@
       
         
         
-          &lt;h1 id=&quot;CDH5-14-2安装手册&quot;&gt;&lt;a href=&quot;#CDH5-14-2安装手册&quot; class=&quot;headerlink&quot; title=&quot;CDH5.14.2安装手册&quot;&gt;&lt;/a&gt;CDH5.14.2安装手册&lt;/h1&gt;&lt;h2 id=&quot;一、基础环境配置&quot;&gt;&lt;a
+          &lt;h2 id=&quot;压缩命令&quot;&gt;&lt;a href=&quot;#压缩命令&quot; class=&quot;headerlink&quot; title=&quot;压缩命令&quot;&gt;&lt;/a&gt;&lt;strong&gt;压缩命令&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;默认压缩级别情况下,1.8G数据 压缩大小: gzip (462M) &amp;gt;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+      <category term="Linux基础" scheme="http://yoursite.com/tags/Linux%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CDH5.14.2安装手册</title>
+    <link href="http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/"/>
+    <id>http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/</id>
+    <published>2019-06-04T03:37:00.000Z</published>
+    <updated>2019-06-04T03:39:56.489Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、基础环境配置&quot;&gt;&lt;a href=&quot;#一、基础环境配置&quot; class=&quot;headerlink&quot; title=&quot;一、基础环境配置&quot;&gt;&lt;/a&gt;一、基础环境配置&lt;/h2&gt;&lt;p&gt;1、修改主机名&lt;/p&gt;
+&lt;pre class=&quot; language-sh&quot;&gt;&lt;code
         
       
     
@@ -41,28 +68,6 @@
       <category term="BigData" scheme="http://yoursite.com/tags/BigData/"/>
     
       <category term="CDH安装" scheme="http://yoursite.com/tags/CDH%E5%AE%89%E8%A3%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/2019/05/06/linux-chang-yong-ming-ling/"/>
-    <id>http://yoursite.com/2019/05/06/linux-chang-yong-ming-ling/</id>
-    <published>2019-05-06T07:23:00.748Z</published>
-    <updated>2019-05-07T09:42:13.611Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Linux常用命令&quot;&gt;&lt;a href=&quot;#Linux常用命令&quot; class=&quot;headerlink&quot; title=&quot;Linux常用命令&quot;&gt;&lt;/a&gt;Linux常用命令&lt;/h1&gt;&lt;h2 id=&quot;压缩命令&quot;&gt;&lt;a href=&quot;#压缩命令&quot;
-        
-      
-    
-    </summary>
-    
     
   </entry>
   
