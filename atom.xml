@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-04T03:22:47.559Z</updated>
+  <updated>2019-06-04T03:37:50.691Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://yoursite.com/2019/06/03/cdh5.14.2-an-zhuang-shou-ce/"/>
-    <id>http://yoursite.com/2019/06/03/cdh5.14.2-an-zhuang-shou-ce/</id>
-    <published>2019-06-03T08:00:43.161Z</published>
-    <updated>2019-06-04T03:22:47.559Z</updated>
+    <title>CDH5.14.2安装手册</title>
+    <link href="http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/"/>
+    <id>http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/</id>
+    <published>2019-06-04T03:37:00.000Z</published>
+    <updated>2019-06-04T03:37:50.691Z</updated>
     
     <summary type="html">
     
@@ -35,6 +35,12 @@
     
     </summary>
     
+      <category term="CDH" scheme="http://yoursite.com/categories/CDH/"/>
+    
+    
+      <category term="BigData" scheme="http://yoursite.com/tags/BigData/"/>
+    
+      <category term="CDH安装" scheme="http://yoursite.com/tags/CDH%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
@@ -200,32 +206,6 @@
   </entry>
   
   <entry>
-    <title>Splice Engine历史拉链测试总结</title>
-    <link href="http://yoursite.com/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/"/>
-    <id>http://yoursite.com/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/</id>
-    <published>2019-03-19T06:25:00.000Z</published>
-    <updated>2019-05-21T08:40:57.985Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;SM学习总结&quot;&gt;&lt;a href=&quot;#SM学习总结&quot; class=&quot;headerlink&quot; title=&quot;SM学习总结&quot;&gt;&lt;/a&gt;SM学习总结&lt;/h1&gt;&lt;h2 id=&quot;基本环境参数&quot;&gt;&lt;a href=&quot;#基本环境参数&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Splice Engine" scheme="http://yoursite.com/categories/Splice-Engine/"/>
-    
-    
-      <category term="Splice Engine优化" scheme="http://yoursite.com/tags/Splice-Engine%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
     <title>HDFS WEB UI上缺少datanode的问题解决方法</title>
     <link href="http://yoursite.com/2019/03/19/web-ui-shang-que-shao-datanode/"/>
     <id>http://yoursite.com/2019/03/19/web-ui-shang-que-shao-datanode/</id>
@@ -250,6 +230,32 @@
       <category term="Hadoop问题" scheme="http://yoursite.com/tags/Hadoop%E9%97%AE%E9%A2%98/"/>
     
       <category term="BigData" scheme="http://yoursite.com/tags/BigData/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Splice Engine历史拉链测试总结</title>
+    <link href="http://yoursite.com/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/"/>
+    <id>http://yoursite.com/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/</id>
+    <published>2019-03-19T06:25:00.000Z</published>
+    <updated>2019-05-21T08:40:57.985Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;SM学习总结&quot;&gt;&lt;a href=&quot;#SM学习总结&quot; class=&quot;headerlink&quot; title=&quot;SM学习总结&quot;&gt;&lt;/a&gt;SM学习总结&lt;/h1&gt;&lt;h2 id=&quot;基本环境参数&quot;&gt;&lt;a href=&quot;#基本环境参数&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Splice Engine" scheme="http://yoursite.com/categories/Splice-Engine/"/>
+    
+    
+      <category term="Splice Engine优化" scheme="http://yoursite.com/tags/Splice-Engine%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
