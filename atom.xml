@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-04T03:41:11.730Z</updated>
+  <updated>2019-06-04T03:41:59.959Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/06/04/linux-chang-yong-ming-ling/"/>
     <id>http://yoursite.com/2019/06/04/linux-chang-yong-ming-ling/</id>
     <published>2019-06-04T03:37:00.000Z</published>
-    <updated>2019-06-04T03:41:11.730Z</updated>
+    <updated>2019-06-04T03:41:59.959Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h2 id=&quot;压缩命令&quot;&gt;&lt;a href=&quot;#压缩命令&quot; class=&quot;headerlink&quot; title=&quot;压缩命令&quot;&gt;&lt;/a&gt;&lt;strong&gt;压缩命令&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;默认压缩级别情况下,1.8G数据 压缩大小: gzip (462M) &amp;gt;
+          &lt;h2 id=&quot;一、压缩命令&quot;&gt;&lt;a href=&quot;#一、压缩命令&quot; class=&quot;headerlink&quot; title=&quot;一、压缩命令&quot;&gt;&lt;/a&gt;一、压缩命令&lt;/h2&gt;&lt;p&gt;默认压缩级别情况下,1.8G数据 压缩大小: gzip (462M) &amp;gt; bzip2 (238M)
         
       
     
@@ -47,7 +47,7 @@
     <link href="http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/"/>
     <id>http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/</id>
     <published>2019-06-04T03:37:00.000Z</published>
-    <updated>2019-06-04T03:39:56.489Z</updated>
+    <updated>2019-06-04T03:43:16.591Z</updated>
     
     <summary type="html">
     
