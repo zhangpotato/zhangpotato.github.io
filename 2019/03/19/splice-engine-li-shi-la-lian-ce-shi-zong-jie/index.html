@@ -540,7 +540,35 @@ Driver stacktrace:
 yarn.nodemanager.vmem-check-enabled=false
 </code></pre>
 <h2 id="16、磁盘管理"><a href="#16、磁盘管理" class="headerlink" title="16、磁盘管理"></a>16、磁盘管理</h2><p>当磁盘空间到达阀值时，yarn会拒绝启动，默认阀值为90%，建议不要修改。</p>
-<h2 id="17、Splice其他参数"><a href="#17、Splice其他参数" class="headerlink" title="17、Splice其他参数"></a>17、Splice其他参数</h2><h2 id="18、查询优化"><a href="#18、查询优化" class="headerlink" title="18、查询优化"></a>18、查询优化</h2>
+<h2 id="17、Splice其他参数"><a href="#17、Splice其他参数" class="headerlink" title="17、Splice其他参数"></a>17、Splice其他参数</h2><h2 id="18、查询优化"><a href="#18、查询优化" class="headerlink" title="18、查询优化"></a>18、查询优化</h2><h2 id="19、导入数据报错"><a href="#19、导入数据报错" class="headerlink" title="19、导入数据报错"></a>19、导入数据报错</h2><p>1⃣️</p>
+<p>一、连接超时</p>
+<p>报错日志如下：</p>
+<pre class=" language-sh"><code class="language-sh">2019-05-15 13:11:35,679 ERROR [shuffle-client-6-3] server.TransportChannelHandler: Connection to host4/192.168.0.64:7447 has been quiet for 120000 ms while there are outstanding requests. Assuming connection is dead; please adjust spark.network.timeout if this is wrong.
+</code></pre>
+<p>解决方法：</p>
+<pre class=" language-sh"><code class="language-sh">#在hbase-env中添加
+export HBASE_MASTER_OPTS="${HBASE_MASTER_OPTS}-Dsplice.spark.shuffle.io.connectionTimeout=480s"
+#注意双引号
+</code></pre>
+<p>二、无法完成批量加载数据</p>
+<p>导入数据命令：</p>
+<pre class=" language-sh"><code class="language-sh">call SYSCS_UTIL.BULK_IMPORT_HFILE('TPCH', 'ORDERS', null,'/TPCH/1/orders', '|', null, null, null, null, 0,'/TPCH/log/', true, null, '/tmp', false);
+</code></pre>
+<p>报错日志如下：</p>
+<pre class=" language-sh"><code class="language-sh">2019-05-16 17:27:50,481 ERROR [RpcServer.FifoWFPBQ.default.handler=198,queue=18,port=16020] access.SecureBulkLoadEndpoint: Failed to complete bulk load
+java.lang.IllegalArgumentException: Wrong FS: hdfs://SM/tmp/5152/650bbcaa243d4b47bc2c1a72973b8599/V/5de6a76d4cb74c3ab50d683166435b4e, expected: hdfs://host0:8020
+
+#当前hdfs的core-site中，fs.defaultFS=SM，所以会报错，期望值为 hdfs://host0:8020
+</code></pre>
+<p>解决方法：</p>
+<pre class=" language-sh"><code class="language-sh">#1、将导入数据命令修改为如下
+call SYSCS_UTIL.BULK_IMPORT_HFILE('TPCH', 'ORDERS', null,'/TPCH/1/orders', '|', null, null, null, null, 0,'/TPCH/log/', true, null, 'hdfs://host0:8020/tmp', false);
+
+#2、如果导入数据成功则按照一下步骤进行
+#修改hdfs的core-site中fs.defaultFS=hdfs://host0:8020，然后重启服务
+fs.defaultFS=hdfs://host0:8020
+</code></pre>
+
             </div>
             <hr>
 
@@ -702,26 +730,22 @@ yarn.nodemanager.vmem-check-enabled=false
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2019/03/19/web-ui-shang-que-shao-datanode/">
+                <a href="/2019/03/27/open-ssl-bao-cuo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="HDFS WEB UI上缺少datanode的问题解决方法">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="搭建HDP集群报OPEN SSL问题解决方法">
                         
-                        <span class="card-title">HDFS WEB UI上缺少datanode的问题解决方法</span>
+                        <span class="card-title">搭建HDP集群报OPEN SSL问题解决方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1、集群结构192.168.0.60 host0
-192.168.0.61 host1
-192.168.0.62 host2
-192.168.0.63 host3
-192.168.0.64 host4
-
-2、问题状况#HDFS上显示存活的d</div>
+                    <div class="summary">报错：
+ERROR 2015-09-23 09:47:07,402 NetUtil.py:77 - [Errno 8] _ssl.c:492: EOF occurred in violation of protocol
+ERROR 2015</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-19
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-27
                         </span>
                         <span class="publish-author">
                             
@@ -755,23 +779,26 @@ yarn.nodemanager.vmem-check-enabled=false
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2019/01/29/yarn-register-dns/">
+                <a href="/2019/03/19/web-ui-shang-que-shao-datanode/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Yarn Register DNS 端口占用">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="HDFS WEB UI上缺少datanode的问题解决方法">
                         
-                        <span class="card-title">Yarn Register DNS 端口占用</span>
+                        <span class="card-title">HDFS WEB UI上缺少datanode的问题解决方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">如果在安装时看到与YARN Registry DNS Bind Port相关的错误。可以参考以下步骤操作：
-1、打开Ambari管理界面并进入YARN管理界面
-2、点击CONFIGS，进入配置界面
-3、点击ADVANCED进入高级设置中修改</div>
+                    <div class="summary">1、集群结构192.168.0.60 host0
+192.168.0.61 host1
+192.168.0.62 host2
+192.168.0.63 host3
+192.168.0.64 host4
+
+2、问题状况#HDFS上显示存活的d</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-29
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-19
                             </span>
                         <span class="publish-author">
                             

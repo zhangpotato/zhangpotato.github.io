@@ -5,10 +5,9 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="搭建HDP集群报OPEN SSL问题解决方法, Potato博客">
-    <meta name="description" content="报错：
-ERROR 2015-09-23 09:47:07,402 NetUtil.py:77 - [Errno 8] _ssl.c:492: EOF occurred in violation of protocol
-ERROR 2015">
+    <meta name="keywords" content="Potato博客">
+    <meta name="description" content="Linux常用命令压缩命令默认压缩级别情况下,1.8G数据 压缩大小: gzip (462M) &amp;gt; bzip2 (238M) &amp;gt; xz (44M)
+1、bzip2、bunzip2#压缩单个文件命令 压缩后demo.txt消失，生">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +15,7 @@ ERROR 2015">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>搭建HDP集群报OPEN SSL问题解决方法 | Potato博客</title>
+    <title>Potato博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -275,13 +274,13 @@ ERROR 2015">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        搭建HDP集群报OPEN SSL问题解决方法
+                        
                     </div>
                 </div>
             </div>
@@ -299,33 +298,11 @@ ERROR 2015">
     <div class="card">
         <div class="card-content article-info">
             
-            <div class="article-tag">
-                
-                <a href="/tags/Hadoop问题/" target="_blank">
-                    <span class="chip bg-color">Hadoop问题</span>
-                </a>
-                
-                <a href="/tags/BigData/" target="_blank">
-                    <span class="chip bg-color">BigData</span>
-                </a>
-                
-            </div>
-            
             <div class="post-info">
-                
-                <span class="post-cate">
-                <!--<span class="post-cate" style="margin-right: 0px">-->
-                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                    
-                    <a href="/categories/HDP/" class="post-category" target="_blank">
-                        HDP
-                    </a>
-                    
-                </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2019-03-27
+                    <i class="fa fa-clock-o fa-fw"></i>2019-05-06
                 </span>
 				
 				
@@ -337,31 +314,51 @@ ERROR 2015">
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>报错：</p>
-<pre class=" language-shell"><code class="language-shell">ERROR 2015-09-23 09:47:07,402 NetUtil.py:77 - [Errno 8] _ssl.c:492: EOF occurred in violation of protocol
-ERROR 2015-09-23 09:47:07,402 NetUtil.py:78 - SSLError: Failed to connect. Please check openssl library versions.
-Refer to: https://bugzilla.redhat.com/show_bug.cgi?id=1022468 for more details.
-WARNING 2015-09-23 09:47:07,402 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...
-WARNING 2015-09-23 09:47:07,402 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...
-INFO 2015-09-23 09:47:14,746 main.py:74 - loglevel=logging.INFO
-INFO 2015-09-23 09:47:14,746 main.py:74 - loglevel=logging.INFO
-INFO 2015-09-23 09:47:17,403 NetUtil.py:59 - Connecting to https://test.org:8440/ca
-WARNING 2015-09-23 09:47:17,404 NetUtil.py:82 - Failed to connect to https://test.org:8440/ca due to [Errno 111] Connection refused
-WARNING 2015-09-23 09:47:17,404 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...
-WARNING 2015-09-23 09:47:17,404 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...
-ERROR 2015-09-23 09:47:19,780 main.py:315 - Fatal exception occurred:
+                <h1 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h1><h2 id="压缩命令"><a href="#压缩命令" class="headerlink" title="压缩命令"></a><strong>压缩命令</strong></h2><p>默认压缩级别情况下,1.8G数据 压缩大小: gzip (462M) &gt; bzip2 (238M) &gt; xz (44M)</p>
+<h3 id="1、bzip2、bunzip2"><a href="#1、bzip2、bunzip2" class="headerlink" title="1、bzip2、bunzip2"></a><strong>1、bzip2、bunzip2</strong></h3><pre class=" language-shell"><code class="language-shell">#压缩单个文件命令 压缩后demo.txt消失，生成demo.txt.bz2文件
+bzip2 demo.txt
+#解压命令
+bunzip2 demo.txt.bz2
+#压缩多个文件命令
+bzip2 demo1.txt demo2.txt
+#解压多个文件命令
+bunzip2 demo1.txt.bz2 demo2.txt.bz2
 </code></pre>
-<p>解决方法：</p>
-<pre class=" language-shell"><code class="language-shell">vim /etc/ambari-agent/conf/ambari-agent.ini
-在[security]下添加
-force_https_protocol=PROTOCOL_TLSv1_2
+<h3 id="2、gzip"><a href="#2、gzip" class="headerlink" title="2、gzip"></a><strong>2、gzip</strong></h3><p>gzip只能对普通文件进行压缩和解压</p>
+<pre class=" language-shell"><code class="language-shell">#压缩命令
+gzip demo.txt
+#压缩并保留源文件
+gzip -c demo.txt > demo.txt.gz
+#解压命令
+gzip -d demo.txt.gz
 </code></pre>
-<pre class=" language-shell"><code class="language-shell">vi /etc/python/cert-verification.cfg 
-在[https] 下添加
-verify=disable
+<h3 id="3、tar"><a href="#3、tar" class="headerlink" title="3、tar"></a><strong>3、tar</strong></h3><p>tar是打包、拆包的命令</p>
+<p>“打包/拆包”“压缩/解压缩”有什么区别？我们用一个生活中的例子来解释：</p>
+<pre><code>- 就像搬家时，我们把每一床棉被都抽成真空，这叫作压缩，然后把好几床抽真空的棉被用绳子捆绑起来，这就叫打包。
+- 东西搬到新家后，把绳子解开，就是拆包，然后把每床棉被舒展开，让棉被松软起来，这就是解压缩。
+- 如果不抽真空，只是把几床棉被简单地用绳子捆起来，那么就单独用tar就好了。
+- 如果只有一床棉被，打算抽真空，那么就用gzip就好了。
+- 如果有好多床棉被，既要抽真空，又要捆起来，那么就要将tar和gzip结合起来使用。
+</code></pre><pre class=" language-shell"><code class="language-shell">#拆包解压
+tar -xvf demo.tar
+tar -xvzf demo.tar.gz
+tar -xvjf demo.tar.bz2
+#打包压缩 将/var/log下的文件打包解压到名为demo.tar.gz的文件夹
+tar -cvf demo.tar /var/log        #仅打包，不压缩
+tar -cvzf demo.tar.gz /var/log    #打包后用gzip压缩
+tar -cvjf demo.tar.bz2 /var/log    #打包后用bzip2压缩
+#参数解释
+-c 表示进行打包动作
+-z 使用gzip进行压缩和解压
+-v 显示整个过程
+-f 指定要打包的文件
+-x 表示进行拆包动作
+-j 使用bzip2进行压缩和解压
+-t 显示包中的内容
+#显示压缩包中的内容，但是不解压
+tar -tvzf demo.tar.gz
 </code></pre>
-<p>然后在Ambari界面点击retry进行重试操作</p>
-
+<h2 id="端口监听"><a href="#端口监听" class="headerlink" title="端口监听"></a>端口监听</h2>
             </div>
             <hr>
 
@@ -499,7 +496,7 @@ verify=disable
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://yoursite.com" class="b-link-green">Potato博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/03/27/open-ssl-bao-cuo/" class="b-link-green">搭建HDP集群报OPEN SSL问题解决方法</a>
+                    <a href="/2019/05/06/linux-chang-yong-ming-ling/" class="b-link-green"></a>
                 </p>
             </div>
         </div>
@@ -523,48 +520,34 @@ verify=disable
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2019/04/09/trinity-diao-du-yan-chi-jie-jue-fang-fa/">
+                <a href="/2019/06/03/cdh5.14.2-an-zhuang-shou-ce/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Trinity调度延迟解决方法">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">Trinity调度延迟解决方法</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1、查询各表占用的空间
-SELECT
-   relname as "Table",
-   pg_size_pretty(pg_total_relation_size(relid)) As "Size",
-   pg_size_pretty(</div>
+                    <div class="summary">CDH5.14.2安装手册一、基础环境配置1、修改主机名
+#操作系统为CentOS7
+#192.168.0.220节点上（root用户）
+vim /etc/hostname
+host0
+#192.168.0.221节点上
+vim /etc/</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-09
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-03
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Trinity/" class="post-category" target="_blank">
-                                    Trinity
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Potato
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/ETL/" target="_blank">
-                        <span class="chip bg-color">ETL</span>
-                    </a>
-                    
-                    <a href="/tags/Trinity/" target="_blank">
-                        <span class="chip bg-color">Trinity</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -574,29 +557,28 @@ SELECT
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/">
+                <a href="/2019/04/18/sql-yu-ju-bu-hui-hong-fa-suo-yin-de-yuan-yin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Splice Engine历史拉链测试总结">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="SQL语句不会触发索引的原因">
                         
-                        <span class="card-title">Splice Engine历史拉链测试总结</span>
+                        <span class="card-title">SQL语句不会触发索引的原因</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">SM学习总结基本环境参数Splice.olap.shuffle.partitions=1200
-Dsplice.spark.yarn.executor.memoryOverhead=6144
-Dsplice.spark.executor.m</div>
+                    <div class="summary">SQL语句不会触发索引的原因1、查询谓词没有使用索引的主要边界,换句话说就是select *，可能会导致不走索引。比如，你查询的是SELECT * FROM T WHERE Y=XXX;
+假如你的T表上有一个包含Y值的组合索引，但是优化器会</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-19
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Splice-Engine/" class="post-category" target="_blank">
-                                    Splice Engine
+                            <a href="/categories/数据库/" class="post-category" target="_blank">
+                                    数据库
                                 </a>
                             
                             
@@ -606,8 +588,12 @@ Dsplice.spark.executor.m</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Splice-Engine优化/" target="_blank">
-                        <span class="chip bg-color">Splice Engine优化</span>
+                    <a href="/tags/MySQL优化/" target="_blank">
+                        <span class="chip bg-color">MySQL优化</span>
+                    </a>
+                    
+                    <a href="/tags/SQL优化/" target="_blank">
+                        <span class="chip bg-color">SQL优化</span>
                     </a>
                     
                 </div>

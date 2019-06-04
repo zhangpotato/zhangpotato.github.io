@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-12T08:11:23.483Z</updated>
+  <updated>2019-06-04T03:22:47.559Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,78 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2019/06/03/cdh5.14.2-an-zhuang-shou-ce/"/>
+    <id>http://yoursite.com/2019/06/03/cdh5.14.2-an-zhuang-shou-ce/</id>
+    <published>2019-06-03T08:00:43.161Z</published>
+    <updated>2019-06-04T03:22:47.559Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;CDH5-14-2安装手册&quot;&gt;&lt;a href=&quot;#CDH5-14-2安装手册&quot; class=&quot;headerlink&quot; title=&quot;CDH5.14.2安装手册&quot;&gt;&lt;/a&gt;CDH5.14.2安装手册&lt;/h1&gt;&lt;h2 id=&quot;一、基础环境配置&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2019/05/06/linux-chang-yong-ming-ling/"/>
+    <id>http://yoursite.com/2019/05/06/linux-chang-yong-ming-ling/</id>
+    <published>2019-05-06T07:23:00.748Z</published>
+    <updated>2019-05-07T09:42:13.611Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Linux常用命令&quot;&gt;&lt;a href=&quot;#Linux常用命令&quot; class=&quot;headerlink&quot; title=&quot;Linux常用命令&quot;&gt;&lt;/a&gt;Linux常用命令&lt;/h1&gt;&lt;h2 id=&quot;压缩命令&quot;&gt;&lt;a href=&quot;#压缩命令&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SQL语句不会触发索引的原因</title>
+    <link href="http://yoursite.com/2019/04/18/sql-yu-ju-bu-hui-hong-fa-suo-yin-de-yuan-yin/"/>
+    <id>http://yoursite.com/2019/04/18/sql-yu-ju-bu-hui-hong-fa-suo-yin-de-yuan-yin/</id>
+    <published>2019-04-18T08:11:00.000Z</published>
+    <updated>2019-04-18T08:12:09.666Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;SQL语句不会触发索引的原因&quot;&gt;&lt;a href=&quot;#SQL语句不会触发索引的原因&quot; class=&quot;headerlink&quot; title=&quot;SQL语句不会触发索引的原因&quot;&gt;&lt;/a&gt;SQL语句不会触发索引的原因&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="MySQL优化" scheme="http://yoursite.com/tags/MySQL%E4%BC%98%E5%8C%96/"/>
+    
+      <category term="SQL优化" scheme="http://yoursite.com/tags/SQL%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL语句优化</title>
@@ -47,7 +119,7 @@
     <link href="http://yoursite.com/2019/04/11/sql-zong-he-you-hua/"/>
     <id>http://yoursite.com/2019/04/11/sql-zong-he-you-hua/</id>
     <published>2019-04-11T08:03:00.000Z</published>
-    <updated>2019-04-12T08:22:34.822Z</updated>
+    <updated>2019-05-06T05:09:27.068Z</updated>
     
     <summary type="html">
     
@@ -128,6 +200,32 @@
   </entry>
   
   <entry>
+    <title>Splice Engine历史拉链测试总结</title>
+    <link href="http://yoursite.com/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/"/>
+    <id>http://yoursite.com/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/</id>
+    <published>2019-03-19T06:25:00.000Z</published>
+    <updated>2019-05-21T08:40:57.985Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;SM学习总结&quot;&gt;&lt;a href=&quot;#SM学习总结&quot; class=&quot;headerlink&quot; title=&quot;SM学习总结&quot;&gt;&lt;/a&gt;SM学习总结&lt;/h1&gt;&lt;h2 id=&quot;基本环境参数&quot;&gt;&lt;a href=&quot;#基本环境参数&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Splice Engine" scheme="http://yoursite.com/categories/Splice-Engine/"/>
+    
+    
+      <category term="Splice Engine优化" scheme="http://yoursite.com/tags/Splice-Engine%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
     <title>HDFS WEB UI上缺少datanode的问题解决方法</title>
     <link href="http://yoursite.com/2019/03/19/web-ui-shang-que-shao-datanode/"/>
     <id>http://yoursite.com/2019/03/19/web-ui-shang-que-shao-datanode/</id>
@@ -152,32 +250,6 @@
       <category term="Hadoop问题" scheme="http://yoursite.com/tags/Hadoop%E9%97%AE%E9%A2%98/"/>
     
       <category term="BigData" scheme="http://yoursite.com/tags/BigData/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Splice Engine历史拉链测试总结</title>
-    <link href="http://yoursite.com/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/"/>
-    <id>http://yoursite.com/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/</id>
-    <published>2019-03-19T06:25:00.000Z</published>
-    <updated>2019-04-12T08:12:11.047Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;SM学习总结&quot;&gt;&lt;a href=&quot;#SM学习总结&quot; class=&quot;headerlink&quot; title=&quot;SM学习总结&quot;&gt;&lt;/a&gt;SM学习总结&lt;/h1&gt;&lt;h2 id=&quot;基本环境参数&quot;&gt;&lt;a href=&quot;#基本环境参数&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Splice Engine" scheme="http://yoursite.com/categories/Splice-Engine/"/>
-    
-    
-      <category term="Splice Engine优化" scheme="http://yoursite.com/tags/Splice-Engine%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   

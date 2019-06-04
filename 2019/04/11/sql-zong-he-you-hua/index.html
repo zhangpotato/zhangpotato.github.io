@@ -363,6 +363,7 @@
 <li>每个节点有M-1个key，并且以升序排列</li>
 <li>位于M-1和M key的子节点的值位于M-1 和M key对应的Value之间</li>
 <li>其它节点至少有M/2个子节点</li>
+<li>B Tree(B-):2-3树，每个节点上最多保留3个关键码，超过三个则取从小到大第2个位置的关键码，口诀取2留3</li>
 </ul>
 <p>下图是一个M=4 阶的B树:</p>
 <p><img src="/images/MySQL优化/11.png" alt=""></p>
@@ -598,7 +599,7 @@ db1
  11 LIMIT：取出指定行的记录，产生虚拟表VT11, 并将结果返回。
 </order_by_list></having-condition></where-condition></join-condition></code></pre>
 <p><strong>详细见SQL语句优化文档</strong></p>
-<h3 id="10、执行计划"><a href="#10、执行计划" class="headerlink" title="10、执行计划**"></a>10、执行计划**</h3><h4 id="定位慢查询"><a href="#定位慢查询" class="headerlink" title="定位慢查询"></a><strong>定位慢查询</strong></h4><h5 id="什么是慢查询？"><a href="#什么是慢查询？" class="headerlink" title="什么是慢查询？"></a><strong>什么是慢查询？</strong></h5><p>mysql默认sql语句在10S内没有返回，则被认为是慢查询</p>
+<h3 id="10、执行计划"><a href="#10、执行计划" class="headerlink" title="10、执行计划"></a>10、执行计划</h3><h4 id="定位慢查询"><a href="#定位慢查询" class="headerlink" title="定位慢查询"></a><strong>定位慢查询</strong></h4><h5 id="什么是慢查询？"><a href="#什么是慢查询？" class="headerlink" title="什么是慢查询？"></a><strong>什么是慢查询？</strong></h5><p>mysql默认sql语句在10S内没有返回，则被认为是慢查询</p>
 <p>慢查询都有日志记录</p>
 <p>使用show status查看mysql服务器状态信息</p>
 <h5 id="命令："><a href="#命令：" class="headerlink" title="命令："></a><strong>命令：</strong></h5><p>查看数据库启动时间：show status like ‘uptime’;</p>
