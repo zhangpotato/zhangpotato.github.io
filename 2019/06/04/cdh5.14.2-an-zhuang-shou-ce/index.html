@@ -590,31 +590,31 @@ yum -y install chkconfig python bind-utils psmisc libxslt zlib sqlite cyrus-sasl
 #在host1、host2执行
 /opt/cm-5.14.2/etc/init.d/cloudera-scm-agent start
 </code></pre>
-<h2 id="四、集群配置"><a href="#四、集群配置" class="headerlink" title="四、集群配置"></a>四、集群配置</h2><h3 id="1、接受协议"><a href="#1、接受协议" class="headerlink" title="1、接受协议"></a>1、接受协议</h3><p><img src="/images/CDH5.14.2安装/1.jpg" alt=""></p>
+<h2 id="四、集群配置"><a href="#四、集群配置" class="headerlink" title="四、集群配置"></a>四、集群配置</h2><h3 id="1、接受协议"><a href="#1、接受协议" class="headerlink" title="1、接受协议"></a>1、接受协议</h3><p><img src="/images/CDH5.14.2安装/1.jpg" alt="Alt text"></p>
 <h3 id="2、选择要使用的机器"><a href="#2、选择要使用的机器" class="headerlink" title="2、选择要使用的机器"></a>2、选择要使用的机器</h3><pre class=" language-sh"><code class="language-sh">#如果主机名及IP配置正确，则在界面中会显示正确的信息，如在此界面中
 192.168.0.220 host0
 192.168.0.221 host1
 192.168.0.222 host2
 </code></pre>
-<p><img src="/images/CDH5.14.2安装/2.png" alt=""></p>
+<p><img src="/images/CDH5.14.2安装/2.jpg" alt="Alt text"></p>
 <h3 id="3、选择CDH安装包"><a href="#3、选择CDH安装包" class="headerlink" title="3、选择CDH安装包"></a>3、选择CDH安装包</h3><pre class=" language-markdown"><code class="language-markdown"><span class="token code keyword">    安装版本选择CDH5.14.2</span>
 </code></pre>
-<p><img src="/images/CDH5.14.2安装/3.jpg" alt=""></p>
-<h3 id="4、分发CDH包"><a href="#4、分发CDH包" class="headerlink" title="4、分发CDH包"></a>4、分发CDH包</h3><p><img src="/images/CDH5.14.2安装/4.jpg" alt=""></p>
+<p><img src="/images/CDH5.14.2安装/3.jpg" alt="Alt text"></p>
+<h3 id="4、分发CDH包"><a href="#4、分发CDH包" class="headerlink" title="4、分发CDH包"></a>4、分发CDH包</h3><p><img src="/images/CDH5.14.2安装/4.jpg" alt="Alt text"></p>
 <h3 id="5、主机环境检查"><a href="#5、主机环境检查" class="headerlink" title="5、主机环境检查"></a>5、主机环境检查</h3><pre class=" language-markdown"><code class="language-markdown"><span class="token code keyword">    报警条目，可根据提示进行操作</span>
 </code></pre>
-<p><img src="/images/CDH5.14.2安装/5.jpg" alt=""></p>
+<p><img src="/images/CDH5.14.2安装/5.jpg" alt="Alt text"></p>
 <h3 id="6、选择组件进行服务分配"><a href="#6、选择组件进行服务分配" class="headerlink" title="6、选择组件进行服务分配"></a>6、选择组件进行服务分配</h3><pre class=" language-markdown"><code class="language-markdown">注：HMaster服务所在的主机不要设置为DataNode；
 <span class="token code keyword">     Hmaster服务与RegionServer服务不要在同一主机上，即：将HMaster与RegionServer服务隔离，放在不同的主机</span>
 </code></pre>
-<p><img src="/images/CDH5.14.2安装/6.jpg" alt=""></p>
+<p><img src="/images/CDH5.14.2安装/6.jpg" alt="Alt text"></p>
 <h3 id="7、连接源数据库"><a href="#7、连接源数据库" class="headerlink" title="7、连接源数据库"></a>7、连接源数据库</h3><pre class=" language-markdown"><code class="language-markdown"><span class="token code keyword">    连接的数据库及表名可依据安装MySQl时创建表步骤，注意要连接哪台主机的MySQL服务，如host0</span>
 </code></pre>
-<p><img src="/images/CDH5.14.2安装/7.jpg" alt=""></p>
+<p><img src="/images/CDH5.14.2安装/7.jpg" alt="Alt text"></p>
 <h3 id="8、集群设置"><a href="#8、集群设置" class="headerlink" title="8、集群设置"></a>8、集群设置</h3><pre class=" language-markdown"><code class="language-markdown"><span class="token code keyword">    可根据需要进行修改，本次时默认选择</span>
 </code></pre>
-<p><img src="/images/CDH5.14.2安装/8.jpg" alt=""></p>
-<h3 id="9、安装服务"><a href="#9、安装服务" class="headerlink" title="9、安装服务"></a>9、安装服务</h3><p><img src="/images/CDH5.14.2安装/9.jpg" alt=""></p>
+<p><img src="/images/CDH5.14.2安装/8.jpg" alt="Alt text"></p>
+<h3 id="9、安装服务"><a href="#9、安装服务" class="headerlink" title="9、安装服务"></a>9、安装服务</h3><p><img src="/images/CDH5.14.2安装/9.jpg" alt="Alt text"></p>
 <pre class=" language-sh"><code class="language-sh">#安装Hive时会报     failed to create hive metastore database Tables的错误
 #解决方法
 cp mysql-connector-java-5.1.47* /opt/cloudera/parcels/CDH-5.14.2-1.cdh5.14.2.p0.3/lib/hive/lib
@@ -623,10 +623,10 @@ cp mysql-connector-java-5.1.47* /opt/cloudera/parcels/CDH-5.14.2-1.cdh5.14.2.p0.
 cp mysql-connector-java-5.1.47* /opt/cloudera/parcels/CDH-5.14.2-1.cdh5.14.2.p0.3/lib/oozie/lib/
 cp /opt/cm-5.15.0/share/cmf/lib/mysql-connector-java-5.1.46-bin.jar /var/lib/oozie/
 </code></pre>
-<p><img src="/images/CDH5.14.2安装/error1.jpg" alt=""></p>
+<p><img src="images/CDH5.14.2安装/error1.jpg" alt="Alt text"></p>
 <pre class=" language-markdown"><code class="language-markdown"><span class="token code keyword">    解决所有问题后，会显示安装完成界面</span>
 </code></pre>
-<p><img src="/images/CDH5.14.2安装/10.jpg" alt=""></p>
+<p><img src="/images/CDH5.14.2安装/10.jpg" alt="Alt text"></p>
 
             </div>
             <hr>
