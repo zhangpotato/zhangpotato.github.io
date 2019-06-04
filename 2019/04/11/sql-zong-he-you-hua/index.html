@@ -356,7 +356,7 @@
 <h6 id="普通索引："><a href="#普通索引：" class="headerlink" title="普通索引："></a><strong>普通索引：</strong></h6><p>这是最基本的索引，它没有任何限制，比如上文中为title字段创建的索引就是一个普通索引，MyIASM中默认的BTREE类型的索引，也是我们大多数情况下用到的索引。</p>
 <h6 id="全文索引"><a href="#全文索引" class="headerlink" title="全文索引"></a><strong>全文索引</strong></h6><p>FULLTEXT    索引仅可用于 MyISAM 表；他们可以从CHAR、VARCHAR或TEXT列中作为CREATE TABLE语句的一部分被创建，或是随后使用ALTER TABLE 或CREATE INDEX被添加。对于较大的数据集，将你的资料输入一个没有FULLTEXT索引的表中，然后创建索引，其速度比把资料输入现有FULLTEXT索引的速度更为快。不过切记对于大容量的数据表，生成全文索引是一个非常消耗时间非常消耗硬盘空间的做法。</p>
 <h6 id="组合索引"><a href="#组合索引" class="headerlink" title="组合索引"></a><strong>组合索引</strong></h6><p>平时用的SQL查询语句一般都有比较多的限制条件，所以为了进一步榨取MySQL的效率，就要考虑建立组合索引。例如上表中针对title和time建立一个组合索引：ALTER TABLE article ADD INDEX index_titme_time (title(50),time(10))。建立这样的组合索引，其实是相当于分别建立了下面两组组合索引：</p>
-<h4 id="MySQL的数据结构"><a href="#MySQL的数据结构" class="headerlink" title="MySQL的数据结构"></a><strong>MySQL的数据结构</strong></h4><h5 id="B树"><a href="#B树" class="headerlink" title="B树"></a><strong>B树</strong></h5><p>B树（B-tree）是一种树状数据结构，它能够存储数据、对其进行排序并允许以O(log n)的时间复杂度运行进行查找、顺序读取、插入和删除的数据结构。B树，概括来说是一个节点可以拥有多于2个子节点的二叉查找树。与自平衡二叉查找树不同，B-树为系统最优化<strong>大块数据的读和写操作</strong>。B-tree算法减少定位记录时所经历的中间过程，从而加快存取速度。普遍运用在<strong>数据库</strong>和<strong>文件系统</strong>。”</p>
+<h4 id="MySQL的数据结构"><a href="#MySQL的数据结构" class="headerlink" title="MySQL的数据结构"></a><strong>MySQL的数据结构</strong></h4><h5 id="B树"><a href="#B树" class="headerlink" title="B树"></a><strong>B树</strong></h5><p>B树（B-tree）是一种树状数据结构，它能够存储数据、对其进行排序并允许以O(log n)的时间复杂度运行进行查找、顺序读取、插入和删除的数据结构。B树，概括来说是一个节点可以拥有多于2个子节点的二叉查找树。与自平衡二叉查找树不同，B-树为系统最优化<strong>大块数据的读和写操作</strong>。B-tree算法减少定位记录时所经历的中间过程，从而加快存取速度。普遍运用在<strong>数据库</strong>和<strong>文件系统</strong>。</p>
 <p><strong>B 树</strong>可以看作是对2-3查找树的一种扩展，即他允许每个节点有M-1个子节点。</p>
 <ul>
 <li>根节点至少有两个子节点</li>
@@ -366,11 +366,11 @@
 <li>B Tree(B-):2-3树，每个节点上最多保留3个关键码，超过三个则取从小到大第2个位置的关键码，口诀取2留3</li>
 </ul>
 <p>下图是一个M=4 阶的B树:</p>
-<p><img src="/images/MySQL优化/11.png" alt="Alt text"></p>
+<p><img src="/images/MySQL优化/1.png" alt=""></p>
 <p>可以看到B树是2-3树的一种扩展，他允许一个节点有多于2个的元素。</p>
 <p>B树的插入及平衡化操作和2-3树很相似，这里就不介绍了。下面是往B树中依次插入</p>
 <p><strong>6 10 4 14 5 11 15 3 2 12 1 7 8 8 6 3 6 21 5 15 15 6 32 23 45 65 7 8 6 5 4</strong>     的演示动画：</p>
-<p><img src="/images/MySQL优化/12.png" alt="Alt text"></p>
+<p><img src="/images/MySQL优化/2.gif" alt=""></p>
 <h5 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a><strong>B+树</strong></h5><p>​    我们经常听到B+树就是这个概念，用这个树的目的和红黑树差不多，也是为了尽量保持树的平衡，当然红黑树是二叉树，但B+树就不是二叉树了，节点下面可以有多个子节点，数据库开发商会设置子节点数的一个最大值，这个值不会太小，所以B+树一般来说比较矮胖，而红黑树就比较瘦高了。<br>关于B+树的插入，删除，会涉及到一些算法以保持树的平衡，这里就不详述了。ORACLE的默认索引就是这种结构的。<br>如果经常需要同时对两个字段进行AND查询,那么使用两个单独索引不如建立一个复合索引，因为两个单独索引通常数据库只能使用其中一个，而使用复合索引因为索引本身就对应到两个字段上的，效率会有很大提高。</p>
 <p><strong>B+</strong>树是对B树的一种变形树，它与B树的差异在于：</p>
 <ul>
@@ -379,8 +379,8 @@
 <li>树的所有叶结点构成一个有序链表，可以按照关键码排序的次序遍历全部记录。</li>
 </ul>
 <p>如下图，是一个B+树:</p>
-<p><img src="/images/MySQL优化/8.png" alt="Alt text"></p>
-<p><img src="/images/MySQL优化/9.gif" alt="Alt text"></p>
+<p><img src="/images/MySQL优化/3.png" alt=""></p>
+<p><img src="/images/MySQL优化/4.gif" alt=""></p>
 <h3 id="3、分表分库技术"><a href="#3、分表分库技术" class="headerlink" title="3、分表分库技术"></a>3、<strong>分表分库技术</strong></h3><p>取模分表、水平分割、垂直分割</p>
 <h4 id="什么是分库分表？"><a href="#什么是分库分表？" class="headerlink" title="什么是分库分表？"></a><strong>什么是分库分表</strong>？</h4><p>顾名思义，分库分表就是按照一定的规则，对原有的数据库和表进行拆分，把原本存储于一个库的数据分块存储到多个库上，把原本存储于一个表的数据分块存储到多个表上。</p>
 <h4 id="为什么要分库分表？"><a href="#为什么要分库分表？" class="headerlink" title="为什么要分库分表？"></a><strong>为什么要分库分表</strong>？</h4><p>随着时间和业务的发展，数据库中的数据量增长是不可控的，库和表中的数据会越来越大，随之带来的是更高的磁盘、IO、系统开销，甚至性能上的瓶颈，而一台服务的资源终究是有限的，因此需要对数据库和表进行拆分，从而更好的提供数据服务。</p>
@@ -397,7 +397,7 @@
 <p>某网站现在的数据量至多是5000万条，可以设计每张表容纳的数据量是500万条，也就是拆分成10张表，</p>
 <p>那么如何判断某张表的数据是否容量已满呢？可以在程序段对于要新增数据的表，在插入前先做统计表记录数量的操作，当&lt;500万条数据，就直接插入，当已经到达阀值，可以在程序段新创建数据库表（或者已经事先创建好），再执行插入操作。</p>
 <h5 id="垂直分库-分表"><a href="#垂直分库-分表" class="headerlink" title="垂直分库/分表"></a><strong>垂直分库</strong>/分表</h5><p>如果把业务切割得足够独立，那把不同业务的数据放到不同的数据库服务器将是一个不错的方案，而且万一其中一个业务崩溃了也不会影响其他业务的正常进行，并且也起到了负载分流的作用，大大提升了数据库的吞吐能力。经过垂直分区后的数据库架构图如下：</p>
-<p><img src="/images/MySQL优化/1.jpg" alt="Alt text"></p>
+<p><img src="/images/MySQL优化/5.jpg" alt=""></p>
 <p>然而，尽管业务之间已经足够独立了，但是有些业务之间或多或少总会有点联系，如用户，基本上都会和每个业务相关联，况且这种分区方式，也不能解决单张表数据量暴涨的问题，因此可以尝试水平分割</p>
 <h6 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a><strong>优点：</strong></h6><ol>
 <li>拆分后业务清晰，达到专库专用。</li>
@@ -409,9 +409,9 @@
 <li>不同的业务无法跨库关联（join），只能通过业务来关联</li>
 </ol>
 <h5 id="水平分库-分表"><a href="#水平分库-分表" class="headerlink" title="水平分库/分表"></a><strong>水平分库/分表</strong></h5><p>这是一个非常好的思路，将用户按一定规则（按id哈希）分组，并把该组用户的数据存储到一个数据库分片中，即一个sharding，这样随着用户数量的增加，只要简单地配置一台服务器即可，原理图如下：</p>
-<p><img src="/images/MySQL优化/2.jpg" alt="Alt text"></p>
+<p><img src="/images/MySQL优化/6.jpg" alt=""></p>
 <p>如何来确定某个用户所在的shard呢，可以建一张用户和shard对应的数据表，每次请求先从这张表找用户的shard id，再从对应shard中查询相关数据，如下图所示：</p>
-<p><img src="/images/MySQL优化/3.jpg" alt="Alt text"></p>
+<p><img src="/images/MySQL优化/7.jpg" alt=""></p>
 <h6 id="优点：-2"><a href="#优点：-2" class="headerlink" title="优点："></a><strong>优点：</strong></h6><ol>
 <li>单库（表）的数据量得以减少，提高性能</li>
 <li>提高了系统的稳定性和负载能力</li>
@@ -446,9 +446,9 @@
 <li>当写压力很大的时候，就必须得进行分库操作。 </li>
 </ul>
 <h3 id="4、读写分离"><a href="#4、读写分离" class="headerlink" title="4、读写分离"></a><strong>4、读写分离</strong></h3><p>MySQL的主从复制解决了数据库的读写分离，并很好的提升了读的性能</p>
-<p><img src="/images/MySQL优化/4.jpg" alt="Alt text"></p>
+<p><img src="/images/MySQL优化/8.jpg" alt=""></p>
 <p>其主从复制的过程如下图所示：</p>
-<p><img src="/images/MySQL优化/5.jpg" alt="Alt text"></p>
+<p><img src="/images/MySQL优化/9.jpg" alt=""></p>
 <p>主从复制也带来其他一系列性能瓶颈问题：</p>
 <ol>
 <li>写入无法扩展</li>
@@ -671,7 +671,7 @@ db1
 <h5 id="④、-索引列排序"><a href="#④、-索引列排序" class="headerlink" title="④、 索引列排序"></a><strong>④、 索引列排序</strong></h5><p>MySQL查询只使用一个索引，因此如果where子句中已经使用了索引的话，那么order by中的列是不会使用索引的。因此数据库默认排序可以符合要求的情况下不要使用排序操作；尽量不要包含多个列的排序，如果需要最好给这些列创建复合索引。</p>
 <h5 id="⑤、-like语句操作"><a href="#⑤、-like语句操作" class="headerlink" title="⑤、 like语句操作"></a><strong>⑤、 like语句操作</strong></h5><p>一般情况下不鼓励使用like操作，如果非使用不可，如何使用也是一个问题。like “%aaa%” 不会使用索引而like “aaa%”可以使用索引。</p>
 <h5 id="⑥、-不要在列上进行运算"><a href="#⑥、-不要在列上进行运算" class="headerlink" title="⑥、 不要在列上进行运算"></a><strong>⑥、 不要在列上进行运算</strong></h5><p>例如：select <em> from users where YEAR(adddate)&lt;2007，将在每个行上进行运算，这将导致索引失效而进行全表扫描，因此我们可以改成：select </em> from users where adddate&lt;’2007-01-01′。</p>
-<h3 id="11、硬件优化"><a href="#11、硬件优化" class="headerlink" title="11、硬件优化"></a><strong>11、硬件优化</strong></h3><p><img src="C/images/MySQL优化/6.gif" alt=""></p>
+<h3 id="11、硬件优化"><a href="#11、硬件优化" class="headerlink" title="11、硬件优化"></a><strong>11、硬件优化</strong></h3><p><img src="/images/MySQL优化/10.gif" alt=""></p>
 <h4 id="从图上可以看到基本上每种设备都有两个指标："><a href="#从图上可以看到基本上每种设备都有两个指标：" class="headerlink" title="从图上可以看到基本上每种设备都有两个指标："></a><strong>从图上可以看到基本上每种设备都有两个指标：</strong></h4><p>延时（响应时间）：表示硬件的突发处理能力；</p>
 <p>带宽（吞吐量）：代表硬件持续处理能力。</p>
 <h4 id="从上图可以看出，计算机系统硬件性能从高到代依次为："><a href="#从上图可以看出，计算机系统硬件性能从高到代依次为：" class="headerlink" title="从上图可以看出，计算机系统硬件性能从高到代依次为："></a><strong>从上图可以看出，计算机系统硬件性能从高到代依次为：</strong></h4><p>CPU——Cache(L1-L2-L3)——内存——SSD硬盘——网络——硬盘</p>
@@ -679,7 +679,7 @@ db1
 <h4 id="根据数据库知识，我们可以列出每种硬件主要的工作内容："><a href="#根据数据库知识，我们可以列出每种硬件主要的工作内容：" class="headerlink" title="根据数据库知识，我们可以列出每种硬件主要的工作内容："></a><strong>根据数据库知识，我们可以列出每种硬件主要的工作内容：</strong></h4><p>CPU及内存：缓存数据访问、比较、排序、事务检测、SQL解析、函数或逻辑运算；</p>
 <p>网络：结果数据传输、SQL请求、远程数据库访问（dblink）；</p>
 <p>硬盘：数据访问、数据写入、日志记录、<a href="http://lib.csdn.net/base/hadoop" target="_blank" rel="noopener">大数据</a>量排序、大表连接。</p>
-<h4 id="性能基本优化法则："><a href="#性能基本优化法则：" class="headerlink" title="性能基本优化法则："></a><strong>性能基本优化法则：</strong></h4><p><img src="/images/MySQL优化/7.gif" alt=""></p>
+<h4 id="性能基本优化法则："><a href="#性能基本优化法则：" class="headerlink" title="性能基本优化法则："></a><strong>性能基本优化法则：</strong></h4><p><img src="/images/MySQL优化/11.gif" alt=""></p>
 <p><strong>优化法则归纳为5个层次：</strong></p>
 <p>1、  减少数据访问（减少磁盘访问）</p>
 <p>2、  返回更少数据（减少网络传输或磁盘访问）</p>
@@ -896,9 +896,9 @@ db1
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">SQL语句优化怎么加快查询速度，优化查询效率，主要原则就是应尽量避免全表扫描，应该考虑在where及order by 涉及的列上建立索引。
+                    <div class="summary">怎么加快查询速度，优化查询效率，主要原则就是应尽量避免全表扫描，应该考虑在where及order by 涉及的列上建立索引。
 建立索引不是建的越多越好，原则是：
-①、一个表的索引不是越多越好，也没有一个具体的数字，根据以往的经</div>
+①、一个表的索引不是越多越好，也没有一个具体的数字，根据以往的经验，一个表的索</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-12

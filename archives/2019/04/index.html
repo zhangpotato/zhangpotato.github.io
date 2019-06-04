@@ -422,7 +422,8 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <div class="summary">SQL语句不会触发索引的原因1、查询谓词没有使用索引的主要边界,换句话说就是select *，可能会导致不走索引。比如，你查询的是SELECT * FROM T</div>
+                            <div class="summary">1、查询谓词没有使用索引的主要边界,换句话说就是select *，可能会导致不走索引。比如，你查询的是SELECT * FROM T WHERE Y=XXX;
+</div>
                             <div class="publish-info">
                                 <span class="publish-date">
                                     <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-18
@@ -479,8 +480,8 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                             </div>
                         </a>
                         <div class="card-content article-content">
-                            <div class="summary">SQL语句优化怎么加快查询速度，优化查询效率，主要原则就是应尽量避免全表扫描，应该考虑在where及order by 涉及的列上建立索引。
-建立索引不是建的越多</div>
+                            <div class="summary">怎么加快查询速度，优化查询效率，主要原则就是应尽量避免全表扫描，应该考虑在where及order by 涉及的列上建立索引。
+建立索引不是建的越多越好，原则是：</div>
                             <div class="publish-info">
                                 <span class="publish-date">
                                     <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-12

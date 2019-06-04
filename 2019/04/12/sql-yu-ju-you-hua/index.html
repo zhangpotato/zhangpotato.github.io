@@ -6,9 +6,9 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="MySQL语句优化, Potato博客">
-    <meta name="description" content="SQL语句优化怎么加快查询速度，优化查询效率，主要原则就是应尽量避免全表扫描，应该考虑在where及order by 涉及的列上建立索引。
+    <meta name="description" content="怎么加快查询速度，优化查询效率，主要原则就是应尽量避免全表扫描，应该考虑在where及order by 涉及的列上建立索引。
 建立索引不是建的越多越好，原则是：
-①、一个表的索引不是越多越好，也没有一个具体的数字，根据以往的经">
+①、一个表的索引不是越多越好，也没有一个具体的数字，根据以往的经验，一个表的索">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -333,7 +333,7 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="SQL语句优化"><a href="#SQL语句优化" class="headerlink" title="SQL语句优化"></a><strong>SQL语句优化</strong></h1><p>怎么加快查询速度，优化查询效率，主要原则就是应尽量避免全表扫描，应该考虑在where及order by 涉及的列上建立索引。</p>
+                <p>怎么加快查询速度，优化查询效率，主要原则就是应尽量避免全表扫描，应该考虑在where及order by 涉及的列上建立索引。</p>
 <p>建立索引不是建的越多越好，原则是：</p>
 <p>①、一个表的索引不是越多越好，也没有一个具体的数字，根据以往的经验，<strong>一个表的索引最多不能超过6个，</strong>因为索引越多，对update和insert操作也会有性能的影响，涉及到索引的新建和重建操作。</p>
 <p>②、建立索引的方法论为：</p>
@@ -700,8 +700,8 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">SQL语句不会触发索引的原因1、查询谓词没有使用索引的主要边界,换句话说就是select *，可能会导致不走索引。比如，你查询的是SELECT * FROM T WHERE Y=XXX;
-假如你的T表上有一个包含Y值的组合索引，但是优化器会</div>
+                    <div class="summary">1、查询谓词没有使用索引的主要边界,换句话说就是select *，可能会导致不走索引。比如，你查询的是SELECT * FROM T WHERE Y=XXX;
+假如你的T表上有一个包含Y值的组合索引，但是优化器会认为需要一行行的扫描会更有效</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-18

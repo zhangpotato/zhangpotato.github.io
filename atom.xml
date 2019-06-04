@@ -47,7 +47,7 @@
     <link href="http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/"/>
     <id>http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/</id>
     <published>2019-06-04T03:37:00.000Z</published>
-    <updated>2019-06-04T03:53:00.507Z</updated>
+    <updated>2019-06-04T05:46:07.403Z</updated>
     
     <summary type="html">
     
@@ -76,7 +76,7 @@
     <link href="http://yoursite.com/2019/04/18/sql-yu-ju-bu-hui-hong-fa-suo-yin-de-yuan-yin/"/>
     <id>http://yoursite.com/2019/04/18/sql-yu-ju-bu-hui-hong-fa-suo-yin-de-yuan-yin/</id>
     <published>2019-04-18T08:11:00.000Z</published>
-    <updated>2019-04-18T08:12:09.666Z</updated>
+    <updated>2019-06-04T05:46:32.368Z</updated>
     
     <summary type="html">
     
@@ -84,7 +84,7 @@
       
         
         
-          &lt;h1 id=&quot;SQL语句不会触发索引的原因&quot;&gt;&lt;a href=&quot;#SQL语句不会触发索引的原因&quot; class=&quot;headerlink&quot; title=&quot;SQL语句不会触发索引的原因&quot;&gt;&lt;/a&gt;SQL语句不会触发索引的原因&lt;/h1&gt;&lt;h2
+          &lt;h2 id=&quot;1、查询谓词没有使用索引的主要边界-换句话说就是select-，可能会导致不走索引。&quot;&gt;&lt;a href=&quot;#1、查询谓词没有使用索引的主要边界-换句话说就是select-，可能会导致不走索引。&quot; class=&quot;headerlink&quot;
         
       
     
@@ -104,7 +104,7 @@
     <link href="http://yoursite.com/2019/04/12/sql-yu-ju-you-hua/"/>
     <id>http://yoursite.com/2019/04/12/sql-yu-ju-you-hua/</id>
     <published>2019-04-12T08:03:00.000Z</published>
-    <updated>2019-04-12T08:11:23.483Z</updated>
+    <updated>2019-06-04T05:46:38.539Z</updated>
     
     <summary type="html">
     
@@ -112,7 +112,7 @@
       
         
         
-          &lt;h1 id=&quot;SQL语句优化&quot;&gt;&lt;a href=&quot;#SQL语句优化&quot; class=&quot;headerlink&quot;
+          &lt;p&gt;怎么加快查询速度，优化查询效率，主要原则就是应尽量避免全表扫描，应该考虑在where及order by
         
       
     
@@ -130,7 +130,7 @@
     <link href="http://yoursite.com/2019/04/11/sql-zong-he-you-hua/"/>
     <id>http://yoursite.com/2019/04/11/sql-zong-he-you-hua/</id>
     <published>2019-04-11T08:03:00.000Z</published>
-    <updated>2019-06-04T03:57:22.677Z</updated>
+    <updated>2019-06-04T05:36:54.958Z</updated>
     
     <summary type="html">
     
@@ -156,7 +156,7 @@
     <link href="http://yoursite.com/2019/04/09/trinity-diao-du-yan-chi-jie-jue-fang-fa/"/>
     <id>http://yoursite.com/2019/04/09/trinity-diao-du-yan-chi-jie-jue-fang-fa/</id>
     <published>2019-04-09T09:15:00.000Z</published>
-    <updated>2019-06-04T03:52:28.283Z</updated>
+    <updated>2019-06-04T04:59:32.089Z</updated>
     
     <summary type="html">
     
@@ -243,7 +243,7 @@
     <link href="http://yoursite.com/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/"/>
     <id>http://yoursite.com/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/</id>
     <published>2019-03-19T06:25:00.000Z</published>
-    <updated>2019-05-21T08:40:57.985Z</updated>
+    <updated>2019-06-04T05:46:24.340Z</updated>
     
     <summary type="html">
     
@@ -251,7 +251,7 @@
       
         
         
-          &lt;h1 id=&quot;SM学习总结&quot;&gt;&lt;a href=&quot;#SM学习总结&quot; class=&quot;headerlink&quot; title=&quot;SM学习总结&quot;&gt;&lt;/a&gt;SM学习总结&lt;/h1&gt;&lt;h2 id=&quot;基本环境参数&quot;&gt;&lt;a href=&quot;#基本环境参数&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;基本环境参数&quot;&gt;&lt;a href=&quot;#基本环境参数&quot; class=&quot;headerlink&quot;
         
       
     
@@ -269,7 +269,7 @@
     <link href="http://yoursite.com/2019/01/29/yarn-register-dns/"/>
     <id>http://yoursite.com/2019/01/29/yarn-register-dns/</id>
     <published>2019-01-29T08:39:00.000Z</published>
-    <updated>2019-06-04T04:45:20.179Z</updated>
+    <updated>2019-06-04T05:46:49.632Z</updated>
     
     <summary type="html">
     
