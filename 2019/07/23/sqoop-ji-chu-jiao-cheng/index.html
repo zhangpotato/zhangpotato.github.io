@@ -1,0 +1,1801 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Sqoop基础教程, Potato博客">
+    <meta name="description" content="一、Sqoop导入1、Sqoop参数使用方式
+
+
+参数
+描述
+
+
+
+
+codegen
+生成与数据库记录交互的代码
+
+
+create-hive-table
+创建表
+
+
+eval
+评估SQL语句并显示结果
+
+
+export
+将HDFS目录导出到">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Sqoop基础教程 | Potato博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">Potato博客</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Potato博客</div>
+        <div class="logo-desc">
+            
+            Take one small step each day.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhangpotato" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/zhangpotato" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<!-- <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a> -->
+<!-- 
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+ --></div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhangpotato" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Sqoop基础教程
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/BigData/" target="_blank">
+                    <span class="chip bg-color">BigData</span>
+                </a>
+                
+                <a href="/tags/ETL/" target="_blank">
+                    <span class="chip bg-color">ETL</span>
+                </a>
+                
+                <a href="/tags/Sqoop/" target="_blank">
+                    <span class="chip bg-color">Sqoop</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                <!--<span class="post-cate" style="margin-right: 0px">-->
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/BigData/" class="post-category" target="_blank">
+                        BigData
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-07-23
+                </span>
+				
+				
+                    <span id="busuanzi_container_page_pv" class="post-read">
+                    <i class="fa fa-eye fa-fw"></i>阅读 <span id="busuanzi_value_page_pv"></span>
+				
+            </span></div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="一、Sqoop导入"><a href="#一、Sqoop导入" class="headerlink" title="一、Sqoop导入"></a>一、Sqoop导入</h1><h2 id="1、Sqoop参数使用方式"><a href="#1、Sqoop参数使用方式" class="headerlink" title="1、Sqoop参数使用方式"></a>1、Sqoop参数使用方式</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>codegen</td>
+<td>生成与数据库记录交互的代码</td>
+</tr>
+<tr>
+<td>create-hive-table</td>
+<td>创建表</td>
+</tr>
+<tr>
+<td>eval</td>
+<td>评估SQL语句并显示结果</td>
+</tr>
+<tr>
+<td>export</td>
+<td>将HDFS目录导出到数据库表</td>
+</tr>
+<tr>
+<td>help</td>
+<td>列出可用命令</td>
+</tr>
+<tr>
+<td>import</td>
+<td>数据库中的表导入HDFS</td>
+</tr>
+<tr>
+<td>import-all-tables</td>
+<td>将数据库中的表导入HDFS</td>
+</tr>
+<tr>
+<td>import-mainframe</td>
+<td>将主机数据集导入HDFS</td>
+</tr>
+<tr>
+<td>list-databases</td>
+<td>列出服务器列表中的可用数据库</td>
+</tr>
+<tr>
+<td>list-tables</td>
+<td>列出数据库中可用的表</td>
+</tr>
+</tbody>
+</table>
+<pre class=" language-sh"><code class="language-sh">#在命令行中使用参数选项
+sqoop list-databases --connect jdbc:mysql://host0:3306 --username root --password 123456
+#使用配置文件的方式
+sqoop --options-file /root/list.txt
+
+#vim list.txt
+list-databases
+--connect
+jdbc:mysql://host0:3306
+--username
+root
+--password
+123456
+</code></pre>
+<h2 id="2、sqoop-import"><a href="#2、sqoop-import" class="headerlink" title="2、sqoop-import"></a>2、sqoop-import</h2><p>目的：将单个表从RDBMS导入HDFS。表中的每一行都表示为HDFS中的单独记录。记录可以存储为文本文件（每行一个记录），或者以二进制表示形式存储为Avro或SequenceFiles。</p>
+<h3 id="A、连接常见参数："><a href="#A、连接常见参数：" class="headerlink" title="A、连接常见参数："></a><strong>A、连接常见参数：</strong></h3><table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">–connect <jdbc-uri></jdbc-uri></td>
+<td style="text-align:left">指定JDBC连接字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">–connection-manager <class-name></class-name></td>
+<td style="text-align:left">指定要使用的连接管理器类</td>
+</tr>
+<tr>
+<td style="text-align:left">–driver <class-name></class-name></td>
+<td style="text-align:left">手动指定要使用的JDBC驱动程序类</td>
+</tr>
+<tr>
+<td style="text-align:left">–hadoop-mapred-home <dir></dir></td>
+<td style="text-align:left">覆盖$ HADOOP_MAPRED_HOME</td>
+</tr>
+<tr>
+<td style="text-align:left">–password-file</td>
+<td style="text-align:left">设置包含验证密码的文件的路径</td>
+</tr>
+<tr>
+<td style="text-align:left">-P</td>
+<td style="text-align:left">从控制台读取密码</td>
+</tr>
+<tr>
+<td style="text-align:left">–password <password></password></td>
+<td style="text-align:left">设置验证密码</td>
+</tr>
+<tr>
+<td style="text-align:left">–username <username></username></td>
+<td style="text-align:left">设置认证用户名</td>
+</tr>
+<tr>
+<td style="text-align:left">–verbose</td>
+<td style="text-align:left">工作时打印更多信息</td>
+</tr>
+<tr>
+<td style="text-align:left">–connection-param-file <filename></filename></td>
+<td style="text-align:left">提供连接参数的可选属性文件</td>
+</tr>
+<tr>
+<td style="text-align:left">–relaxed-isolation</td>
+<td style="text-align:left">将连接事务隔离设置为读取未提交的映射器。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="验证参数"><a href="#验证参数" class="headerlink" title="验证参数"></a>验证参数</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–validate</td>
+<td>启用复制数据的验证，仅支持单表复制。</td>
+</tr>
+<tr>
+<td>–validator <class-name></class-name></td>
+<td>指定要使用的验证程序类。</td>
+</tr>
+<tr>
+<td>–validation-threshold <class-name></class-name></td>
+<td>指定要使用的验证阈值类。</td>
+</tr>
+<tr>
+<td>–validation-failurehandler <class-name></class-name></td>
+<td>指定要使用的验证失败处理程序类。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="B、导入控制参数："><a href="#B、导入控制参数：" class="headerlink" title="B、导入控制参数："></a>B、导入控制参数：</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–append</td>
+<td>将数据附加到HDFS中的现有数据集</td>
+</tr>
+<tr>
+<td>–as-avrodatafile</td>
+<td>将数据导入Avro数据文件</td>
+</tr>
+<tr>
+<td>–as-sequencefile</td>
+<td>将数据导入SequenceFiles</td>
+</tr>
+<tr>
+<td>–as-textfile</td>
+<td>以纯文本格式导入数据（默认）</td>
+</tr>
+<tr>
+<td>–as-parquetfile</td>
+<td>将数据导入Parquet文件</td>
+</tr>
+<tr>
+<td>–boundary-query <statement></statement></td>
+<td>用于创建拆分的边界查询</td>
+</tr>
+<tr>
+<td>–columns &lt;col,col,col…&gt;</td>
+<td>要从表导入的列</td>
+</tr>
+<tr>
+<td>–delete-target-dir</td>
+<td>删除导入目标目录（如果存在）</td>
+</tr>
+<tr>
+<td>–direct</td>
+<td>如果数据库存在，请使用直接连接器</td>
+</tr>
+<tr>
+<td>–fetch-size <n></n></td>
+<td>一次从数据库中读取的条目数。</td>
+</tr>
+<tr>
+<td>–inline-lob-limit <n></n></td>
+<td>设置内联LOB的最大大小</td>
+</tr>
+<tr>
+<td>-m,–num-mappers <n></n></td>
+<td>使用<em>n个</em>映射任务并行导入</td>
+</tr>
+<tr>
+<td>-e,–query <statement></statement></td>
+<td>导入结果<em>statement</em>。</td>
+</tr>
+<tr>
+<td>–split-by <column-name></column-name></td>
+<td>用于拆分工作单位的表格列。不能与<code>--autoreset-to-one-mapper</code>选项一起使用</td>
+</tr>
+<tr>
+<td>–split-limit <n></n></td>
+<td>每个分割大小的上限。这仅适用于Integer和Date列。对于日期或时间戳字段，它以秒为单位计算</td>
+</tr>
+<tr>
+<td>–autoreset-to-one-mapper</td>
+<td>如果表没有主键且没有提供拆分列，则导入应使用一个映射器。不能与<code>--split-by &lt;col&gt;</code>选项一起使用</td>
+</tr>
+<tr>
+<td>–table <table-name></table-name></td>
+<td>要阅读的表格</td>
+</tr>
+<tr>
+<td>–target-dir <dir></dir></td>
+<td>HDFS目的地目录</td>
+</tr>
+<tr>
+<td>–temporary-rootdir <dir></dir></td>
+<td>导入期间创建的临时文件的HDFS目录（覆盖默认的“_sqoop”）</td>
+</tr>
+<tr>
+<td>–warehouse-dir <dir></dir></td>
+<td>表格目的地的HDFS父级</td>
+</tr>
+<tr>
+<td>–where <where clause=""></where></td>
+<td>导入期间要使用的WHERE子句</td>
+</tr>
+<tr>
+<td>-z,–compress</td>
+<td>启用压缩</td>
+</tr>
+<tr>
+<td>–compression-codec <c></c></td>
+<td>使用Hadoop编解码器（默认gzip）</td>
+</tr>
+<tr>
+<td>–null-string <null-string></null-string></td>
+<td>要为字符串列的空值写入的字符串</td>
+</tr>
+<tr>
+<td>–null-non-string <null-string></null-string></td>
+<td>要为非字符串列的空值写入的字符串</td>
+</tr>
+</tbody>
+</table>
+<p>在<code>--null-string</code>和<code>--null-non-string</code>参数都是可选的。\如果未指定，那么字符串“null”将被使用。</p>
+<h3 id="C、连接到数据库"><a href="#C、连接到数据库" class="headerlink" title="C、连接到数据库"></a>C、连接到数据库</h3><pre class=" language-sh"><code class="language-sh">sqoop import --connect jdbc：mysql：//host0:3306/hive --username root --password 123456
+</code></pre>
+<h3 id="D、自定义查询"><a href="#D、自定义查询" class="headerlink" title="D、自定义查询"></a>D、自定义查询</h3><pre class=" language-sh"><code class="language-sh">#使用--query可以指定要使用表中的数据 注：value尽可能使用''，使用""需要在$前添加\,-m设置一次查询并发个数
+sqoop import --query'SELECT a.*，b.* from a JOIN b on（a.id == b.id）WHERE id > 1202 and $CONDITIONS' -m 1 --split-by a.id --target -dir / user / foo / joinresults
+</code></pre>
+<h3 id="D、控制类型映射"><a href="#D、控制类型映射" class="headerlink" title="D、控制类型映射"></a>D、控制类型映射</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–map-column-java <mapping></mapping></td>
+<td>为已配置的列覆盖从SQL到Java类型的映射。</td>
+</tr>
+<tr>
+<td>–map-column-hive <mapping></mapping></td>
+<td>为已配置的列覆盖从SQL到Hive类型的映射。</td>
+</tr>
+</tbody>
+</table>
+<pre class=" language-sh"><code class="language-sh">#在--map-column-hive选项中指定逗号，您应该使用URL编码的键和值，例如，使用DECIMAL（1％2C％201）而不是DECIMAL（1,1）。
+sqoop import ... --map-column-java id = String，value = Integer
+</code></pre>
+<h3 id="E、增量导入数据"><a href="#E、增量导入数据" class="headerlink" title="E、增量导入数据"></a>E、增量导入数据</h3><p><strong>Sqoop</strong>支持两种类型的增量导入：<code>append</code>和<code>lastmodified</code>。您可以使用该<code>--incremental</code>参数指定要执行的增量导入的类型。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–check-column (col)</td>
+<td>指定在确定要导入的行时要检查的列。（该列不应为CHAR / NCHAR / VARCHAR / VARNCHAR / LONGVARCHAR / LONGNVARCHAR类型）</td>
+</tr>
+<tr>
+<td>–incremental (mode)</td>
+<td>指定Sqoop确定哪些行是新的。<code>mode</code> 包含<code>append</code>和<code>lastmodified</code>。</td>
+</tr>
+<tr>
+<td>–last-value (value)</td>
+<td>指定上一个导入的检查列的最大值。</td>
+</tr>
+</tbody>
+</table>
+<p>增量数据导入分两种，一是基于<strong>递增列</strong>的增量数据导入（Append方式）。二是基于<strong>时间列</strong>的增量数据导入（LastModified方式）</p>
+<h4 id="1、Append方式"><a href="#1、Append方式" class="headerlink" title="1、Append方式"></a>1、Append方式</h4><p>例：有一个订单表，里面每个订单有一个唯一标识自增列ID，在关系型数据库中以主键形式存在。之前已经将id在0~5201314之间的编号的订单导入到Hadoop中了（这里为HDFS），现在一段时间后我们需要将近期产生的新的订单数据导入Hadoop中（这里为HDFS），以供后续数仓进行分析。此时我们只需要指定–incremental 参数为append，–last-value参数为5201314即可。表示只从id大于5201314后开始导入。</p>
+<pre class=" language-sh"><code class="language-sh">sqoop import --connect jdbc:mysql://host0:3316/testdb --username root --password 123456 \
+--query "select order_id, name from order_table where \$CONDITIONS" \
+--target-dir /user/root/orders_all \ 
+--split-by order_id \
+-m 6  \
+--incremental append \
+--check-column order_id \
+--last-value 5201314
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–incremental append</td>
+<td>基于递增列的增量导入（将递增列值大于阈值的所有数据增量导入Hadoop</td>
+</tr>
+<tr>
+<td>–check-column</td>
+<td>递增列（int）</td>
+</tr>
+<tr>
+<td>–last-value</td>
+<td>阈值（int）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2、Lastmodified方式"><a href="#2、Lastmodified方式" class="headerlink" title="2、Lastmodified方式"></a>2、Lastmodified方式</h4><p>此方式要求原有表中有time字段，它能指定一个时间戳，让Sqoop把该时间戳之后的数据导入至Hadoop（这里为HDFS）。因为后续订单可能状态会变化，变化后time字段时间戳也会变化，此时Sqoop依然会将相同状态更改后的订单导入HDFS，当然我们可以指定merge-key参数为orser_id，表示将后续新的记录与原有记录合并。</p>
+<pre class=" language-sh"><code class="language-sh"># 将时间列大于等于阈值的数据增量导入HDFS
+ sqoop import --connect jdbc:mysql://host0:3316/testdb --username root --password transwarp \
+ --query “select order_id, name from order_table where \$CONDITIONS” \
+ --target-dir /user/root/order_all \ 
+ --split-by id \
+ -m 4  \
+ --incremental lastmodified \
+ --merge-key order_id \
+ --check-column time \
+# remember this date !!!
+ --last-value “2014-11-09 21:00:00”  
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–incremental lastmodified</td>
+<td>基于时间列的增量导入（将时间列大于等于阈值的所有数据增量导入Hadoop）</td>
+</tr>
+<tr>
+<td>–check-column</td>
+<td>时间列（int）</td>
+</tr>
+<tr>
+<td>–last-value</td>
+<td>阈值（int）</td>
+</tr>
+<tr>
+<td>–merge-key</td>
+<td>合并列（主键，合并键值相同的记录）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="F、全量导入数据"><a href="#F、全量导入数据" class="headerlink" title="F、全量导入数据"></a>F、全量导入数据</h3><p><strong>全量数据导入</strong>就是一次性将所有需要导入的数据，从关系型数据库一次性地导入到Hadoop中（可以是HDFS、Hive等）。全量导入形式使用场景为一次性离线分析场景。用sqoop import命令，具体如下：</p>
+<pre class=" language-sh"><code class="language-sh">sqoop import --connect jdbc:mysql://host0:3306/testdb --username root --password 123456 \
+--query "select * from test_table where \$CONDITIONS" \
+--target-dir /user/root/person_all \
+--fields-terminated-by "," \
+--hive-drop-import-delims --null-string "\\N" --null-non-string "\\N" \
+--split-by id \
+-m 6
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>– query</td>
+<td>SQL查询语句</td>
+</tr>
+<tr>
+<td>– target-dir</td>
+<td>HDFS目标目录（确保目录不存在，否则会报错，因为Sqoop在导入数据至HDFS时会自己在HDFS上创建目录）</td>
+</tr>
+<tr>
+<td>–hive-drop-import- delims</td>
+<td>删除数据中包含的Hive默认分隔符（^A, ^B, \n）</td>
+</tr>
+<tr>
+<td>–null-string</td>
+<td>string类型空值的替换符（Hive中Null用\n表示）</td>
+</tr>
+<tr>
+<td>–null-non-string</td>
+<td>非string类型空值的替换符</td>
+</tr>
+<tr>
+<td>–split-by</td>
+<td>数据切片字段（int类型，m&gt;1时必须指定）</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>Mapper任务数，默认为4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="G、并发导入参数设置"><a href="#G、并发导入参数设置" class="headerlink" title="G、并发导入参数设置"></a>G、并发导入参数设置</h3><p>我们知道通过 <strong>-m</strong> 参数能够设置导入数据的 map 任务数量，即指定了 -m 即表示导入方式为并发导入，这时我们<strong>必须</strong>同时指定 <strong>- -split-by</strong> 参数指定根据哪一列来实现哈希分片，从而将不同分片的数据分发到不同 map 任务上去跑，<strong>避免数据倾斜</strong>。</p>
+<ul>
+<li>生产环境中，为了防止主库被Sqoop抽崩，我们一般从备库中抽取数据。</li>
+<li>一般RDBMS的导出速度控制在60~80MB/s，每个 map 任务的处理速度5~10MB/s 估算，即 <strong>-m</strong> 参数一般设置<strong>4~8</strong>，表示启动 <strong>4~8</strong> 个map 任务并发抽取。</li>
+</ul>
+<h3 id="H、文件格式"><a href="#H、文件格式" class="headerlink" title="H、文件格式"></a>H、文件格式</h3><p>可以使用以下两种文件格式之一导入数据：分隔文本或SequenceFiles。</p>
+<p>分隔文本是默认导入格式。您也可以使用<code>--as-textfile</code>参数显式指定它。此参数将每个记录的基于字符串的表示形式写入输出文件，并在各列和行之间使用分隔符。这些分隔符可以是逗号，制表符或其他字符。（可以选择分隔符;请参阅“输出行格式化参数。”）以下是基于文本的示例导入的结果：</p>
+<pre class=" language-sh"><code class="language-sh">1，这里有消息，2010-05-01 
+2，新年快乐！，2010-01-01 
+3，另有消息，2009-11-12
+</code></pre>
+<p>分隔文本适用于大多数非二进制数据类型。它还很容易支持其他工具（如Hive）的进一步操作。</p>
+<p><strong>SequenceFiles</strong>是一种<strong>二进制格式</strong>，用于将各个记录存储在自定义记录特定的数据类型中。这些数据类型表现为Java类。Sqoop会自动为您生成这些数据类型。此格式支持二进制表示中所有数据的精确存储，适用于存储二进制数据（例如，<code>VARBINARY</code>列），或者主要由自定义MapReduce程序操作的数据（从SequenceFiles读取比从文本文件读取更高的性能 ，<strong>因为记录不需要解析</strong>）。</p>
+<p><strong>Avro</strong>数据文件是一种<strong>紧凑，高效</strong>的二进制格式，可提供与其他编程语言编写的应用程序的互操作性。Avro还支持版本控制，因此当例如在表中添加或删除列时，可以处理先前导入的数据文件以及新的数据文件。</p>
+<p>默认情况下，不压缩数据。您可以使用deflate（gzip）算法和<code>-z</code>or <code>--compress</code> 参数压缩数据，或使用<code>--compression-codec</code>参数指定任何Hadoop压缩编解码器 。这适用于SequenceFile，文本和Avro文件。</p>
+<h3 id="I、Hive参数"><a href="#I、Hive参数" class="headerlink" title="I、Hive参数"></a>I、Hive参数</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–hive-home <dir></dir></td>
+<td>覆盖 <code>$HIVE_HOME</code></td>
+</tr>
+<tr>
+<td>–hive-import</td>
+<td>将表导入Hive（如果没有设置，则使用Hive的默认分隔符。）</td>
+</tr>
+<tr>
+<td>–hive-overwrite</td>
+<td>覆盖Hive表中的现有数据。</td>
+</tr>
+<tr>
+<td>–create-hive-table</td>
+<td>默认是false，如果目标表已经存在了，那么创建任务会失败</td>
+</tr>
+<tr>
+<td>–hive-table <table-name></table-name></td>
+<td>设置导入Hive时要使用的表名。</td>
+</tr>
+<tr>
+<td>–hive-drop-import-delims</td>
+<td>导入到Hive时从字符串字段中 删除<em>\ n</em>，<em>\ r</em>和<em>\ 01</em>。</td>
+</tr>
+<tr>
+<td>–hive-delims-replacement</td>
+<td>导入到Hive时，使用用户定义的字符串 替换字符串字段中的<em>\ n</em>，<em>\ r</em>和<em>\ 01</em>。</td>
+</tr>
+<tr>
+<td>–hive-partition-key</td>
+<td>指定hive分区名称</td>
+</tr>
+<tr>
+<td>–hive-partition-value <v></v></td>
+<td>指定分区的数值</td>
+</tr>
+<tr>
+<td>–map-column-hive <map></map></td>
+<td>为已配置的列覆盖从SQL类型到Hive类型的默认映射。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="J、HBase参数"><a href="#J、HBase参数" class="headerlink" title="J、HBase参数"></a>J、HBase参数</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–column-family <family></family></td>
+<td>设置导入的目标列族</td>
+</tr>
+<tr>
+<td>–hbase-create-table</td>
+<td>如果指定，则创建缺少的HBase表</td>
+</tr>
+<tr>
+<td>–hbase-row-key <col></td>
+<td>指定要用作行键的输入列，复合键必须要用逗号进行分隔</td>
+</tr>
+<tr>
+<td>–hbase-table <table-name></table-name></td>
+<td>指定要用作目标而不是HDFS的HBase表</td>
+</tr>
+<tr>
+<td>–hbase-bulkload</td>
+<td>启用批量加载</td>
+</tr>
+</tbody>
+</table>
+<h3 id="K、Accumulo参数"><a href="#K、Accumulo参数" class="headerlink" title="K、Accumulo参数"></a>K、Accumulo参数</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–accumulo-table <table-nam></table-nam></td>
+<td>指定用作目标的Accumulo表而不是HDFS</td>
+</tr>
+<tr>
+<td>–accumulo-column-family <family></family></td>
+<td>设置导入的目标列族</td>
+</tr>
+<tr>
+<td>–accumulo-create-table</td>
+<td>如果指定，则创建缺少的Accumulo表</td>
+</tr>
+<tr>
+<td>–accumulo-row-key <col></td>
+<td>指定要用作行键的输入列</td>
+</tr>
+<tr>
+<td>–accumulo-visibility <vis></vis></td>
+<td>（可选）指定要应用于插入到Accumulo中的所有行的可见性标记。默认为空字符串。</td>
+</tr>
+<tr>
+<td>-accumulo-batch-size <size></size></td>
+<td>（可选）设置Accumulo写缓冲区的大小（以字节为单位）。默认值为4MB。</td>
+</tr>
+<tr>
+<td>–accumulo-max-latency <ms></ms></td>
+<td>（可选）设置Accumulo批处理编写器的最大延迟（以毫秒为单位）默认值为0</td>
+</tr>
+<tr>
+<td>–accumulo-zookeepers <a href="host:port" target="_blank" rel="noopener">host:port</a></td>
+<td>Accumulo实例使用的以逗号分隔的Zookeeper服务器列表</td>
+</tr>
+<tr>
+<td>–accumulo-instance <table-name></table-name></td>
+<td>目标Accumulo实例的名称</td>
+</tr>
+<tr>
+<td>–accumulo-user <username></username></td>
+<td>要导入的Accumulo用户的名称</td>
+</tr>
+<tr>
+<td>–accumulo-password <password></password></td>
+<td>Accumulo用户的密码</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3、sqoop-export"><a href="#3、sqoop-export" class="headerlink" title="3、sqoop-export"></a>3、sqoop-export</h2><h3 id="A、导出控制参数"><a href="#A、导出控制参数" class="headerlink" title="A、导出控制参数"></a>A、导出控制参数</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–columns &lt;col,col,col…&gt;</td>
+<td>要导出到表的列</td>
+</tr>
+<tr>
+<td>–direct</td>
+<td>使用直接导出快速路径</td>
+</tr>
+<tr>
+<td>–export-dir <dir></dir></td>
+<td>导出的HDFS源路径</td>
+</tr>
+<tr>
+<td>-m,–num-mappers <n></n></td>
+<td>使用<em>n个</em>映射任务并行导出</td>
+</tr>
+<tr>
+<td>–table <table-name></table-name></td>
+<td>表名</td>
+</tr>
+<tr>
+<td>–call <stored-proc-name></stored-proc-name></td>
+<td>存储过程调用</td>
+</tr>
+<tr>
+<td>–update-key <col-name></col-name></td>
+<td>用于更新列。如果有多个列，请使用逗号分隔的列列表。</td>
+</tr>
+<tr>
+<td>–update-mode <mode></mode></td>
+<td><code>mode</code>包含 <code>updateonly</code>（默认）和<code>allowinsert</code>。</td>
+</tr>
+<tr>
+<td>–input-null-string <null-string></null-string></td>
+<td>字符串列的解释为null的字符串</td>
+</tr>
+<tr>
+<td>–input-null-non-string <null-string></null-string></td>
+<td>对于非字符串列，要解释为null的字符串</td>
+</tr>
+<tr>
+<td>–staging-table <staging-table-name></staging-table-name></td>
+<td>在插入目标表之前将暂存数据的表。</td>
+</tr>
+<tr>
+<td>–clear-staging-table</td>
+<td>表示可以删除表中存在的任何数据。</td>
+</tr>
+<tr>
+<td>–batch</td>
+<td>使用批处理模式执行基础语句。</td>
+</tr>
+</tbody>
+</table>
+<p>在<code>--input-null-string</code>和<code>--input-null-non-string</code>参数都是可选的。如果<code>--input-null-string</code>未指定，则对于字符串类型的列，字符串“null”将被解释为null。如果<code>--input-null-non-string</code>未指定，则对于非字符串列，字符串“null”和空字符串都将被解释为null。请注意，除了指定的其他字符串之外，对于非字符串列，空字符串将始终被解释为null <code>--input-null-non-string</code>。</p>
+<p>由于Sqoop将导出过程分解为多个事务，因此失败的导出作业可能会导致将部分数据提交到数据库。这可能进一步导致后续作业由于某些情况下的插入冲突而失败，或导致其他作业中的重复数据。您可以通过<code>--staging-table</code>选项指定登台表来解决此问题，该选项充当用于暂存导出数据的辅助表。分阶段数据最终在单个事务中移动到目标表。</p>
+<p><strong>–update-mode</strong>模式有两种<strong>updateonly</strong>（默认）和<strong>allowinsert</strong></p>
+<p><strong>updateonly</strong>：该模式用于更新Hive表与目标表中数据的不一致，即在不一致时，将Hive中的数据同步给目标表（如MySQL、Oracle等的目标表中），这种不一致是指，一条记录中的不一致，比如Hive表和MySQL中都有一个id=1的记录，但是其中一个字段的取值不同，则该模式会将这种差异抹除。对于“你有我无”的记录则“置之不理”。</p>
+<p><strong>allowinsert</strong>：该模式用于将Hive中有但目标表中无的记录同步到目标表中，但同时也会同步不一致的记录。可以这种模式可以包含updateony模式的操作，这也是为什么没有命名为insertonly的原因吧。</p>
+<p><strong>updateonly</strong>模式只会更新表中修改的数据，不会更新新增的数据；allowinsert模式既可以更新修改的数据也可以更新新增的数据。</p>
+<p>B、输入解析参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–input-enclosed-by <char></char></td>
+<td>设置必填字段包含</td>
+</tr>
+<tr>
+<td>–input-escaped-by <char></char></td>
+<td>设置输入转义字符</td>
+</tr>
+<tr>
+<td>–input-fields-terminated-by <char></char></td>
+<td>设置输入字段分隔符</td>
+</tr>
+<tr>
+<td>–input-lines-terminated-by <char></char></td>
+<td>设置输入行分隔符</td>
+</tr>
+<tr>
+<td>–input-optionally-enclosed-by <char></char></td>
+<td>设置包含字符的字段</td>
+</tr>
+</tbody>
+</table>
+<p>C、输出行格式参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–enclosed-by <char></char></td>
+<td>设置包含字符的必填字段</td>
+</tr>
+<tr>
+<td>–escaped-by <char></char></td>
+<td>设置转义字符</td>
+</tr>
+<tr>
+<td>–fields-terminated-by <char></char></td>
+<td>设置字段分隔符</td>
+</tr>
+<tr>
+<td>–lines-terminated-by <char></char></td>
+<td>设置行尾字符</td>
+</tr>
+<tr>
+<td>–mysql-delimiters</td>
+<td>使用MySQL的默认分隔符集：fields: ‘,’ lines:<code>\n</code> escaped-by:<code>\</code> optional-enclosed-by:<code>&#39;</code></td>
+</tr>
+<tr>
+<td>–optionally-enclosed-by <char></char></td>
+<td>设置包含字符的字段</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4、Sqoop常用操作"><a href="#4、Sqoop常用操作" class="headerlink" title="4、Sqoop常用操作"></a>4、Sqoop常用操作</h2><p>从外部数据库导入到Hadoop上时用import，反之用export。</p>
+<h3 id="A、MySQL-gt-HDFS"><a href="#A、MySQL-gt-HDFS" class="headerlink" title="A、MySQL-&gt;HDFS"></a>A、MySQL-&gt;HDFS</h3><pre class=" language-sh"><code class="language-sh">#--target-dir /user/sqoop/hive hive文件夹要不存在或使用--delete-target-dir删除已存在的文件夹
+sqoop import --connect jdbc:mysql://host0:3306/hive --username root --password 123456 \
+--table VERSION --columns "name,age" --where "age>18" \
+--default-character-set = utf8 \
+--target-dir /user/sqoop/hive \
+--delete-target-dir \
+--fields-terminated-by ',' \    #导入数据后每个字段的分隔符
+--split-by age \
+-m 1 \
+
+--incremental append \
+--null-string ''    \     #导入字段为空时，指定字符串替换
+--check-column id \     #指定增量导入时的参考列
+--last-value 10                #上次导入后的值
+</code></pre>
+<h3 id="B、MySQL-gt-Hive"><a href="#B、MySQL-gt-Hive" class="headerlink" title="B、MySQL-&gt;Hive"></a>B、MySQL-&gt;Hive</h3><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--hive中创建表</span>
+<span class="token keyword">use</span> <span class="token keyword">default</span><span class="token punctuation">;</span>
+<span class="token keyword">drop</span> <span class="token keyword">table</span> <span class="token keyword">if</span> <span class="token keyword">exists</span> <span class="token keyword">default</span><span class="token punctuation">.</span>hive_bbs_product_snappy <span class="token punctuation">;</span>
+<span class="token keyword">create</span> <span class="token keyword">table</span> <span class="token keyword">default</span><span class="token punctuation">.</span>hive_bbs_product_snappy<span class="token punctuation">(</span>
+id <span class="token keyword">int</span><span class="token punctuation">,</span>
+brand_id <span class="token keyword">int</span><span class="token punctuation">,</span>
+name string
+ <span class="token punctuation">)</span>
+<span class="token keyword">ROW</span> FORMAT DELIMITED <span class="token keyword">FIELDS</span> <span class="token keyword">TERMINATED BY</span> <span class="token string">'\t'</span> <span class="token punctuation">;</span>
+</code></pre>
+<pre class=" language-sh"><code class="language-sh">#sqoop将数据导入到Hive
+sqoop import --connect jdbc:mysql://host0:3306/hive --username root --password 123456 \
+--table bbs_product \
+--delete-target-dir \
+
+--hive-import \
+--create-hive-table \
+--hive-database default \
+--hive-table hive_bbs_product_snappy \
+--hive-overwrite \        #重写数据
+--fields-terminated-by '\t' \
+--num-mappers 1 \
+
+--incremental append \
+--null-string ''    \     #导入字段为空时，指定字符串替换
+--check-column id \     #指定增量导入时的参考列
+--last-value 10                #上次导入后的值
+</code></pre>
+<h3 id="C、MySQL-gt-HBase"><a href="#C、MySQL-gt-HBase" class="headerlink" title="C、MySQL-&gt;HBase"></a>C、MySQL-&gt;HBase</h3><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--mysql创建表</span>
+<span class="token keyword">create</span> <span class="token keyword">table</span> tohdfs<span class="token punctuation">(</span>
+id <span class="token keyword">int</span><span class="token punctuation">,</span>
+name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-sh"><code class="language-sh">#数据导入HBase并在HBase中创建表
+sqoop import --connect jdbc:mysql://host0:3306/hive --username root --password 123456 \
+--table tohdfs  \
+
+--hbase-table hbase_tohdfs \
+--column-family info  \
+--hbase-create-table \
+--hbase-row-key id \
+--fields-terminated-by '\t' \
+--num-mappers 1 \
+
+--incremental append \
+--null-string ''    \     #导入字段为空时，指定字符串替换
+--check-column id \     #指定增量导入时的参考列
+--last-value 10                #上次导入后的值
+</code></pre>
+<pre class=" language-sh"><code class="language-sh">#使用--hbase-bulkload
+sqoop import --connect jdbc:mysql://host0:3306/hive --username root --password 123456 \
+--table tohdfs  \
+
+--hbase-table hbase_tohdfs_bulk \
+--column-family info  \
+--hbase-create-table \                     
+--hbase-row-key id \
+--hbase-bulkload
+</code></pre>
+<h3 id="D、HDFS-gt-MySQL"><a href="#D、HDFS-gt-MySQL" class="headerlink" title="D、HDFS-&gt;MySQL"></a>D、HDFS-&gt;MySQL</h3><pre class=" language-sh"><code class="language-sh">sqoop export --connect jdbc:mysql://host0:3306/hive --username root --password 123456 \
+--table tohdfs \
+--export-dir /tmp/datathree/  \                    #HDFS的目录位置
+-m 1 \
+--input-fields-terminated-by '\0001'
+</code></pre>
+<h3 id="E、Hive-gt-MySQL"><a href="#E、Hive-gt-MySQL" class="headerlink" title="E、Hive-&gt;MySQL"></a>E、Hive-&gt;MySQL</h3><pre class=" language-sh"><code class="language-sh">#方法一为将Hive表所在的数据位置（HDFS）导入到MySQL中
+sqoop export --connect jdbc:mysql://host0:3306/hive --username root --password 123456 \
+--table wht_test2 \
+--export-dir /user/hive/warehouse/wht_test1 \
+--input-fields-terminated-by '\0001' \
+-m 1
+#--fields-terminated-by '\t' \                        #HDFS中被导出的文件字段的间隔符
+</code></pre>
+<h3 id="F、HBase-gt-MySQL"><a href="#F、HBase-gt-MySQL" class="headerlink" title="F、HBase-&gt;MySQL"></a>F、HBase-&gt;MySQL</h3><pre class=" language-sh"><code class="language-sh">#HBASE->Hive映射表->Hive内部表->MySQL
+#1、MySQL创建表
+create table test.employee(
+rowkey int(11),
+id int(11),
+name varchar(20),
+primary key (id))
+#2、HBase创建表
+create 'employee','info'
+put 'employee',1,'info:id',1
+put 'employee',1,'info:name',peter
+#3、Hive创建映射表
+create external table test.h_employee(key int,id int,name string)
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES(
+"hbase.columns.mapping" = ":key,info:id,info:name"
+)
+TBLPROPERTIES("hbase.table.name"="employee",
+"hbase.mapred.output.outputable"="employee");
+#4、Hive创建内部表
+create table test.employee(key INT,id INT,name STRING);
+insert overwrite table test.employee select * from test.h_employee;
+#5、sqoop导出hive表到MySQL
+sqoop export --connect jdbc:mysql://host0:3306/test --username root --password 123456 \
+--table employee \
+-export-dir /user/hive/warehouse/test.db/employee \
+--input-fields-terminated-by '\001' \
+--input-null-string '\\N' \
+--input-null-non-string '\\N'
+</code></pre>
+<h3 id="G、Oracle-gt-HDFS"><a href="#G、Oracle-gt-HDFS" class="headerlink" title="G、Oracle-&gt;HDFS"></a>G、Oracle-&gt;HDFS</h3><pre class=" language-sh"><code class="language-sh">sqoop import --connect jdbc:oracle:thin:@IPAddress:databaseName \
+--username userName --password password \
+--table TABLENAME \
+--target-dir /user/operate \
+-m 1 --where "where子句 and 根据需要添加"
+</code></pre>
+<h3 id="H、Oracle-gt-Hive"><a href="#H、Oracle-gt-Hive" class="headerlink" title="H、Oracle-&gt;Hive"></a>H、Oracle-&gt;Hive</h3><pre class=" language-sh"><code class="language-sh">sqoop import --connect jdbc:oracle:thin:@IPAddress:1521:databaseName \
+--username userName --password password \
+--table TABLENAME  \
+-m 1 --hive-import --hive-database test
+</code></pre>
+<h3 id="I、HDFS-gt-Oracle"><a href="#I、HDFS-gt-Oracle" class="headerlink" title="I、HDFS-&gt;Oracle"></a>I、HDFS-&gt;Oracle</h3><pre class=" language-sh"><code class="language-sh">sqoop export --connect jdbc:oracle:thin:@//192.168.27.235:1521/ORCL \
+--username scott --password liujiyu \
+--table empty \
+--export-dir '/liujiyu/nihao/part-m-00000' \
+--fields-terminated-by ':' \
+-m  1
+</code></pre>
+<p>J、Hive-&gt;Oracle</p>
+<pre class=" language-sh"><code class="language-sh">sqoop export
+# 指定要从Hive中导出的表
+--table TABLE_NAME    
+# host_ip:导入oracle库所在的ip:导入的数据库
+--connect jdbc:oracle:thin:@HOST_IP:DATABASE_NAME 
+
+# oracle用户账号
+--username USERNAME
+# oracle用户密码
+--password PASSWORD 
+
+# hive表数据文件在hdfs上的路径
+--export-dir /user/hive/test/TABLE_NAME
+# 指定表的列名，必须指定 
+--columns ID,data_date,data_type,c1,c2,c3 
+
+# 列分隔符(根据hive的表结构定义指定分隔符)
+--input-fields-terminated-by '\001'
+# 行分隔符
+--input-lines-terminated-by '\n' 
+
+# 如果hive表中存在null字段，则需要添加参数，否则无法导入
+--input-null-string '\\N' 
+--input-null-non-string '\\N'
+</code></pre>
+<h2 id="5、数据验证-Validation"><a href="#5、数据验证-Validation" class="headerlink" title="5、数据验证-Validation"></a>5、数据验证-Validation</h2><p>通过比较源和目标表的行计数来验证复制的数据正确性。</p>
+<h3 id="验证器"><a href="#验证器" class="headerlink" title="验证器"></a><strong>验证器</strong></h3><pre><code>属性：validator
+描述：用于验证的驱动程序，必须实现org.apache.sqoop.validation.Validator 
+支持的值：该值必须是完全限定的类名。
+默认值：org.apache.sqoop.validation.RowCountValidator
+</code></pre><h3 id="验证阈值"><a href="#验证阈值" class="headerlink" title="验证阈值"></a><strong>验证阈值</strong></h3><pre><code>属性：validation-threshold 
+描述：根据满足阈值的验证驱动决策。必须实现org.apache.sqoop.validation.ValidationThreshold 
+支持的值：该值必须是完全限定的类名。
+默认值：org.apache.sqoop.validation.AbsoluteValidationThreshold
+</code></pre><h3 id="验证失败处理程序"><a href="#验证失败处理程序" class="headerlink" title="验证失败处理程序"></a><strong>验证失败处理程序</strong></h3><pre><code>属性：validation-failurehandler 
+描述：负责处理失败，必须实现org.apache.sqoop.validation.ValidationFailureHandler 
+支持的值：该值必须是完全限定的类名。
+默认值：org.apache.sqoop.validation.AbortOnFailureHandler
+</code></pre><h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a><strong>限制</strong></h3><pre><code>验证当前仅验证从单个表复制到HDFS的数据。以下是当前运行中的限制：
+1、所有表格选项
+2、自由格式查询选项
+3、数据导入Hive，HBase或Accumulo
+4、使用--where参数导入表
+5、增量进口
+</code></pre><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a><strong>示例</strong></h3><pre class=" language-sh"><code class="language-sh">sqoop export --connect jdbc:mysql://host0:3306/test --username root --password 123456 \
+--table bar \ 
+--export -dir /results/bar_data \
+--validate
+</code></pre>
+<pre class=" language-sh"><code class="language-sh">sqoop import --connect jdbc:mysql://host0:3306/test --username root --password 123456 \
+--table employee \ 
+--validate --validator org.apache.sqoop.validation.RowCountValidator \ 
+--validation-threshold org.apache.sqoop.validation.AbsoluteValidationThreshold \ 
+--validation-failurehandler org.apache.sqoop.validation.AbortOnFailureHandler
+</code></pre>
+<h2 id="6、sqoop-job"><a href="#6、sqoop-job" class="headerlink" title="6、sqoop-job"></a>6、sqoop-job</h2><p>允许您创建和处理已保存的作业。保存的作业记住用于指定作业的参数，因此可以通过命令调用作业来重新执行它们。</p>
+<p>如果将已保存的作业配置为增量导入，则会在已保存的作业中更新有关最近导入的行的状态，以允许作业仅连续导入最新的行。</p>
+<h3 id="选项参数"><a href="#选项参数" class="headerlink" title="选项参数"></a><strong>选项参数</strong></h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–create <job-id></job-id></td>
+<td>定义新的作业</td>
+</tr>
+<tr>
+<td>–delete <job-id></job-id></td>
+<td>删除已保存的作业</td>
+</tr>
+<tr>
+<td>–exec <job-id></job-id></td>
+<td>运行已保存的作业</td>
+</tr>
+<tr>
+<td>–show <job-id></job-id></td>
+<td>显示已保存作业的参数</td>
+</tr>
+<tr>
+<td>–list</td>
+<td>列出所有已保存的作业</td>
+</tr>
+</tbody>
+</table>
+<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a><strong>示例</strong></h3><pre class=" language-sh"><code class="language-sh">sqoop job --create myjob  -import --connect jdbc:mysql://host0:3306/test \
+--username root --password 123456 \
+--table mytable
+</code></pre>
+<h2 id="7、sqoop-merge"><a href="#7、sqoop-merge" class="headerlink" title="7、sqoop-merge"></a>7、sqoop-merge</h2><p>合并工具允许您组合两个数据集，其中一个数据集中的条目应覆盖旧数据集的条目。例如，在最后修改模式下的增量导入运行将在HDFS中生成多个数据集，其中每个数据集中会连续出现更新的数据。该<code>merge</code> 工具将两个数据集“展平”为一个，获取每个主键的最新可用记录。</p>
+<h3 id="选项参数-1"><a href="#选项参数-1" class="headerlink" title="选项参数"></a>选项参数</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–class-name <class></class></td>
+<td>指定在合并作业期间要使用的特定于记录的类的名称。</td>
+</tr>
+<tr>
+<td>–jar-file <file></file></td>
+<td>指定要从中加载记录类的jar的名称。</td>
+</tr>
+<tr>
+<td>–merge-key <col></td>
+<td>指定要用作合并键的列的名称。</td>
+</tr>
+<tr>
+<td>–new-data <path></path></td>
+<td>指定较新数据集的路径。</td>
+</tr>
+<tr>
+<td>–onto <path></path></td>
+<td>指定旧数据集的路径。</td>
+</tr>
+<tr>
+<td>–target-dir <path></path></td>
+<td>指定合并作业输出的目标路径。</td>
+</tr>
+</tbody>
+</table>
+<p>该<code>merge</code>工具运行MapReduce作业，该作业将两个目录作为输入：较新的数据集和较旧的数据集。这些分别用<code>--new-data</code>和指定 <code>--onto</code>。MapReduce作业的输出将放在由指定的HDFS目录中<code>--target-dir</code>。</p>
+<p>合并数据集时，假设每条记录中都有唯一的主键值。主键的列用<code>--merge-key</code>。指定。同一数据集中的多个行不应具有相同的主键，否则可能会发生数据丢失。</p>
+<pre class=" language-sh"><code class="language-sh">sqoop merge --new-data newer --onto older --target-dir merged --merge-key id
+</code></pre>
+<h2 id="8、Oracle连接器"><a href="#8、Oracle连接器" class="headerlink" title="8、Oracle连接器"></a>8、Oracle连接器</h2><h3 id="Oracle用户要有以下权限"><a href="#Oracle用户要有以下权限" class="headerlink" title="Oracle用户要有以下权限"></a>Oracle用户要有以下权限</h3><pre class=" language-sql"><code class="language-sql">用户必须具有<span class="token keyword">select</span> <span class="token keyword">any</span> dictionary privilege或select_catalog_role角色或以下所有对象权限：
+<span class="token keyword">select</span> <span class="token keyword">on</span> v_$instance
+<span class="token keyword">select</span> <span class="token keyword">on</span> dba_tables
+<span class="token keyword">select</span> <span class="token keyword">on</span> dba_tab_columns
+<span class="token keyword">select</span> <span class="token keyword">on</span> dba_objects
+<span class="token keyword">select</span> <span class="token keyword">on</span> dba_extents
+<span class="token keyword">select</span> <span class="token keyword">on</span> dba_segments <span class="token operator">-</span> 仅适用于Sqoop导入
+<span class="token keyword">select</span> <span class="token keyword">on</span> dba_constraints <span class="token operator">-</span> 仅适用于Sqoop导入
+<span class="token keyword">select</span> <span class="token keyword">on</span> v_$<span class="token keyword">database</span> <span class="token operator">-</span> 仅适用于Sqoop导入
+<span class="token keyword">select</span> <span class="token keyword">on</span> v_$parameter <span class="token operator">-</span> 仅适用于Sqoop导入
+</code></pre>
+<h3 id="导出数据时需要的额外权限"><a href="#导出数据时需要的额外权限" class="headerlink" title="导出数据时需要的额外权限"></a>导出数据时需要的额外权限</h3><pre class=" language-sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span>
+<span class="token keyword">select</span> <span class="token keyword">on</span> dba_tab_partitions
+<span class="token keyword">select</span> <span class="token keyword">on</span> dba_tab_subpartitions
+<span class="token keyword">select</span> <span class="token keyword">on</span> dba_indexes
+<span class="token keyword">select</span> <span class="token keyword">on</span> dba_ind_columns
+<span class="token keyword">select</span> <span class="token keyword">any</span> <span class="token keyword">table</span>
+<span class="token keyword">create</span> <span class="token keyword">any</span> <span class="token keyword">table</span>
+<span class="token keyword">insert</span> <span class="token keyword">any</span> <span class="token keyword">table</span>
+<span class="token keyword">alter</span> <span class="token keyword">any</span> <span class="token keyword">table</span> （分区）
+<span class="token keyword">select</span><span class="token punctuation">,</span><span class="token keyword">insert</span> <span class="token keyword">on</span> <span class="token keyword">table</span> （没有分区）
+<span class="token keyword">select</span><span class="token punctuation">,</span><span class="token keyword">alter</span> <span class="token keyword">on</span> <span class="token keyword">table</span> （分区）
+<span class="token keyword">select</span><span class="token punctuation">,</span><span class="token keyword">update</span> <span class="token keyword">on</span> <span class="token keyword">table</span> （没有分区）
+<span class="token keyword">select</span><span class="token punctuation">,</span><span class="token keyword">delete</span><span class="token punctuation">,</span><span class="token keyword">alter</span><span class="token punctuation">,</span><span class="token keyword">insert</span> <span class="token keyword">on</span> <span class="token keyword">table</span> （分区）
+<span class="token keyword">select</span><span class="token punctuation">,</span><span class="token keyword">insert</span><span class="token punctuation">,</span><span class="token keyword">update</span> <span class="token keyword">on</span> <span class="token keyword">table</span> （没有分区）
+<span class="token keyword">select</span><span class="token punctuation">,</span><span class="token keyword">insert</span><span class="token punctuation">,</span><span class="token keyword">delete</span><span class="token punctuation">,</span><span class="token keyword">alter</span> <span class="token keyword">on</span> <span class="token keyword">table</span> （分区）
+</code></pre>
+<h3 id="支持的数据类型"><a href="#支持的数据类型" class="headerlink" title="支持的数据类型"></a>支持的数据类型</h3><pre class=" language-sql"><code class="language-sql">BINARY_DOUBLE    NCLOB
+BINARY_FLOAT    NUMBER
+<span class="token keyword">BLOB</span>    NVARCHAR2
+CHAR    RAW
+CLOB    ROWID
+<span class="token keyword">DATE</span>    <span class="token keyword">TIMESTAMP</span>
+<span class="token keyword">FLOAT</span>    <span class="token keyword">TIMESTAMP</span> <span class="token keyword">WITH</span> TIME ZONE
+INTERVAL DAY <span class="token keyword">TO</span> SECOND    <span class="token keyword">TIMESTAMP</span> <span class="token keyword">WITH</span> <span class="token keyword">LOCAL</span> TIME ZONE
+INTERVAL YEAR <span class="token keyword">TO</span> MONTH    URITYPE
+LONG    VARCHAR2
+<span class="token keyword">NCHAR</span>    
+</code></pre>
+<h3 id="连接Oracle"><a href="#连接Oracle" class="headerlink" title="连接Oracle"></a>连接Oracle</h3><pre class=" language-sh"><code class="language-sh">--connect jdbc:oracle:thin:@OracleServer:OraclePort:OracleSID
+--connect jdbc:oracle:thin:@//OracleServer:OraclePort/OracleService
+--connect jdbc:oracle:thin:@TNSName
+</code></pre>
+<h3 id="从Oracle导入数据"><a href="#从Oracle导入数据" class="headerlink" title="从Oracle导入数据"></a>从Oracle导入数据</h3><pre class=" language-sh"><code class="language-sh">sqoop import --direct --connect … --table OracleTableName
+-Dmapred.child.java.opts=-Xmx4000M #设置JVM内存
+</code></pre>
+<h3 id="Hadoop文件与Oracle表分区匹配"><a href="#Hadoop文件与Oracle表分区匹配" class="headerlink" title="Hadoop文件与Oracle表分区匹配"></a>Hadoop文件与Oracle表分区匹配</h3><pre class=" language-sh"><code class="language-sh">-Doraoop.chunk.method={ROWID|PARTITION}
+要以这样的方式从分区表导入数据，使得Hadoop中生成的HDFS文件夹结构与表的分区匹配，请将块方法设置为PARTITION。替代（默认）块方法是ROWID。
+
+注： 要使Hadoop文件的数量与Oracle分区的数量相匹配，请将映射器的数量设置为大于或等于分区数。
+      如果表未分区，则值PARTITION将导致错误。
+</code></pre>
+<h3 id="指定导入的分区"><a href="#指定导入的分区" class="headerlink" title="指定导入的分区"></a>指定导入的分区</h3><pre class=" language-sh"><code class="language-sh">-Doraoop.import.partitions=PartitionA,PartitionB --table OracleTableName
+注： ""中保留大小写，''自动将名称转换为大写
+        使用双引号时，整个分区名称列表必须用单引号括起来。
+        如果列表中的最后一个分区名称是双引号，则列表末尾必须有逗号。
+        -Doraoop.import.partitions='"PartitionA","PartitionB",' --table OracleTableName
+</code></pre>
+<h3 id="数据导出到Oracle"><a href="#数据导出到Oracle" class="headerlink" title="数据导出到Oracle"></a>数据导出到Oracle</h3><pre class=" language-sh"><code class="language-sh">sqoop export --direct --connect … --table OracleTableName --export-dir /user/username/tablename
+</code></pre>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="http://yoursite.com" class="b-link-green">Potato博客</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/07/23/sqoop-ji-chu-jiao-cheng/" class="b-link-green">Sqoop基础教程</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">本篇</div>
+            <div class="card">
+                <a href="/2019/07/23/sqoop-ji-chu-jiao-cheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Sqoop基础教程">
+                        
+                        <span class="card-title">Sqoop基础教程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">一、Sqoop导入1、Sqoop参数使用方式
+
+
+参数
+描述
+
+
+
+
+codegen
+生成与数据库记录交互的代码
+
+
+create-hive-table
+创建表
+
+
+eval
+评估SQL语句并显示结果
+
+
+export
+将HDFS目录导出到</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/BigData/" class="post-category" target="_blank">
+                                    BigData
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/BigData/" target="_blank">
+                        <span class="chip bg-color">BigData</span>
+                    </a>
+                    
+                    <a href="/tags/ETL/" target="_blank">
+                        <span class="chip bg-color">ETL</span>
+                    </a>
+                    
+                    <a href="/tags/Sqoop/" target="_blank">
+                        <span class="chip bg-color">Sqoop</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2019/06/04/linux-chang-yong-ming-ling/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Linux常用命令">
+                        
+                        <span class="card-title">Linux常用命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">一、压缩命令默认压缩级别情况下,1.8G数据 压缩大小: gzip (462M) &gt; bzip2 (238M) &gt; xz (44M)
+1、bzip2、bunzip2#压缩单个文件命令 压缩后demo.txt消失，生成demo.t</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux基础/" target="_blank">
+                        <span class="chip bg-color">Linux基础</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Potato博客<br />'
+            + '作者: Potato<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+    		
+                <br>
+                <span id="busuanzi_container_site_pv">
+                    本站总访问量 <span id="busuanzi_value_site_pv" style="color: #fff;"></span> 次,&nbsp;
+                </span>
+    			<span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv" style="color: #fff;"></span> 人.
+                </span>
+    		
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/zhangpotato" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<!-- <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a> -->
+<!-- 
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+ --></div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
