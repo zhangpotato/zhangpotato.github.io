@@ -47,7 +47,7 @@
     <link href="http://yoursite.com/2019/10/08/trinity-linux-an-zhuang-bu-zou/"/>
     <id>http://yoursite.com/2019/10/08/trinity-linux-an-zhuang-bu-zou/</id>
     <published>2019-10-08T04:21:00.000Z</published>
-    <updated>2019-10-08T03:36:55.621Z</updated>
+    <updated>2019-10-08T04:06:01.808Z</updated>
     
     <summary type="html">
     
@@ -218,6 +218,34 @@
       <category term="ETL" scheme="http://yoursite.com/tags/ETL/"/>
     
       <category term="Sqoop" scheme="http://yoursite.com/tags/Sqoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CDH5.14.2安装手册</title>
+    <link href="http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/"/>
+    <id>http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/</id>
+    <published>2019-06-04T03:37:00.000Z</published>
+    <updated>2019-10-08T04:01:14.654Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、基础环境配置&quot;&gt;&lt;a href=&quot;#一、基础环境配置&quot; class=&quot;headerlink&quot; title=&quot;一、基础环境配置&quot;&gt;&lt;/a&gt;一、基础环境配置&lt;/h2&gt;&lt;h2 id=&quot;1、修改主机名&quot;&gt;&lt;a href=&quot;#1、修改主机名&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="CDH" scheme="http://yoursite.com/categories/CDH/"/>
+    
+    
+      <category term="BigData" scheme="http://yoursite.com/tags/BigData/"/>
+    
+      <category term="CDH安装" scheme="http://yoursite.com/tags/CDH%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
