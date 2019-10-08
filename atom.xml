@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-23T04:24:04.125Z</updated>
+  <updated>2019-10-08T03:38:34.245Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,181 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Trinity获取机器码方式</title>
+    <link href="http://yoursite.com/2019/10/08/trinity-huo-qu-ji-qi-ma-fang-shi/"/>
+    <id>http://yoursite.com/2019/10/08/trinity-huo-qu-ji-qi-ma-fang-shi/</id>
+    <published>2019-10-08T04:21:00.000Z</published>
+    <updated>2019-10-08T03:38:34.245Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1、使用LicenseCMD-jar获取机器码&quot;&gt;&lt;a href=&quot;#1、使用LicenseCMD-jar获取机器码&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Trinity" scheme="http://yoursite.com/categories/Trinity/"/>
+    
+    
+      <category term="ETL" scheme="http://yoursite.com/tags/ETL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Trinity服务启动及关闭</title>
+    <link href="http://yoursite.com/2019/10/08/trinity-fu-wu-qi-dong-ji-guan-bi/"/>
+    <id>http://yoursite.com/2019/10/08/trinity-fu-wu-qi-dong-ji-guan-bi/</id>
+    <published>2019-10-08T04:21:00.000Z</published>
+    <updated>2019-10-08T03:37:38.344Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;一、启动Trinity服务&quot;&gt;&lt;a href=&quot;#一、启动Trinity服务&quot; class=&quot;headerlink&quot; title=&quot;一、启动Trinity服务&quot;&gt;&lt;/a&gt;一、启动Trinity服务&lt;/h3&gt;&lt;figure class=&quot;highlight
+        
+      
+    
+    </summary>
+    
+      <category term="Trinity" scheme="http://yoursite.com/categories/Trinity/"/>
+    
+    
+      <category term="ETL" scheme="http://yoursite.com/tags/ETL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Trinity更改服务IP</title>
+    <link href="http://yoursite.com/2019/10/08/trinity-geng-gai-fu-wu-ip/"/>
+    <id>http://yoursite.com/2019/10/08/trinity-geng-gai-fu-wu-ip/</id>
+    <published>2019-10-08T04:21:00.000Z</published>
+    <updated>2019-10-08T03:38:19.678Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;如要变更 Trinity 相关服务的 IP，请修改下列档案，并依底下范例红字所示，修改参数设定:&lt;/p&gt;
+&lt;h3 id=&quot;1、Trinity-DISServer-cfg-dis-server-properties&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Trinity" scheme="http://yoursite.com/categories/Trinity/"/>
+    
+    
+      <category term="ETL" scheme="http://yoursite.com/tags/ETL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Trinity修改PG数据库密码</title>
+    <link href="http://yoursite.com/2019/10/08/trinity-xiu-gai-pg-shu-ju-ku-mi-ma/"/>
+    <id>http://yoursite.com/2019/10/08/trinity-xiu-gai-pg-shu-ju-ku-mi-ma/</id>
+    <published>2019-10-08T04:21:00.000Z</published>
+    <updated>2019-10-08T03:39:21.406Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1、在PG数据库中修改Trinity用户的密码&quot;&gt;&lt;a href=&quot;#1、在PG数据库中修改Trinity用户的密码&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Trinity" scheme="http://yoursite.com/categories/Trinity/"/>
+    
+    
+      <category term="ETL" scheme="http://yoursite.com/tags/ETL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Trinity Linux 安装步骤</title>
+    <link href="http://yoursite.com/2019/10/08/trinity-linux-an-zhuang-bu-zou/"/>
+    <id>http://yoursite.com/2019/10/08/trinity-linux-an-zhuang-bu-zou/</id>
+    <published>2019-10-08T04:21:00.000Z</published>
+    <updated>2019-10-08T03:36:55.621Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="Trinity" scheme="http://yoursite.com/categories/Trinity/"/>
+    
+    
+      <category term="ETL" scheme="http://yoursite.com/tags/ETL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2019/08/21/pgadmin-wu-fa-lian-jie-trinity-shu-ju-ku/"/>
+    <id>http://yoursite.com/2019/08/21/pgadmin-wu-fa-lian-jie-trinity-shu-ju-ku/</id>
+    <published>2019-08-21T04:15:01.963Z</published>
+    <updated>2019-08-21T06:11:19.898Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1、报错信息&quot;&gt;&lt;a href=&quot;#1、报错信息&quot; class=&quot;headerlink&quot; title=&quot;1、报错信息&quot;&gt;&lt;/a&gt;1、报错信息&lt;/h3&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2019/08/02/kafka-ji-ben-cao-zuo/"/>
+    <id>http://yoursite.com/2019/08/02/kafka-ji-ben-cao-zuo/</id>
+    <published>2019-08-02T10:02:37.923Z</published>
+    <updated>2019-08-21T06:09:10.201Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Kafka-基本操作&quot;&gt;&lt;a href=&quot;#Kafka-基本操作&quot; class=&quot;headerlink&quot; title=&quot;Kafka 基本操作&quot;&gt;&lt;/a&gt;Kafka 基本操作&lt;/h1&gt;&lt;h2 id=&quot;创建topic&quot;&gt;&lt;a href=&quot;#创建topic&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Sqoop基础教程</title>
@@ -47,32 +222,6 @@
   </entry>
   
   <entry>
-    <title>Linux常用命令</title>
-    <link href="http://yoursite.com/2019/06/04/linux-chang-yong-ming-ling/"/>
-    <id>http://yoursite.com/2019/06/04/linux-chang-yong-ming-ling/</id>
-    <published>2019-06-04T03:37:00.000Z</published>
-    <updated>2019-06-04T03:41:59.959Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、压缩命令&quot;&gt;&lt;a href=&quot;#一、压缩命令&quot; class=&quot;headerlink&quot; title=&quot;一、压缩命令&quot;&gt;&lt;/a&gt;一、压缩命令&lt;/h2&gt;&lt;p&gt;默认压缩级别情况下,1.8G数据 压缩大小: gzip (462M) &amp;gt; bzip2 (238M)
-        
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
-    
-    
-      <category term="Linux基础" scheme="http://yoursite.com/tags/Linux%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
     <title>CDH5.14.2安装手册</title>
     <link href="http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/"/>
     <id>http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/</id>
@@ -98,6 +247,32 @@
       <category term="BigData" scheme="http://yoursite.com/tags/BigData/"/>
     
       <category term="CDH安装" scheme="http://yoursite.com/tags/CDH%E5%AE%89%E8%A3%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux常用命令</title>
+    <link href="http://yoursite.com/2019/06/04/linux-chang-yong-ming-ling/"/>
+    <id>http://yoursite.com/2019/06/04/linux-chang-yong-ming-ling/</id>
+    <published>2019-06-04T03:37:00.000Z</published>
+    <updated>2019-06-04T03:41:59.959Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、压缩命令&quot;&gt;&lt;a href=&quot;#一、压缩命令&quot; class=&quot;headerlink&quot; title=&quot;一、压缩命令&quot;&gt;&lt;/a&gt;一、压缩命令&lt;/h2&gt;&lt;p&gt;默认压缩级别情况下,1.8G数据 压缩大小: gzip (462M) &amp;gt; bzip2 (238M)
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+      <category term="Linux基础" scheme="http://yoursite.com/tags/Linux%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -186,7 +361,7 @@
     <link href="http://yoursite.com/2019/04/09/trinity-diao-du-yan-chi-jie-jue-fang-fa/"/>
     <id>http://yoursite.com/2019/04/09/trinity-diao-du-yan-chi-jie-jue-fang-fa/</id>
     <published>2019-04-09T09:15:00.000Z</published>
-    <updated>2019-06-04T04:59:32.089Z</updated>
+    <updated>2019-08-21T06:11:07.749Z</updated>
     
     <summary type="html">
     
@@ -194,9 +369,7 @@
       
         
         
-          &lt;p&gt;1、查询各表占用的空间&lt;/p&gt;
-&lt;pre class=&quot; language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt;
-   relname &lt;span
+          &lt;h3 id=&quot;1、查询各表占用的空间&quot;&gt;&lt;a href=&quot;#1、查询各表占用的空间&quot; class=&quot;headerlink&quot; title=&quot;1、查询各表占用的空间&quot;&gt;&lt;/a&gt;1、查询各表占用的空间&lt;/h3&gt;&lt;figure class=&quot;highlight
         
       
     
@@ -216,7 +389,7 @@
     <link href="http://yoursite.com/2019/03/27/open-ssl-bao-cuo/"/>
     <id>http://yoursite.com/2019/03/27/open-ssl-bao-cuo/</id>
     <published>2019-03-27T01:27:00.000Z</published>
-    <updated>2019-04-12T08:13:39.828Z</updated>
+    <updated>2019-08-21T06:11:24.881Z</updated>
     
     <summary type="html">
     
@@ -224,8 +397,7 @@
       
         
         
-          &lt;p&gt;报错：&lt;/p&gt;
-&lt;pre class=&quot; language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;ERROR 2015-09-23 09:47:07,402 NetUtil.py:77 - [Errno 8] _ssl.c:492:
+          &lt;h3 id=&quot;报错：&quot;&gt;&lt;a href=&quot;#报错：&quot; class=&quot;headerlink&quot; title=&quot;报错：&quot;&gt;&lt;/a&gt;报错：&lt;/h3&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
         
       
     

@@ -4,6 +4,157 @@
   
     
     <entry>
+      <title>Trinity获取机器码方式</title>
+      <link href="/2019/10/08/trinity-huo-qu-ji-qi-ma-fang-shi/"/>
+      <url>/2019/10/08/trinity-huo-qu-ji-qi-ma-fang-shi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1、使用LicenseCMD-jar获取机器码"><a href="#1、使用LicenseCMD-jar获取机器码" class="headerlink" title="1、使用LicenseCMD.jar获取机器码"></a>1、使用LicenseCMD.jar获取机器码</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将 LicenseCMD.jar 置于 &lt;Trinity&gt;JCSServer/bin 目录下。(标灰处请依实际目录输入)</span></span><br><span class="line"><span class="comment"># 执行指令 java -jar &lt;Trinity&gt;\JCSServer\bin\LicenseCMD.jar -m，即可取得 Machine Code。(标灰处请依实际目录输入)</span></span><br></pre></td></tr></table></figure><h3 id="2、激活License"><a href="#2、激活License" class="headerlink" title="2、激活License"></a>2、激活License</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1、将 License.key 置于 &lt;Trinity&gt;\JCSServer\cfg 目录下。(标灰处请依实际目录输入)</span><br><span class="line">2、使用命令激活key</span><br><span class="line">java -jar   /JCSServer/bin/LicenseCMD.jar -i key目录/key名称</span><br><span class="line">3、输入密码（密码位于passwd.txt文件中）</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注：若 LicenseCMD.jar 逾期，则显示「LicensCMD was expired」警示讯息。</span></span><br></pre></td></tr></table></figure><h3 id="3、检查License内容"><a href="#3、检查License内容" class="headerlink" title="3、检查License内容"></a>3、检查License内容</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、执行命令，文件位置根据实际情况输入</span><br><span class="line">java -jar &lt;Trinity&gt;/JCSServer/bin/LicenseCMD.jar -s</span><br><span class="line">2、返回信息</span><br><span class="line">待补充</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Trinity </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ETL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Trinity服务启动及关闭</title>
+      <link href="/2019/10/08/trinity-fu-wu-qi-dong-ji-guan-bi/"/>
+      <url>/2019/10/08/trinity-fu-wu-qi-dong-ji-guan-bi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、启动Trinity服务"><a href="#一、启动Trinity服务" class="headerlink" title="一、启动Trinity服务"></a>一、启动Trinity服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动顺序 JCS Server 服务 -&gt; JCS Agent 服务 -&gt; DIS Server 服务</span></span><br><span class="line">Trinity/JCSServer/bin/startup.sh</span><br><span class="line">Trinity/JCSAgent/bin/startup.sh</span><br><span class="line">Trinity/DISServer/bin/startup.sh</span><br></pre></td></tr></table></figure><h3 id="二、停止Trinity服务"><a href="#二、停止Trinity服务" class="headerlink" title="二、停止Trinity服务"></a>二、停止Trinity服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭顺序DIS Server 服务 -&gt; JCS Agent 服务 -&gt; JCS Server 服务</span></span><br><span class="line">Trinity/DISServer/bin/shutdown.sh</span><br><span class="line">Trinity/JCSAgent/bin/shutdown.sh</span><br><span class="line">Trinity/JCSServer/bin/shutdown.sh</span><br></pre></td></tr></table></figure><h3 id="三、检查Trinity服务"><a href="#三、检查Trinity服务" class="headerlink" title="三、检查Trinity服务"></a>三、检查Trinity服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep jcsserver.jar</span><br><span class="line">ps -ef|grep jcsagent.jar</span><br><span class="line">ps -ef|grep DISServer</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Trinity </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ETL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Trinity更改服务IP</title>
+      <link href="/2019/10/08/trinity-geng-gai-fu-wu-ip/"/>
+      <url>/2019/10/08/trinity-geng-gai-fu-wu-ip/</url>
+      
+        <content type="html"><![CDATA[<p>如要变更 Trinity 相关服务的 IP，请修改下列档案，并依底下范例红字所示，修改参数设定:</p><h3 id="1、Trinity-DISServer-cfg-dis-server-properties"><a href="#1、Trinity-DISServer-cfg-dis-server-properties" class="headerlink" title="1、Trinity/DISServer/cfg/dis.server.properties"></a>1、Trinity/DISServer/cfg/dis.server.properties</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DIS_SERVER_IP=&lt;欲变更的 IP&gt; </span><br><span class="line">DATABASE_URL=jdbc:postgresql://&lt;欲变更的 IP&gt;:5432/trinity</span><br></pre></td></tr></table></figure><h3 id="2、Trinity-DISServer-cfg-trinity-properties"><a href="#2、Trinity-DISServer-cfg-trinity-properties" class="headerlink" title="2、Trinity/DISServer/cfg/trinity.properties"></a>2、Trinity/DISServer/cfg/trinity.properties</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">database.url= jdbc:postgresql://&lt;欲变更的 IP&gt;:5432/trinity </span><br><span class="line">trinity.server.url= http://&lt;欲变更的 IP&gt;:8080 </span><br><span class="line">trinity.uiap.ip=&lt;欲变更的 IP&gt;</span><br></pre></td></tr></table></figure><h3 id="3、Trinity-JCSAgent-cfg-jcsagent-conf"><a href="#3、Trinity-JCSAgent-cfg-jcsagent-conf" class="headerlink" title="3、Trinity/JCSAgent/cfg/jcsagent.conf"></a>3、Trinity/JCSAgent/cfg/jcsagent.conf</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JCS_SERVER_IP=&lt;欲变更的 IP&gt;</span><br></pre></td></tr></table></figure><h3 id="4、Trinity-JCSServer-cfg-jcsserver-conf"><a href="#4、Trinity-JCSServer-cfg-jcsserver-conf" class="headerlink" title="4、Trinity/JCSServer/cfg/jcsserver.conf"></a>4、Trinity/JCSServer/cfg/jcsserver.conf</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JCS_AGENT_IP=&lt;欲变更的 IP&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Trinity </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ETL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Trinity修改PG数据库密码</title>
+      <link href="/2019/10/08/trinity-xiu-gai-pg-shu-ju-ku-mi-ma/"/>
+      <url>/2019/10/08/trinity-xiu-gai-pg-shu-ju-ku-mi-ma/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1、在PG数据库中修改Trinity用户的密码"><a href="#1、在PG数据库中修改Trinity用户的密码" class="headerlink" title="1、在PG数据库中修改Trinity用户的密码"></a>1、在PG数据库中修改Trinity用户的密码</h3><p><img src="https://raw.githubusercontent.com/zhangpotato/blog-image/master/trinity-change-pg-passwd/1.jpg" alt=""></p><h3 id="2、JCSServer-修改-JCSServer-cfg-jcsserver-conf-参数-POSTGRESQL-PASSWORD"><a href="#2、JCSServer-修改-JCSServer-cfg-jcsserver-conf-参数-POSTGRESQL-PASSWORD" class="headerlink" title="2、JCSServer 修改 JCSServer\cfg\jcsserver.conf 参数 POSTGRESQL_PASSWORD"></a>2、JCSServer 修改 JCSServer\cfg\jcsserver.conf 参数 POSTGRESQL_PASSWORD</h3><p><img src="https://raw.githubusercontent.com/zhangpotato/blog-image/master/trinity-change-pg-passwd/2.jpg" alt=""></p><h3 id="3、JCSAgent修改JCSAgent-cfg-jcsagent-conf-参数-POSTGRESQL-PASSWORD"><a href="#3、JCSAgent修改JCSAgent-cfg-jcsagent-conf-参数-POSTGRESQL-PASSWORD" class="headerlink" title="3、JCSAgent修改JCSAgent\cfg\jcsagent.conf 参数 POSTGRESQL_PASSWORD"></a>3、JCSAgent修改JCSAgent\cfg\jcsagent.conf 参数 POSTGRESQL_PASSWORD</h3><p><img src="https://raw.githubusercontent.com/zhangpotato/blog-image/master/trinity-change-pg-passwd/3.jpg" alt=""></p><h3 id="4、DISServer修改DIsServer-cfg-dis-server-properties-参数-DATABASE-PASSWORD"><a href="#4、DISServer修改DIsServer-cfg-dis-server-properties-参数-DATABASE-PASSWORD" class="headerlink" title="4、DISServer修改DIsServer\cfg\dis.server.properties 参数 DATABASE_PASSWORD"></a>4、DISServer修改DIsServer\cfg\dis.server.properties 参数 DATABASE_PASSWORD</h3><p><img src="https://raw.githubusercontent.com/zhangpotato/blog-image/master/trinity-change-pg-passwd/4.jpg" alt=""></p><h3 id="5、修改DISServer-cfg-trinity-properties-参数-database-password"><a href="#5、修改DISServer-cfg-trinity-properties-参数-database-password" class="headerlink" title="5、修改DISServer\cfg\trinity.properties 参数 database.password"></a>5、修改DISServer\cfg\trinity.properties 参数 database.password</h3><p><img src="https://raw.githubusercontent.com/zhangpotato/blog-image/master/trinity-change-pg-passwd/5.jpg" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Trinity </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ETL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Trinity Linux 安装步骤</title>
+      <link href="/2019/10/08/trinity-linux-an-zhuang-bu-zou/"/>
+      <url>/2019/10/08/trinity-linux-an-zhuang-bu-zou/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Trinity Version：4.1.1.233</span><br><span class="line">Java Version：JAVA1.8</span><br></pre></td></tr></table></figure><h2 id="一、安装java环境"><a href="#一、安装java环境" class="headerlink" title="一、安装java环境"></a>一、安装java环境</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># root用户</span></span><br><span class="line">1、下载jdk</span><br><span class="line">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</span><br><span class="line">2、解压jdk并安装</span><br><span class="line">tar -xvzf jdk-8u221-linux-x64.tar.gz -C /usr/</span><br><span class="line"><span class="built_in">cd</span> /usr</span><br><span class="line">mv jdk-1.8.0_221 java</span><br><span class="line">3、配置环境变量</span><br><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br><span class="line">4、生效配置</span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line">5、检验Java是否生效</span><br><span class="line">java -version</span><br></pre></td></tr></table></figure><h2 id="二、安装PG（Postgresql）"><a href="#二、安装PG（Postgresql）" class="headerlink" title="二、安装PG（Postgresql）"></a>二、安装PG（Postgresql）</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># root用户下</span></span><br><span class="line">1、运行安装文件</span><br><span class="line">./postgresql-9.5.10-1-linux-x64.run --mode text</span><br><span class="line"></span><br><span class="line">2、选择安装目录</span><br><span class="line">Please specify the directory <span class="built_in">where</span> PostgreSQL will be installed.</span><br><span class="line">Installation Directory [/opt/PostgreSQL/9.5]:(按 Enter 使用预设)</span><br><span class="line"></span><br><span class="line">3、选择数据存储位置</span><br><span class="line">Please select a directory under <span class="built_in">which</span> to store your data.</span><br><span class="line">Data Directory [/opt/PostgreSQL/9.5/data]:(按 Enter 使用预设)</span><br><span class="line"></span><br><span class="line">4、输入数据库的密码</span><br><span class="line">Please provide a password <span class="keyword">for</span> the database superuser (postgres).</span><br><span class="line">Password :trinity</span><br><span class="line">Retype password : trinity</span><br><span class="line"></span><br><span class="line">5、选择端口号</span><br><span class="line">Please select the port number the server should listen on.</span><br><span class="line">Port [5432]: (按 Enter 使用预设)</span><br><span class="line"></span><br><span class="line">6、选择语言</span><br><span class="line">[16] en_US.utf8</span><br><span class="line">Please choose an option [1] :16</span><br><span class="line"></span><br><span class="line">7、确认开始安装</span><br><span class="line">Setup is now ready to begin installing PostgreSQL on your computer.</span><br><span class="line">Do you want to <span class="built_in">continue</span>? [Y/n]:Y</span><br><span class="line"></span><br><span class="line">8、完成安装</span><br><span class="line">Please <span class="built_in">wait</span> <span class="keyword">while</span> Setup installs PostgreSQL on your computer.</span><br><span class="line">Installing</span><br><span class="line">0% ______________ 50% ______________ 100% <span class="comment">#########################################</span></span><br><span class="line">-------------------------------------------------------------------- Setup has finished installing PostgreSQL on your computer.</span><br><span class="line"></span><br><span class="line">9、取消 Launch Stack Builder</span><br><span class="line">Launch Stack Builder at <span class="built_in">exit</span>?</span><br><span class="line">Stack Builder may be used to download and install additional tools, drivers and applications to complement your PostgreSQL installation. [Y/n]:n</span><br></pre></td></tr></table></figure><h2 id="三、初始化Trinity数据库"><a href="#三、初始化Trinity数据库" class="headerlink" title="三、初始化Trinity数据库"></a>三、初始化Trinity数据库</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># root用户</span></span><br><span class="line">su - postgres</span><br><span class="line">/opt/PostgreSQL/9.5/bin/psql -h ip</span><br><span class="line"></span><br><span class="line">1、创建user</span><br><span class="line">CREATE USER trinity WITH PASSWORD <span class="string">'trinity'</span>;</span><br><span class="line">2、创建数据库</span><br><span class="line">CREATE DATABASE trinity OWNER trinity;</span><br><span class="line">3、切换用户测试</span><br><span class="line">/opt/PostgreSQL/9.2/bin/psql -U trinity</span><br></pre></td></tr></table></figure><h2 id="四、执行Trinity安装程序"><a href="#四、执行Trinity安装程序" class="headerlink" title="四、执行Trinity安装程序"></a>四、执行Trinity安装程序</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># trinity用户</span></span><br><span class="line">1、执行安装程序</span><br><span class="line">java -jar TrinityInstaller-v4.1.1.233.jar -console</span><br><span class="line"></span><br><span class="line">2、选择安装的产品</span><br><span class="line">选取需要安装的产品，输入对应的产品号码(默认为全选)，当产品被选取之后，会显示*号，输入 0 进行下一个步骤.。</span><br><span class="line">Trinity Product List:</span><br><span class="line">[*]1. JCS Server</span><br><span class="line">[*]2. JCS Agent</span><br><span class="line">[*]3. DIS Server</span><br><span class="line">[*]4. Trinity Repository</span><br><span class="line">press 0 to next step.</span><br><span class="line">Please select install trinity product:0</span><br><span class="line"></span><br><span class="line">3、输入安装位置</span><br><span class="line">Please input install Product Path(Default: /home/Users/Trinity):</span><br><span class="line"></span><br><span class="line">4、选取所要使用的 IP，这里的范例选择 127.0.0.1。</span><br><span class="line">IP List:</span><br><span class="line">[ ] 1. 192.168.10.129</span><br><span class="line">[ ] 2. 127.0.0.1</span><br><span class="line">Please select IP, press 0 to next step:2</span><br><span class="line"></span><br><span class="line">5、连接PG数据库</span><br><span class="line">Please input PostgreSQL info:</span><br><span class="line">Host(localhost):</span><br><span class="line">Use default: ip</span><br><span class="line">Port(5432):</span><br><span class="line">Use default: 5432</span><br><span class="line">Database Name(trinity):</span><br><span class="line">Use default: trinity</span><br><span class="line">User Name(trinity):</span><br><span class="line">Use default: trinity</span><br><span class="line">password(trinity):</span><br><span class="line">Use default: trinity</span><br><span class="line">Is drop table?[y/n]</span><br><span class="line">Use defeclt: y</span><br><span class="line">UI Server Port[8080]:</span><br><span class="line"></span><br><span class="line">6、进行安装</span><br><span class="line">Install Product:</span><br><span class="line">Trinity JCS Server</span><br><span class="line">Trinity JCS Agent</span><br><span class="line">Trinity DIS Service</span><br><span class="line">Install Path:/home/Users/Trinity</span><br><span class="line">Install IP: 127.0.0.1</span><br><span class="line">Database Host:ip</span><br><span class="line">Database Port:5432</span><br><span class="line">Database Name:trinity</span><br><span class="line">Database User:trinity</span><br><span class="line">Database Password:trinity</span><br><span class="line"></span><br><span class="line">7、取消license激活</span><br><span class="line">Import licence file? [y/n]n</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Trinity </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ETL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2019/08/21/pgadmin-wu-fa-lian-jie-trinity-shu-ju-ku/"/>
+      <url>/2019/08/21/pgadmin-wu-fa-lian-jie-trinity-shu-ju-ku/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1、报错信息"><a href="#1、报错信息" class="headerlink" title="1、报错信息"></a>1、报错信息</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">could not connect to server: Connection refused</span><br><span class="line">Is the server running on host host.domain.com and accepting</span><br><span class="line">TCP/IP connections on port 5432?</span><br></pre></td></tr></table></figure><h3 id="2、解决方法"><a href="#2、解决方法" class="headerlink" title="2、解决方法"></a>2、解决方法</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1、添加pg远程访问权限</span><br><span class="line">vim &lt;postgresql 数据目录&gt;\data\pg_hba.conf</span><br><span class="line">2、添加ip</span><br><span class="line"><span class="comment"># 在 TYPE DATABASE USER ADDRESS METHOD 下方添加</span></span><br><span class="line">host all all &lt;IP-address&gt;/&lt;mask-length&gt; md5</span><br><span class="line"></span><br><span class="line">注：IP-address 代表允许连入的 ip, 而 mask-length 代表子网掩码长度，最小值是 0, 最大值是 32。</span><br><span class="line">若要设定全部开放，则可设定为：</span><br><span class="line">host all all 0.0.0.0/0 md5</span><br><span class="line">若要设定允许连入的网址为:192.168.3.* ，则可设定为:</span><br><span class="line">host all all 192.168.3.0/24 md5</span><br><span class="line">3、修改listen_addresses</span><br><span class="line">设置&lt;postgresql 数据目录&gt;\data\postgresql.conf 中的 listen_addresses 与 port 设定与以 下相同:</span><br><span class="line">listen_addresses = <span class="string">'*'</span> </span><br><span class="line">port = 5432 </span><br><span class="line">4、重启pg数据库</span><br><span class="line">pg_ctl start [-w] [-s] [-D datadir] [-l filename] [-o options] [-p path]</span><br><span class="line">pg_ctl stop [-W] [-s] [-D datadir] [-m s[mart] | f[ast] | i[mmediate] ]</span><br><span class="line">pg_ctl restart [-w] [-s] [-D datadir] [-m s[mart] | f[ast] | i[mmediate] ] [-o options]</span><br><span class="line"></span><br><span class="line">pg_ctl restart -D &lt;PG 数据目录位置&gt;/data</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2019/08/02/kafka-ji-ben-cao-zuo/"/>
+      <url>/2019/08/02/kafka-ji-ben-cao-zuo/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Kafka-基本操作"><a href="#Kafka-基本操作" class="headerlink" title="Kafka 基本操作"></a>Kafka 基本操作</h1><h2 id="创建topic"><a href="#创建topic" class="headerlink" title="创建topic"></a>创建topic</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./kafka-topics.sh --create --zookeeper host0:2181,host1:2181,host2:2181,host3:2181,host4:2181 --replication-factor 1 --partitions 1 --topic <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#-replication-factor 1 数据副本数为1</span></span><br><span class="line"><span class="comment">#-partitions 1 分区数量</span></span><br><span class="line"><span class="comment">#--topic test topic name</span></span><br></pre></td></tr></table></figure><h2 id="查看topic"><a href="#查看topic" class="headerlink" title="查看topic"></a>查看topic</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-topics.sh --list  --zookeeper host0:2181,host1:2181,host2:2181,host3:2181,host4:2181</span><br></pre></td></tr></table></figure><h2 id="生产消息"><a href="#生产消息" class="headerlink" title="生产消息"></a>生产消息</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./kafka-console-producer.sh --broker-list host1:6667,host4:6667,host3:6667,host2:6667 --topic <span class="built_in">test</span></span><br><span class="line"><span class="comment">#--broker-list 为kafka broker所有节点的列表（集群版本）</span></span><br><span class="line"><span class="comment">#host1:6667 为kafka配置中listeners的配置端口号</span></span><br><span class="line"><span class="comment">#--topic test消息发送的topic name</span></span><br></pre></td></tr></table></figure><h2 id="消费消息"><a href="#消费消息" class="headerlink" title="消费消息"></a>消费消息</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-console-consumer.sh --zookeeper host0:2181,host1:2181,host2:2181,host3:2181,host4:2181 --topic <span class="built_in">test</span> --from-beginning</span><br></pre></td></tr></table></figure><h2 id="kafka-connect"><a href="#kafka-connect" class="headerlink" title="kafka connect"></a>kafka connect</h2><h2 id="kafka-Stream"><a href="#kafka-Stream" class="headerlink" title="kafka Stream"></a>kafka Stream</h2>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Sqoop基础教程</title>
       <link href="/2019/07/23/sqoop-ji-chu-jiao-cheng/"/>
       <url>/2019/07/23/sqoop-ji-chu-jiao-cheng/</url>
@@ -33,31 +184,6 @@
     
     
     <entry>
-      <title>Linux常用命令</title>
-      <link href="/2019/06/04/linux-chang-yong-ming-ling/"/>
-      <url>/2019/06/04/linux-chang-yong-ming-ling/</url>
-      
-        <content type="html"><![CDATA[<h2 id="一、压缩命令"><a href="#一、压缩命令" class="headerlink" title="一、压缩命令"></a>一、压缩命令</h2><p>默认压缩级别情况下,1.8G数据 压缩大小: gzip (462M) &gt; bzip2 (238M) &gt; xz (44M)</p><h3 id="1、bzip2、bunzip2"><a href="#1、bzip2、bunzip2" class="headerlink" title="1、bzip2、bunzip2"></a><strong>1、bzip2、bunzip2</strong></h3><pre class=" language-shell"><code class="language-shell">#压缩单个文件命令 压缩后demo.txt消失，生成demo.txt.bz2文件bzip2 demo.txt#解压命令bunzip2 demo.txt.bz2#压缩多个文件命令bzip2 demo1.txt demo2.txt#解压多个文件命令bunzip2 demo1.txt.bz2 demo2.txt.bz2</code></pre><h3 id="2、gzip"><a href="#2、gzip" class="headerlink" title="2、gzip"></a><strong>2、gzip</strong></h3><p>gzip只能对普通文件进行压缩和解压</p><pre class=" language-shell"><code class="language-shell">#压缩命令gzip demo.txt#压缩并保留源文件gzip -c demo.txt > demo.txt.gz#解压命令gzip -d demo.txt.gz</code></pre><h3 id="3、tar"><a href="#3、tar" class="headerlink" title="3、tar"></a><strong>3、tar</strong></h3><p>tar是打包、拆包的命令</p><p>“打包/拆包”“压缩/解压缩”有什么区别？我们用一个生活中的例子来解释：</p><pre><code>- 就像搬家时，我们把每一床棉被都抽成真空，这叫作压缩，然后把好几床抽真空的棉被用绳子捆绑起来，这就叫打包。- 东西搬到新家后，把绳子解开，就是拆包，然后把每床棉被舒展开，让棉被松软起来，这就是解压缩。- 如果不抽真空，只是把几床棉被简单地用绳子捆起来，那么就单独用tar就好了。- 如果只有一床棉被，打算抽真空，那么就用gzip就好了。- 如果有好多床棉被，既要抽真空，又要捆起来，那么就要将tar和gzip结合起来使用。</code></pre><pre class=" language-shell"><code class="language-shell">#拆包解压tar -xvf demo.tartar -xvzf demo.tar.gztar -xvjf demo.tar.bz2#打包压缩 将/var/log下的文件打包解压到名为demo.tar.gz的文件夹tar -cvf demo.tar /var/log        #仅打包，不压缩tar -cvzf demo.tar.gz /var/log    #打包后用gzip压缩tar -cvjf demo.tar.bz2 /var/log    #打包后用bzip2压缩#参数解释-c 表示进行打包动作-z 使用gzip进行压缩和解压-v 显示整个过程-f 指定要打包的文件-x 表示进行拆包动作-j 使用bzip2进行压缩和解压-t 显示包中的内容#显示压缩包中的内容，但是不解压tar -tvzf demo.tar.gz</code></pre><h2 id="二、端口监听"><a href="#二、端口监听" class="headerlink" title="二、端口监听"></a>二、端口监听</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux基础 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>CDH5.14.2安装手册</title>
       <link href="/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/"/>
       <url>/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/</url>
@@ -77,6 +203,31 @@
             <tag> BigData </tag>
             
             <tag> CDH安装 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux常用命令</title>
+      <link href="/2019/06/04/linux-chang-yong-ming-ling/"/>
+      <url>/2019/06/04/linux-chang-yong-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、压缩命令"><a href="#一、压缩命令" class="headerlink" title="一、压缩命令"></a>一、压缩命令</h2><p>默认压缩级别情况下,1.8G数据 压缩大小: gzip (462M) &gt; bzip2 (238M) &gt; xz (44M)</p><h3 id="1、bzip2、bunzip2"><a href="#1、bzip2、bunzip2" class="headerlink" title="1、bzip2、bunzip2"></a><strong>1、bzip2、bunzip2</strong></h3><pre class=" language-shell"><code class="language-shell">#压缩单个文件命令 压缩后demo.txt消失，生成demo.txt.bz2文件bzip2 demo.txt#解压命令bunzip2 demo.txt.bz2#压缩多个文件命令bzip2 demo1.txt demo2.txt#解压多个文件命令bunzip2 demo1.txt.bz2 demo2.txt.bz2</code></pre><h3 id="2、gzip"><a href="#2、gzip" class="headerlink" title="2、gzip"></a><strong>2、gzip</strong></h3><p>gzip只能对普通文件进行压缩和解压</p><pre class=" language-shell"><code class="language-shell">#压缩命令gzip demo.txt#压缩并保留源文件gzip -c demo.txt > demo.txt.gz#解压命令gzip -d demo.txt.gz</code></pre><h3 id="3、tar"><a href="#3、tar" class="headerlink" title="3、tar"></a><strong>3、tar</strong></h3><p>tar是打包、拆包的命令</p><p>“打包/拆包”“压缩/解压缩”有什么区别？我们用一个生活中的例子来解释：</p><pre><code>- 就像搬家时，我们把每一床棉被都抽成真空，这叫作压缩，然后把好几床抽真空的棉被用绳子捆绑起来，这就叫打包。- 东西搬到新家后，把绳子解开，就是拆包，然后把每床棉被舒展开，让棉被松软起来，这就是解压缩。- 如果不抽真空，只是把几床棉被简单地用绳子捆起来，那么就单独用tar就好了。- 如果只有一床棉被，打算抽真空，那么就用gzip就好了。- 如果有好多床棉被，既要抽真空，又要捆起来，那么就要将tar和gzip结合起来使用。</code></pre><pre class=" language-shell"><code class="language-shell">#拆包解压tar -xvf demo.tartar -xvzf demo.tar.gztar -xvjf demo.tar.bz2#打包压缩 将/var/log下的文件打包解压到名为demo.tar.gz的文件夹tar -cvf demo.tar /var/log        #仅打包，不压缩tar -cvzf demo.tar.gz /var/log    #打包后用gzip压缩tar -cvjf demo.tar.bz2 /var/log    #打包后用bzip2压缩#参数解释-c 表示进行打包动作-z 使用gzip进行压缩和解压-v 显示整个过程-f 指定要打包的文件-x 表示进行拆包动作-j 使用bzip2进行压缩和解压-t 显示包中的内容#显示压缩包中的内容，但是不解压tar -tvzf demo.tar.gz</code></pre><h2 id="二、端口监听"><a href="#二、端口监听" class="headerlink" title="二、端口监听"></a>二、端口监听</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux基础 </tag>
             
         </tags>
       
@@ -166,7 +317,7 @@
       <link href="/2019/04/09/trinity-diao-du-yan-chi-jie-jue-fang-fa/"/>
       <url>/2019/04/09/trinity-diao-du-yan-chi-jie-jue-fang-fa/</url>
       
-        <content type="html"><![CDATA[<p>1、查询各表占用的空间</p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span>   relname <span class="token keyword">as</span> <span class="token string">"Table"</span><span class="token punctuation">,</span>   pg_size_pretty<span class="token punctuation">(</span>pg_total_relation_size<span class="token punctuation">(</span>relid<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">As</span> <span class="token string">"Size"</span><span class="token punctuation">,</span>   pg_size_pretty<span class="token punctuation">(</span>pg_total_relation_size<span class="token punctuation">(</span>relid<span class="token punctuation">)</span> <span class="token operator">-</span> pg_relation_size<span class="token punctuation">(</span>relid<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token string">"External Size"</span><span class="token keyword">FROM</span> pg_catalog<span class="token punctuation">.</span>pg_statio_user_tables <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> pg_total_relation_size<span class="token punctuation">(</span>relid<span class="token punctuation">)</span> <span class="token keyword">DESC</span><span class="token punctuation">;</span><span class="token punctuation">)</span></code></pre><p>2、需要维护的table</p><pre class=" language-sql"><code class="language-sql">task<span class="token punctuation">,</span> taskdependencyrule<span class="token punctuation">,</span> jobexecution<span class="token punctuation">,</span> jobexecutionschedule<span class="token punctuation">,</span> jobtxdate</code></pre><p>3、执行vacuum操作</p><p><img src="/images/Trinity_vacuum/1.jpg" alt=""></p><p>右键需要维护的table-&gt;选择Maintenance-&gt;ANALYZE-&gt;ok</p><p><img src="/images/Trinity_vacuum/2.jpg" alt=""></p><p>再选择Vacuum-&gt;选择full-&gt;ok-&gt;REINDEX-&gt;ok</p><p><img src="/images/Trinity_vacuum/3.jpg" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<h3 id="1、查询各表占用的空间"><a href="#1、查询各表占用的空间" class="headerlink" title="1、查询各表占用的空间"></a>1、查询各表占用的空间</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">   relname <span class="keyword">as</span> <span class="string">"Table"</span>,</span><br><span class="line">   pg_size_pretty(pg_total_relation_size(relid)) <span class="keyword">As</span> <span class="string">"Size"</span>,</span><br><span class="line">   pg_size_pretty(pg_total_relation_size(relid) - pg_relation_size(relid)) <span class="keyword">as</span> <span class="string">"External Size"</span></span><br><span class="line"><span class="keyword">FROM</span> pg_catalog.pg_statio_user_tables <span class="keyword">ORDER</span> <span class="keyword">BY</span> pg_total_relation_size(relid) <span class="keyword">DESC</span>;</span><br><span class="line">)</span><br></pre></td></tr></table></figure><h3 id="2、需要维护的table"><a href="#2、需要维护的table" class="headerlink" title="2、需要维护的table"></a>2、需要维护的table</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">task, taskdependencyrule, jobexecution, jobexecutionschedule, jobtxdate</span><br></pre></td></tr></table></figure><h3 id="3、执行vacuum操作"><a href="#3、执行vacuum操作" class="headerlink" title="3、执行vacuum操作"></a>3、执行vacuum操作</h3><p><img src="/images/Trinity_vacuum/1.jpg" alt=""></p><p>右键需要维护的table-&gt;选择Maintenance-&gt;ANALYZE-&gt;ok</p><p><img src="/images/Trinity_vacuum/2.jpg" alt=""></p><p>再选择Vacuum-&gt;选择full-&gt;ok-&gt;REINDEX-&gt;ok</p><p><img src="/images/Trinity_vacuum/3.jpg" alt=""></p>]]></content>
       
       
       <categories>
@@ -193,7 +344,7 @@
       <link href="/2019/03/27/open-ssl-bao-cuo/"/>
       <url>/2019/03/27/open-ssl-bao-cuo/</url>
       
-        <content type="html"><![CDATA[<p>报错：</p><pre class=" language-shell"><code class="language-shell">ERROR 2015-09-23 09:47:07,402 NetUtil.py:77 - [Errno 8] _ssl.c:492: EOF occurred in violation of protocolERROR 2015-09-23 09:47:07,402 NetUtil.py:78 - SSLError: Failed to connect. Please check openssl library versions.Refer to: https://bugzilla.redhat.com/show_bug.cgi?id=1022468 for more details.WARNING 2015-09-23 09:47:07,402 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...WARNING 2015-09-23 09:47:07,402 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...INFO 2015-09-23 09:47:14,746 main.py:74 - loglevel=logging.INFOINFO 2015-09-23 09:47:14,746 main.py:74 - loglevel=logging.INFOINFO 2015-09-23 09:47:17,403 NetUtil.py:59 - Connecting to https://test.org:8440/caWARNING 2015-09-23 09:47:17,404 NetUtil.py:82 - Failed to connect to https://test.org:8440/ca due to [Errno 111] Connection refusedWARNING 2015-09-23 09:47:17,404 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...WARNING 2015-09-23 09:47:17,404 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...ERROR 2015-09-23 09:47:19,780 main.py:315 - Fatal exception occurred:</code></pre><p>解决方法：</p><pre class=" language-shell"><code class="language-shell">vim /etc/ambari-agent/conf/ambari-agent.ini在[security]下添加force_https_protocol=PROTOCOL_TLSv1_2</code></pre><pre class=" language-shell"><code class="language-shell">vi /etc/python/cert-verification.cfg 在[https] 下添加verify=disable</code></pre><p>然后在Ambari界面点击retry进行重试操作</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="报错："><a href="#报错：" class="headerlink" title="报错："></a>报错：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ERROR 2015-09-23 09:47:07,402 NetUtil.py:77 - [Errno 8] _ssl.c:492: EOF occurred in violation of protocol</span><br><span class="line">ERROR 2015-09-23 09:47:07,402 NetUtil.py:78 - SSLError: Failed to connect. Please check openssl library versions.</span><br><span class="line">Refer to: https://bugzilla.redhat.com/show_bug.cgi?id=1022468 for more details.</span><br><span class="line">WARNING 2015-09-23 09:47:07,402 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...</span><br><span class="line">WARNING 2015-09-23 09:47:07,402 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...</span><br><span class="line">INFO 2015-09-23 09:47:14,746 main.py:74 - loglevel=logging.INFO</span><br><span class="line">INFO 2015-09-23 09:47:14,746 main.py:74 - loglevel=logging.INFO</span><br><span class="line">INFO 2015-09-23 09:47:17,403 NetUtil.py:59 - Connecting to https://test.org:8440/ca</span><br><span class="line">WARNING 2015-09-23 09:47:17,404 NetUtil.py:82 - Failed to connect to https://test.org:8440/ca due to [Errno 111] Connection refused</span><br><span class="line">WARNING 2015-09-23 09:47:17,404 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...</span><br><span class="line">WARNING 2015-09-23 09:47:17,404 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...</span><br><span class="line">ERROR 2015-09-23 09:47:19,780 main.py:315 - Fatal exception occurred:</span><br></pre></td></tr></table></figure><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ambari-agent/conf/ambari-agent.ini</span><br><span class="line">在[security]下添加</span><br><span class="line">force_https_protocol=PROTOCOL_TLSv1_2</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/python/cert-verification.cfg </span><br><span class="line">在[https] 下添加</span><br><span class="line">verify=disable</span><br></pre></td></tr></table></figure><p>然后在Ambari界面点击retry进行重试操作</p>]]></content>
       
       
       <categories>
