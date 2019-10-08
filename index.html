@@ -432,7 +432,9 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                             <a href="/2019/10/08/trinity-fu-wu-qi-dong-ji-guan-bi/" target="_blank">
                                 <h3 class="post-title">Trinity服务启动及关闭</h3>
                             </a>
-                            <p class="post-description">一、启动Trinity服务# 启动顺序 JCS Server 服务 -&gt; JCS Agent 服务 -&gt; DIS Server 服务Trinity/JCSServer/bin/startup.shTrinity/JCSAgent</p>
+                            <p class="post-description">一、启动Trinity服务# 启动顺序 JCS Server 服务 -> JCS Agent 服务 -> DIS Server 服务
+Trinity/JCSServer/bin/startup.sh
+Trinity/JCSAgent/bin</p>
                             <a href="/2019/10/08/trinity-fu-wu-qi-dong-ji-guan-bi/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)">
                                 <i class="icon fa fa-eye fa-fw"></i>阅读更多
                             </a>
@@ -452,7 +454,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                             <a href="/2019/10/08/trinity-huo-qu-ji-qi-ma-fang-shi/" target="_blank">
                                 <h3 class="post-title">Trinity获取机器码方式</h3>
                             </a>
-                            <p class="post-description">1、使用LicenseCMD.jar获取机器码# 将 LicenseCMD.jar 置于 &lt;Trinity&gt;JCSServer/</p>
+                            <p class="post-description">1、使用LicenseCMD.jar获取机器码# 将 LicenseCMD.jar 置于 JCSServer/bin 目录下。(标灰处请依实</p>
                             <a href="/2019/10/08/trinity-huo-qu-ji-qi-ma-fang-shi/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%)">
                                 <i class="icon fa fa-eye fa-fw"></i>阅读更多
                             </a>
@@ -472,7 +474,9 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                             <a href="/2019/04/09/trinity-diao-du-yan-chi-jie-jue-fang-fa/" target="_blank">
                                 <h3 class="post-title">Trinity调度延迟解决方法</h3>
                             </a>
-                            <p class="post-description">1、查询各表占用的空间SELECT   relname as "Table",   pg_size_pretty(pg_total_rela</p>
+                            <p class="post-description">1、查询各表占用的空间SELECT
+   relname as "Table",
+   pg_size_pretty(pg_total_re</p>
                             <a href="/2019/04/09/trinity-diao-du-yan-chi-jie-jue-fang-fa/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #C644FC 0%, #5856D6 100%)">
                                 <i class="icon fa fa-eye fa-fw"></i>阅读更多
                             </a>
@@ -492,8 +496,13 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                             <a href="/2019/03/19/web-ui-shang-que-shao-datanode/" target="_blank">
                                 <h3 class="post-title">HDFS WEB UI上缺少datanode的问题解决方法</h3>
                             </a>
-                            <p class="post-description">1、集群结构192.168.0.60 host0192.168.0.61 host1192.168.0.62 host2192.168.0.63 host3192.168.0.64 host4
-2、问题状况#HDFS上显示存活的datano</p>
+                            <p class="post-description">1、集群结构192.168.0.60 host0
+192.168.0.61 host1
+192.168.0.62 host2
+192.168.0.63 host3
+192.168.0.64 host4
+
+2、问题状况#HDFS上显示存活的d</p>
                             <a href="/2019/03/19/web-ui-shang-que-shao-datanode/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #55EFCB 0%, #5BCAFF 100%)">
                                 <i class="icon fa fa-eye fa-fw"></i>阅读更多
                             </a>
@@ -534,7 +543,9 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                             <a href="/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/" target="_blank">
                                 <h3 class="post-title">CDH5.14.2安装手册</h3>
                             </a>
-                            <p class="post-description">一、基础环境配置1、修改主机名#操作系统为CentOS7#192.168.0.220节点上（root用户）vim /etc/hostname</p>
+                            <p class="post-description">一、基础环境配置1、修改主机名#操作系统为CentOS7
+#192.168.0.220节点上（root用户）
+vim /etc/hostna</p>
                             <a href="/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/" target="_blank" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
                                 <i class="icon fa fa-eye fa-fw"></i>阅读更多
                             </a>
@@ -679,7 +690,7 @@ export
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">1、使用LicenseCMD.jar获取机器码# 将 LicenseCMD.jar 置于 &lt;Trinity&gt;JCSServer/</div>
+                        <div class="summary">1、使用LicenseCMD.jar获取机器码# 将 LicenseCMD.jar 置于 JCSServer/bin 目录下。(标灰处请依实</div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-08
@@ -722,8 +733,11 @@ export
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">Trinity Version：4.1.1.233Java Version：JAVA1.8
-一、安装java环境# root用户1、下载jd</div>
+                        <div class="summary">Trinity Version：4.1.1.233
+Java Version：JAVA1.8
+
+一、安装java环境# root用户
+1、下</div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-08
@@ -854,7 +868,8 @@ export
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">一、启动Trinity服务# 启动顺序 JCS Server 服务 -&gt; JCS Agent 服务 -&gt; DIS Server </div>
+                        <div class="summary">一、启动Trinity服务# 启动顺序 JCS Server 服务 -> JCS Agent 服务 -> DIS Server 服务
+Tri</div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-08
@@ -897,7 +912,8 @@ export
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">1、报错信息could not connect to server: Connection refusedIs the server run</div>
+                        <div class="summary">1、报错信息could not connect to server: Connection refused
+Is the server ru</div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-21
@@ -1023,7 +1039,9 @@ create-hive</div>
                     </a>
 
                     <div class="card-content article-content">
-                        <div class="summary">一、基础环境配置1、修改主机名#操作系统为CentOS7#192.168.0.220节点上（root用户）vim /etc/hostname</div>
+                        <div class="summary">一、基础环境配置1、修改主机名#操作系统为CentOS7
+#192.168.0.220节点上（root用户）
+vim /etc/hostna</div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-04

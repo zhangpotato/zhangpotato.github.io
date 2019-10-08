@@ -6,7 +6,9 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Potato博客">
-    <meta name="description" content="1、报错信息could not connect to server: Connection refusedIs the server running on host host.domain.com and acceptingTCP/IP c">
+    <meta name="description" content="1、报错信息could not connect to server: Connection refused
+Is the server running on host host.domain.com and accepting
+TCP/IP">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -313,8 +315,33 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、报错信息"><a href="#1、报错信息" class="headerlink" title="1、报错信息"></a>1、报错信息</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">could not connect to server: Connection refused</span><br><span class="line">Is the server running on host host.domain.com and accepting</span><br><span class="line">TCP/IP connections on port 5432?</span><br></pre></td></tr></table></figure>
-<h3 id="2、解决方法"><a href="#2、解决方法" class="headerlink" title="2、解决方法"></a>2、解决方法</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">1、添加pg远程访问权限</span><br><span class="line">vim &lt;postgresql 数据目录&gt;\data\pg_hba.conf</span><br><span class="line">2、添加ip</span><br><span class="line"><span class="comment"># 在 TYPE DATABASE USER ADDRESS METHOD 下方添加</span></span><br><span class="line">host all all &lt;IP-address&gt;/&lt;mask-length&gt; md5</span><br><span class="line"></span><br><span class="line">注：IP-address 代表允许连入的 ip, 而 mask-length 代表子网掩码长度，最小值是 0, 最大值是 32。</span><br><span class="line">若要设定全部开放，则可设定为：</span><br><span class="line">host all all 0.0.0.0/0 md5</span><br><span class="line">若要设定允许连入的网址为:192.168.3.* ，则可设定为:</span><br><span class="line">host all all 192.168.3.0/24 md5</span><br><span class="line">3、修改listen_addresses</span><br><span class="line">设置&lt;postgresql 数据目录&gt;\data\postgresql.conf 中的 listen_addresses 与 port 设定与以 下相同:</span><br><span class="line">listen_addresses = <span class="string">'*'</span> </span><br><span class="line">port = 5432 </span><br><span class="line">4、重启pg数据库</span><br><span class="line">pg_ctl start [-w] [-s] [-D datadir] [-l filename] [-o options] [-p path]</span><br><span class="line">pg_ctl stop [-W] [-s] [-D datadir] [-m s[mart] | f[ast] | i[mmediate] ]</span><br><span class="line">pg_ctl restart [-w] [-s] [-D datadir] [-m s[mart] | f[ast] | i[mmediate] ] [-o options]</span><br><span class="line"></span><br><span class="line">pg_ctl restart -D &lt;PG 数据目录位置&gt;/data</span><br></pre></td></tr></table></figure>
+                <h3 id="1、报错信息"><a href="#1、报错信息" class="headerlink" title="1、报错信息"></a>1、报错信息</h3><pre class=" language-sh"><code class="language-sh">could not connect to server: Connection refused
+Is the server running on host host.domain.com and accepting
+TCP/IP connections on port 5432?
+</code></pre>
+<h3 id="2、解决方法"><a href="#2、解决方法" class="headerlink" title="2、解决方法"></a>2、解决方法</h3><pre class=" language-sh"><code class="language-sh">1、添加pg远程访问权限
+vim <postgresql 数据目录="">\data\pg_hba.conf
+2、添加ip
+# 在 TYPE DATABASE USER ADDRESS METHOD 下方添加
+host all all <ip-address>/<mask-length> md5
+
+注：IP-address 代表允许连入的 ip, 而 mask-length 代表子网掩码长度，最小值是 0, 最大值是 32。
+若要设定全部开放，则可设定为：
+host all all 0.0.0.0/0 md5
+若要设定允许连入的网址为:192.168.3.* ，则可设定为:
+host all all 192.168.3.0/24 md5
+3、修改listen_addresses
+设置<postgresql 数据目录="">\data\postgresql.conf 中的 listen_addresses 与 port 设定与以 下相同:
+listen_addresses = '*' 
+port = 5432 
+4、重启pg数据库
+pg_ctl start [-w] [-s] [-D datadir] [-l filename] [-o options] [-p path]
+pg_ctl stop [-W] [-s] [-D datadir] [-m s[mart] | f[ast] | i[mmediate] ]
+pg_ctl restart [-w] [-s] [-D datadir] [-m s[mart] | f[ast] | i[mmediate] ] [-o options]
+
+pg_ctl restart -D <pg 数据目录位置="">/data
+</pg></postgresql></mask-length></ip-address></postgresql></code></pre>
+
             </div>
             <hr>
 
@@ -486,7 +513,9 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">一、启动Trinity服务# 启动顺序 JCS Server 服务 -&gt; JCS Agent 服务 -&gt; DIS Server 服务Trinity/JCSServer/bin/startup.shTrinity/JCSAgent</div>
+                    <div class="summary">一、启动Trinity服务# 启动顺序 JCS Server 服务 -> JCS Agent 服务 -> DIS Server 服务
+Trinity/JCSServer/bin/startup.sh
+Trinity/JCSAgent/bin</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-08

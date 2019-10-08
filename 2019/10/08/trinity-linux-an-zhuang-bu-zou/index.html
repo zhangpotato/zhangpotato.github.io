@@ -6,8 +6,12 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Trinity Linux 安装步骤, Potato博客">
-    <meta name="description" content="Trinity Version：4.1.1.233Java Version：JAVA1.8
-一、安装java环境# root用户1、下载jdkhttps://www.oracle.com/technetwork/java/javase/do">
+    <meta name="description" content="Trinity Version：4.1.1.233
+Java Version：JAVA1.8
+
+一、安装java环境# root用户
+1、下载jdk
+https://www.oracle.com/technetwork/java/javas">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -332,11 +336,132 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">Trinity Version：4.1.1.233</span><br><span class="line">Java Version：JAVA1.8</span><br></pre></td></tr></table></figure>
-<h2 id="一、安装java环境"><a href="#一、安装java环境" class="headerlink" title="一、安装java环境"></a>一、安装java环境</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># root用户</span></span><br><span class="line">1、下载jdk</span><br><span class="line">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</span><br><span class="line">2、解压jdk并安装</span><br><span class="line">tar -xvzf jdk-8u221-linux-x64.tar.gz -C /usr/</span><br><span class="line"><span class="built_in">cd</span> /usr</span><br><span class="line">mv jdk-1.8.0_221 java</span><br><span class="line">3、配置环境变量</span><br><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br><span class="line">4、生效配置</span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line">5、检验Java是否生效</span><br><span class="line">java -version</span><br></pre></td></tr></table></figure>
-<h2 id="二、安装PG（Postgresql）"><a href="#二、安装PG（Postgresql）" class="headerlink" title="二、安装PG（Postgresql）"></a>二、安装PG（Postgresql）</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># root用户下</span></span><br><span class="line">1、运行安装文件</span><br><span class="line">./postgresql-9.5.10-1-linux-x64.run --mode text</span><br><span class="line"></span><br><span class="line">2、选择安装目录</span><br><span class="line">Please specify the directory <span class="built_in">where</span> PostgreSQL will be installed.</span><br><span class="line">Installation Directory [/opt/PostgreSQL/9.5]:(按 Enter 使用预设)</span><br><span class="line"></span><br><span class="line">3、选择数据存储位置</span><br><span class="line">Please select a directory under <span class="built_in">which</span> to store your data.</span><br><span class="line">Data Directory [/opt/PostgreSQL/9.5/data]:(按 Enter 使用预设)</span><br><span class="line"></span><br><span class="line">4、输入数据库的密码</span><br><span class="line">Please provide a password <span class="keyword">for</span> the database superuser (postgres).</span><br><span class="line">Password :trinity</span><br><span class="line">Retype password : trinity</span><br><span class="line"></span><br><span class="line">5、选择端口号</span><br><span class="line">Please select the port number the server should listen on.</span><br><span class="line">Port [5432]: (按 Enter 使用预设)</span><br><span class="line"></span><br><span class="line">6、选择语言</span><br><span class="line">[16] en_US.utf8</span><br><span class="line">Please choose an option [1] :16</span><br><span class="line"></span><br><span class="line">7、确认开始安装</span><br><span class="line">Setup is now ready to begin installing PostgreSQL on your computer.</span><br><span class="line">Do you want to <span class="built_in">continue</span>? [Y/n]:Y</span><br><span class="line"></span><br><span class="line">8、完成安装</span><br><span class="line">Please <span class="built_in">wait</span> <span class="keyword">while</span> Setup installs PostgreSQL on your computer.</span><br><span class="line">Installing</span><br><span class="line">0% ______________ 50% ______________ 100% <span class="comment">#########################################</span></span><br><span class="line">-------------------------------------------------------------------- Setup has finished installing PostgreSQL on your computer.</span><br><span class="line"></span><br><span class="line">9、取消 Launch Stack Builder</span><br><span class="line">Launch Stack Builder at <span class="built_in">exit</span>?</span><br><span class="line">Stack Builder may be used to download and install additional tools, drivers and applications to complement your PostgreSQL installation. [Y/n]:n</span><br></pre></td></tr></table></figure>
-<h2 id="三、初始化Trinity数据库"><a href="#三、初始化Trinity数据库" class="headerlink" title="三、初始化Trinity数据库"></a>三、初始化Trinity数据库</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># root用户</span></span><br><span class="line">su - postgres</span><br><span class="line">/opt/PostgreSQL/9.5/bin/psql -h ip</span><br><span class="line"></span><br><span class="line">1、创建user</span><br><span class="line">CREATE USER trinity WITH PASSWORD <span class="string">'trinity'</span>;</span><br><span class="line">2、创建数据库</span><br><span class="line">CREATE DATABASE trinity OWNER trinity;</span><br><span class="line">3、切换用户测试</span><br><span class="line">/opt/PostgreSQL/9.2/bin/psql -U trinity</span><br></pre></td></tr></table></figure>
-<h2 id="四、执行Trinity安装程序"><a href="#四、执行Trinity安装程序" class="headerlink" title="四、执行Trinity安装程序"></a>四、执行Trinity安装程序</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># trinity用户</span></span><br><span class="line">1、执行安装程序</span><br><span class="line">java -jar TrinityInstaller-v4.1.1.233.jar -console</span><br><span class="line"></span><br><span class="line">2、选择安装的产品</span><br><span class="line">选取需要安装的产品，输入对应的产品号码(默认为全选)，当产品被选取之后，会显示*号，输入 0 进行下一个步骤.。</span><br><span class="line">Trinity Product List:</span><br><span class="line">[*]1. JCS Server</span><br><span class="line">[*]2. JCS Agent</span><br><span class="line">[*]3. DIS Server</span><br><span class="line">[*]4. Trinity Repository</span><br><span class="line">press 0 to next step.</span><br><span class="line">Please select install trinity product:0</span><br><span class="line"></span><br><span class="line">3、输入安装位置</span><br><span class="line">Please input install Product Path(Default: /home/Users/Trinity):</span><br><span class="line"></span><br><span class="line">4、选取所要使用的 IP，这里的范例选择 127.0.0.1。</span><br><span class="line">IP List:</span><br><span class="line">[ ] 1. 192.168.10.129</span><br><span class="line">[ ] 2. 127.0.0.1</span><br><span class="line">Please select IP, press 0 to next step:2</span><br><span class="line"></span><br><span class="line">5、连接PG数据库</span><br><span class="line">Please input PostgreSQL info:</span><br><span class="line">Host(localhost):</span><br><span class="line">Use default: ip</span><br><span class="line">Port(5432):</span><br><span class="line">Use default: 5432</span><br><span class="line">Database Name(trinity):</span><br><span class="line">Use default: trinity</span><br><span class="line">User Name(trinity):</span><br><span class="line">Use default: trinity</span><br><span class="line">password(trinity):</span><br><span class="line">Use default: trinity</span><br><span class="line">Is drop table?[y/n]</span><br><span class="line">Use defeclt: y</span><br><span class="line">UI Server Port[8080]:</span><br><span class="line"></span><br><span class="line">6、进行安装</span><br><span class="line">Install Product:</span><br><span class="line">Trinity JCS Server</span><br><span class="line">Trinity JCS Agent</span><br><span class="line">Trinity DIS Service</span><br><span class="line">Install Path:	/home/Users/Trinity</span><br><span class="line">Install IP:	 127.0.0.1</span><br><span class="line">Database Host:	ip</span><br><span class="line">Database Port:	5432</span><br><span class="line">Database Name:	trinity</span><br><span class="line">Database User:	trinity</span><br><span class="line">Database Password:	trinity</span><br><span class="line"></span><br><span class="line">7、取消license激活</span><br><span class="line">Import licence file? [y/n]n</span><br></pre></td></tr></table></figure>
+                <pre class=" language-sh"><code class="language-sh">Trinity Version：4.1.1.233
+Java Version：JAVA1.8
+</code></pre>
+<h2 id="一、安装java环境"><a href="#一、安装java环境" class="headerlink" title="一、安装java环境"></a>一、安装java环境</h2><pre class=" language-sh"><code class="language-sh"># root用户
+1、下载jdk
+https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+2、解压jdk并安装
+tar -xvzf jdk-8u221-linux-x64.tar.gz -C /usr/
+cd /usr
+mv jdk-1.8.0_221 java
+3、配置环境变量
+vim /etc/profile
+
+export JAVA_HOME=/usr/java
+export PATH=$PATH:$JAVA_HOME/bin
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+4、生效配置
+source /etc/profile
+5、检验Java是否生效
+java -version
+</code></pre>
+<h2 id="二、安装PG（Postgresql）"><a href="#二、安装PG（Postgresql）" class="headerlink" title="二、安装PG（Postgresql）"></a>二、安装PG（Postgresql）</h2><pre class=" language-sh"><code class="language-sh"># root用户下
+1、运行安装文件
+./postgresql-9.5.10-1-linux-x64.run --mode text
+
+2、选择安装目录
+Please specify the directory where PostgreSQL will be installed.
+Installation Directory [/opt/PostgreSQL/9.5]:(按 Enter 使用预设)
+
+3、选择数据存储位置
+Please select a directory under which to store your data.
+Data Directory [/opt/PostgreSQL/9.5/data]:(按 Enter 使用预设)
+
+4、输入数据库的密码
+Please provide a password for the database superuser (postgres).
+Password :trinity
+Retype password : trinity
+
+5、选择端口号
+Please select the port number the server should listen on.
+Port [5432]: (按 Enter 使用预设)
+
+6、选择语言
+[16] en_US.utf8
+Please choose an option [1] :16
+
+7、确认开始安装
+Setup is now ready to begin installing PostgreSQL on your computer.
+Do you want to continue? [Y/n]:Y
+
+8、完成安装
+Please wait while Setup installs PostgreSQL on your computer.
+Installing
+0% ______________ 50% ______________ 100% #########################################
+-------------------------------------------------------------------- Setup has finished installing PostgreSQL on your computer.
+
+9、取消 Launch Stack Builder
+Launch Stack Builder at exit?
+Stack Builder may be used to download and install additional tools, drivers and applications to complement your PostgreSQL installation. [Y/n]:n
+</code></pre>
+<h2 id="三、初始化Trinity数据库"><a href="#三、初始化Trinity数据库" class="headerlink" title="三、初始化Trinity数据库"></a>三、初始化Trinity数据库</h2><pre class=" language-sh"><code class="language-sh"># root用户
+su - postgres
+/opt/PostgreSQL/9.5/bin/psql -h ip
+
+1、创建user
+CREATE USER trinity WITH PASSWORD 'trinity';
+2、创建数据库
+CREATE DATABASE trinity OWNER trinity;
+3、切换用户测试
+/opt/PostgreSQL/9.2/bin/psql -U trinity
+</code></pre>
+<h2 id="四、执行Trinity安装程序"><a href="#四、执行Trinity安装程序" class="headerlink" title="四、执行Trinity安装程序"></a>四、执行Trinity安装程序</h2><pre class=" language-sh"><code class="language-sh"># trinity用户
+1、执行安装程序
+java -jar TrinityInstaller-v4.1.1.233.jar -console
+
+2、选择安装的产品
+选取需要安装的产品，输入对应的产品号码(默认为全选)，当产品被选取之后，会显示*号，输入 0 进行下一个步骤.。
+Trinity Product List:
+[*]1. JCS Server
+[*]2. JCS Agent
+[*]3. DIS Server
+[*]4. Trinity Repository
+press 0 to next step.
+Please select install trinity product:0
+
+3、输入安装位置
+Please input install Product Path(Default: /home/Users/Trinity):
+
+4、选取所要使用的 IP，这里的范例选择 127.0.0.1。
+IP List:
+[ ] 1. 192.168.10.129
+[ ] 2. 127.0.0.1
+Please select IP, press 0 to next step:2
+
+5、连接PG数据库
+Please input PostgreSQL info:
+Host(localhost):
+Use default: ip
+Port(5432):
+Use default: 5432
+Database Name(trinity):
+Use default: trinity
+User Name(trinity):
+Use default: trinity
+password(trinity):
+Use default: trinity
+Is drop table?[y/n]
+Use defeclt: y
+UI Server Port[8080]:
+
+6、进行安装
+Install Product:
+Trinity JCS Server
+Trinity JCS Agent
+Trinity DIS Service
+Install Path:    /home/Users/Trinity
+Install IP:     127.0.0.1
+Database Host:    ip
+Database Port:    5432
+Database Name:    trinity
+Database User:    trinity
+Database Password:    trinity
+
+7、取消license激活
+Import licence file? [y/n]n
+</code></pre>
 
             </div>
             <hr>
@@ -509,7 +634,8 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1、使用LicenseCMD.jar获取机器码# 将 LicenseCMD.jar 置于 &lt;Trinity&gt;JCSServer/bin 目录下。(标灰处请依实际目录输入)# 执行指令 java -jar &lt;Trinity&</div>
+                    <div class="summary">1、使用LicenseCMD.jar获取机器码# 将 LicenseCMD.jar 置于 JCSServer/bin 目录下。(标灰处请依实际目录输入)
+# 执行指令 java -jar \JCSServer\bin\LicenseCMD.</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-08

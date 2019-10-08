@@ -7,7 +7,8 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Trinity更改服务IP, Potato博客">
     <meta name="description" content="如要变更 Trinity 相关服务的 IP，请修改下列档案，并依底下范例红字所示，修改参数设定:
-1、Trinity/DISServer/cfg/dis.server.propertiesDIS_SERVER_IP=&amp;lt;欲变更的 IP&amp;">
+1、Trinity/DISServer/cfg/dis.server.propertiesDIS_SERVER_IP= 
+DATABASE_U">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -333,10 +334,17 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>如要变更 Trinity 相关服务的 IP，请修改下列档案，并依底下范例红字所示，修改参数设定:</p>
-<h3 id="1、Trinity-DISServer-cfg-dis-server-properties"><a href="#1、Trinity-DISServer-cfg-dis-server-properties" class="headerlink" title="1、Trinity/DISServer/cfg/dis.server.properties"></a>1、Trinity/DISServer/cfg/dis.server.properties</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">DIS_SERVER_IP=&lt;欲变更的 IP&gt; </span><br><span class="line">DATABASE_URL=jdbc:postgresql://&lt;欲变更的 IP&gt;:5432/trinity</span><br></pre></td></tr></table></figure>
-<h3 id="2、Trinity-DISServer-cfg-trinity-properties"><a href="#2、Trinity-DISServer-cfg-trinity-properties" class="headerlink" title="2、Trinity/DISServer/cfg/trinity.properties"></a>2、Trinity/DISServer/cfg/trinity.properties</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">database.url= jdbc:postgresql://&lt;欲变更的 IP&gt;:5432/trinity </span><br><span class="line">trinity.server.url= http://&lt;欲变更的 IP&gt;:8080 </span><br><span class="line">trinity.uiap.ip=&lt;欲变更的 IP&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="3、Trinity-JCSAgent-cfg-jcsagent-conf"><a href="#3、Trinity-JCSAgent-cfg-jcsagent-conf" class="headerlink" title="3、Trinity/JCSAgent/cfg/jcsagent.conf"></a>3、Trinity/JCSAgent/cfg/jcsagent.conf</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">JCS_SERVER_IP=&lt;欲变更的 IP&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="4、Trinity-JCSServer-cfg-jcsserver-conf"><a href="#4、Trinity-JCSServer-cfg-jcsserver-conf" class="headerlink" title="4、Trinity/JCSServer/cfg/jcsserver.conf"></a>4、Trinity/JCSServer/cfg/jcsserver.conf</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">JCS_AGENT_IP=&lt;欲变更的 IP&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="1、Trinity-DISServer-cfg-dis-server-properties"><a href="#1、Trinity-DISServer-cfg-dis-server-properties" class="headerlink" title="1、Trinity/DISServer/cfg/dis.server.properties"></a>1、Trinity/DISServer/cfg/dis.server.properties</h3><pre class=" language-sh"><code class="language-sh">DIS_SERVER_IP=<欲变更的 ip=""> 
+DATABASE_URL=jdbc:postgresql://<欲变更的 ip="">:5432/trinity
+</欲变更的></欲变更的></code></pre>
+<h3 id="2、Trinity-DISServer-cfg-trinity-properties"><a href="#2、Trinity-DISServer-cfg-trinity-properties" class="headerlink" title="2、Trinity/DISServer/cfg/trinity.properties"></a>2、Trinity/DISServer/cfg/trinity.properties</h3><pre class=" language-sh"><code class="language-sh">database.url= jdbc:postgresql://<欲变更的 ip="">:5432/trinity 
+trinity.server.url= http://<欲变更的 ip="">:8080 
+trinity.uiap.ip=<欲变更的 ip="">
+</欲变更的></欲变更的></欲变更的></code></pre>
+<h3 id="3、Trinity-JCSAgent-cfg-jcsagent-conf"><a href="#3、Trinity-JCSAgent-cfg-jcsagent-conf" class="headerlink" title="3、Trinity/JCSAgent/cfg/jcsagent.conf"></a>3、Trinity/JCSAgent/cfg/jcsagent.conf</h3><pre class=" language-sh"><code class="language-sh">JCS_SERVER_IP=<欲变更的 ip="">
+</欲变更的></code></pre>
+<h3 id="4、Trinity-JCSServer-cfg-jcsserver-conf"><a href="#4、Trinity-JCSServer-cfg-jcsserver-conf" class="headerlink" title="4、Trinity/JCSServer/cfg/jcsserver.conf"></a>4、Trinity/JCSServer/cfg/jcsserver.conf</h3><pre class=" language-sh"><code class="language-sh">JCS_AGENT_IP=<欲变更的 ip="">
+</欲变更的></code></pre>
 
             </div>
             <hr>
@@ -554,7 +562,9 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">一、启动Trinity服务# 启动顺序 JCS Server 服务 -&gt; JCS Agent 服务 -&gt; DIS Server 服务Trinity/JCSServer/bin/startup.shTrinity/JCSAgent</div>
+                    <div class="summary">一、启动Trinity服务# 启动顺序 JCS Server 服务 -> JCS Agent 服务 -> DIS Server 服务
+Trinity/JCSServer/bin/startup.sh
+Trinity/JCSAgent/bin</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-08

@@ -55,7 +55,10 @@
       
         
         
-          &lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Trinity Version：4.1.1.233&lt;/span&gt;&lt;br&gt;&lt;span
+          &lt;pre class=&quot; language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;Trinity Version：4.1.1.233
+Java Version：JAVA1.8
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;一、安装java环境&quot;&gt;&lt;a
         
       
     
@@ -134,7 +137,7 @@
       
         
         
-          &lt;h3 id=&quot;一、启动Trinity服务&quot;&gt;&lt;a href=&quot;#一、启动Trinity服务&quot; class=&quot;headerlink&quot; title=&quot;一、启动Trinity服务&quot;&gt;&lt;/a&gt;一、启动Trinity服务&lt;/h3&gt;&lt;figure class=&quot;highlight
+          &lt;h3 id=&quot;一、启动Trinity服务&quot;&gt;&lt;a href=&quot;#一、启动Trinity服务&quot; class=&quot;headerlink&quot; title=&quot;一、启动Trinity服务&quot;&gt;&lt;/a&gt;一、启动Trinity服务&lt;/h3&gt;&lt;pre class=&quot;
         
       
     
@@ -160,7 +163,7 @@
       
         
         
-          &lt;h3 id=&quot;1、报错信息&quot;&gt;&lt;a href=&quot;#1、报错信息&quot; class=&quot;headerlink&quot; title=&quot;1、报错信息&quot;&gt;&lt;/a&gt;1、报错信息&lt;/h3&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+          &lt;h3 id=&quot;1、报错信息&quot;&gt;&lt;a href=&quot;#1、报错信息&quot; class=&quot;headerlink&quot; title=&quot;1、报错信息&quot;&gt;&lt;/a&gt;1、报错信息&lt;/h3&gt;&lt;pre class=&quot; language-sh&quot;&gt;&lt;code
         
       
     
@@ -368,7 +371,7 @@
       
         
         
-          &lt;h3 id=&quot;1、查询各表占用的空间&quot;&gt;&lt;a href=&quot;#1、查询各表占用的空间&quot; class=&quot;headerlink&quot; title=&quot;1、查询各表占用的空间&quot;&gt;&lt;/a&gt;1、查询各表占用的空间&lt;/h3&gt;&lt;figure class=&quot;highlight
+          &lt;h3 id=&quot;1、查询各表占用的空间&quot;&gt;&lt;a href=&quot;#1、查询各表占用的空间&quot; class=&quot;headerlink&quot; title=&quot;1、查询各表占用的空间&quot;&gt;&lt;/a&gt;1、查询各表占用的空间&lt;/h3&gt;&lt;pre class=&quot; language-sql&quot;&gt;&lt;code
         
       
     
@@ -396,7 +399,7 @@
       
         
         
-          &lt;h3 id=&quot;报错：&quot;&gt;&lt;a href=&quot;#报错：&quot; class=&quot;headerlink&quot; title=&quot;报错：&quot;&gt;&lt;/a&gt;报错：&lt;/h3&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+          &lt;h3 id=&quot;报错：&quot;&gt;&lt;a href=&quot;#报错：&quot; class=&quot;headerlink&quot; title=&quot;报错：&quot;&gt;&lt;/a&gt;报错：&lt;/h3&gt;&lt;pre class=&quot; language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;ERROR
         
       
     
@@ -424,7 +427,7 @@
       
         
         
-          &lt;h2 id=&quot;1、集群结构&quot;&gt;&lt;a href=&quot;#1、集群结构&quot; class=&quot;headerlink&quot; title=&quot;1、集群结构&quot;&gt;&lt;/a&gt;1、集群结构&lt;/h2&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+          &lt;h2 id=&quot;1、集群结构&quot;&gt;&lt;a href=&quot;#1、集群结构&quot; class=&quot;headerlink&quot; title=&quot;1、集群结构&quot;&gt;&lt;/a&gt;1、集群结构&lt;/h2&gt;&lt;pre class=&quot; language-sh&quot;&gt;&lt;code
         
       
     
