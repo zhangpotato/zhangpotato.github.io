@@ -333,49 +333,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="一、压缩命令"><a href="#一、压缩命令" class="headerlink" title="一、压缩命令"></a>一、压缩命令</h2><p>默认压缩级别情况下,1.8G数据 压缩大小: gzip (462M) &gt; bzip2 (238M) &gt; xz (44M)</p>
-<h3 id="1、bzip2、bunzip2"><a href="#1、bzip2、bunzip2" class="headerlink" title="1、bzip2、bunzip2"></a><strong>1、bzip2、bunzip2</strong></h3><pre class=" language-shell"><code class="language-shell">#压缩单个文件命令 压缩后demo.txt消失，生成demo.txt.bz2文件
-bzip2 demo.txt
-#解压命令
-bunzip2 demo.txt.bz2
-#压缩多个文件命令
-bzip2 demo1.txt demo2.txt
-#解压多个文件命令
-bunzip2 demo1.txt.bz2 demo2.txt.bz2
-</code></pre>
+<h3 id="1、bzip2、bunzip2"><a href="#1、bzip2、bunzip2" class="headerlink" title="1、bzip2、bunzip2"></a><strong>1、bzip2、bunzip2</strong></h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">压缩单个文件命令 压缩后demo.txt消失，生成demo.txt.bz2文件</span></span><br><span class="line">bzip2 demo.txt</span><br><span class="line"><span class="meta">#</span><span class="bash">解压命令</span></span><br><span class="line">bunzip2 demo.txt.bz2</span><br><span class="line"><span class="meta">#</span><span class="bash">压缩多个文件命令</span></span><br><span class="line">bzip2 demo1.txt demo2.txt</span><br><span class="line"><span class="meta">#</span><span class="bash">解压多个文件命令</span></span><br><span class="line">bunzip2 demo1.txt.bz2 demo2.txt.bz2</span><br></pre></td></tr></table></figure>
 <h3 id="2、gzip"><a href="#2、gzip" class="headerlink" title="2、gzip"></a><strong>2、gzip</strong></h3><p>gzip只能对普通文件进行压缩和解压</p>
-<pre class=" language-shell"><code class="language-shell">#压缩命令
-gzip demo.txt
-#压缩并保留源文件
-gzip -c demo.txt > demo.txt.gz
-#解压命令
-gzip -d demo.txt.gz
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">压缩命令</span></span><br><span class="line">gzip demo.txt</span><br><span class="line"><span class="meta">#</span><span class="bash">压缩并保留源文件</span></span><br><span class="line">gzip -c demo.txt &gt; demo.txt.gz</span><br><span class="line"><span class="meta">#</span><span class="bash">解压命令</span></span><br><span class="line">gzip -d demo.txt.gz</span><br></pre></td></tr></table></figure>
 <h3 id="3、tar"><a href="#3、tar" class="headerlink" title="3、tar"></a><strong>3、tar</strong></h3><p>tar是打包、拆包的命令</p>
 <p>“打包/拆包”“压缩/解压缩”有什么区别？我们用一个生活中的例子来解释：</p>
-<pre><code>- 就像搬家时，我们把每一床棉被都抽成真空，这叫作压缩，然后把好几床抽真空的棉被用绳子捆绑起来，这就叫打包。
-- 东西搬到新家后，把绳子解开，就是拆包，然后把每床棉被舒展开，让棉被松软起来，这就是解压缩。
-- 如果不抽真空，只是把几床棉被简单地用绳子捆起来，那么就单独用tar就好了。
-- 如果只有一床棉被，打算抽真空，那么就用gzip就好了。
-- 如果有好多床棉被，既要抽真空，又要捆起来，那么就要将tar和gzip结合起来使用。
-</code></pre><pre class=" language-shell"><code class="language-shell">#拆包解压
-tar -xvf demo.tar
-tar -xvzf demo.tar.gz
-tar -xvjf demo.tar.bz2
-#打包压缩 将/var/log下的文件打包解压到名为demo.tar.gz的文件夹
-tar -cvf demo.tar /var/log        #仅打包，不压缩
-tar -cvzf demo.tar.gz /var/log    #打包后用gzip压缩
-tar -cvjf demo.tar.bz2 /var/log    #打包后用bzip2压缩
-#参数解释
--c 表示进行打包动作
--z 使用gzip进行压缩和解压
--v 显示整个过程
--f 指定要打包的文件
--x 表示进行拆包动作
--j 使用bzip2进行压缩和解压
--t 显示包中的内容
-#显示压缩包中的内容，但是不解压
-tar -tvzf demo.tar.gz
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- 就像搬家时，我们把每一床棉被都抽成真空，这叫作压缩，然后把好几床抽真空的棉被用绳子捆绑起来，这就叫打包。</span><br><span class="line">- 东西搬到新家后，把绳子解开，就是拆包，然后把每床棉被舒展开，让棉被松软起来，这就是解压缩。</span><br><span class="line">- 如果不抽真空，只是把几床棉被简单地用绳子捆起来，那么就单独用tar就好了。</span><br><span class="line">- 如果只有一床棉被，打算抽真空，那么就用gzip就好了。</span><br><span class="line">- 如果有好多床棉被，既要抽真空，又要捆起来，那么就要将tar和gzip结合起来使用。</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">拆包解压</span></span><br><span class="line">tar -xvf demo.tar</span><br><span class="line">tar -xvzf demo.tar.gz</span><br><span class="line">tar -xvjf demo.tar.bz2</span><br><span class="line"><span class="meta">#</span><span class="bash">打包压缩 将/var/<span class="built_in">log</span>下的文件打包解压到名为demo.tar.gz的文件夹</span></span><br><span class="line">tar -cvf demo.tar /var/log		#仅打包，不压缩</span><br><span class="line">tar -cvzf demo.tar.gz /var/log	#打包后用gzip压缩</span><br><span class="line">tar -cvjf demo.tar.bz2 /var/log	#打包后用bzip2压缩</span><br><span class="line"><span class="meta">#</span><span class="bash">参数解释</span></span><br><span class="line">-c 表示进行打包动作</span><br><span class="line">-z 使用gzip进行压缩和解压</span><br><span class="line">-v 显示整个过程</span><br><span class="line">-f 指定要打包的文件</span><br><span class="line">-x 表示进行拆包动作</span><br><span class="line">-j 使用bzip2进行压缩和解压</span><br><span class="line">-t 显示包中的内容</span><br><span class="line"><span class="meta">#</span><span class="bash">显示压缩包中的内容，但是不解压</span></span><br><span class="line">tar -tvzf demo.tar.gz</span><br></pre></td></tr></table></figure>
 <h2 id="二、端口监听"><a href="#二、端口监听" class="headerlink" title="二、端口监听"></a>二、端口监听</h2>
             </div>
             <hr>
@@ -538,34 +502,49 @@ tar -tvzf demo.tar.gz
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/">
+                <a href="/2019/07/23/sqoop-ji-chu-jiao-cheng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="CDH5.14.2安装手册">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Sqoop基础教程">
                         
-                        <span class="card-title">CDH5.14.2安装手册</span>
+                        <span class="card-title">Sqoop基础教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">一、基础环境配置1、修改主机名
-#操作系统为CentOS7
-#192.168.0.220节点上（root用户）
-vim /etc/hostname
-host0
-#192.168.0.221节点上
-vim /etc/hostname
-host</div>
+                    <div class="summary">一、Sqoop导入1、Sqoop参数使用方式
+
+
+参数
+描述
+
+
+
+
+codegen
+生成与数据库记录交互的代码
+
+
+create-hive-table
+创建表
+
+
+eval
+评估SQL语句并显示结果
+
+
+export
+将HDFS目录导出到</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-04
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-23
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CDH/" class="post-category" target="_blank">
-                                    CDH
+                            <a href="/categories/BigData/" class="post-category" target="_blank">
+                                    BigData
                                 </a>
                             
                             
@@ -579,8 +558,12 @@ host</div>
                         <span class="chip bg-color">BigData</span>
                     </a>
                     
-                    <a href="/tags/CDH安装/" target="_blank">
-                        <span class="chip bg-color">CDH安装</span>
+                    <a href="/tags/ETL/" target="_blank">
+                        <span class="chip bg-color">ETL</span>
+                    </a>
+                    
+                    <a href="/tags/Sqoop/" target="_blank">
+                        <span class="chip bg-color">Sqoop</span>
                     </a>
                     
                 </div>
@@ -602,8 +585,7 @@ host</div>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1、查询谓词没有使用索引的主要边界,换句话说就是select *，可能会导致不走索引。比如，你查询的是SELECT * FROM T WHERE Y=XXX;
-假如你的T表上有一个包含Y值的组合索引，但是优化器会认为需要一行行的扫描会更有效</div>
+                    <div class="summary">1、查询谓词没有使用索引的主要边界,换句话说就是select *，可能会导致不走索引。比如，你查询的是SELECT * FROM T WHERE Y=XXX;假如你的T表上有一个包含Y值的组合索引，但是优化器会认为需要一行行的扫描会更有效，</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-18

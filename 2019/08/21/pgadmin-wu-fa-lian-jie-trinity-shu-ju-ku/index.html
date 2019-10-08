@@ -6,7 +6,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Potato博客">
-    <meta name="description" content="1、报错信息123could not connect to server: Connection refusedIs the server running on host host.domain.com and acceptingTCP/I">
+    <meta name="description" content="1、报错信息could not connect to server: Connection refusedIs the server running on host host.domain.com and acceptingTCP/IP c">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -313,8 +313,8 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、报错信息"><a href="#1、报错信息" class="headerlink" title="1、报错信息"></a>1、报错信息</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">could not connect to server: Connection refused</span><br><span class="line">Is the server running on host host.domain.com and accepting</span><br><span class="line">TCP/IP connections on port 5432?</span><br></pre></td></tr></table></figure>
-<h3 id="2、解决方法"><a href="#2、解决方法" class="headerlink" title="2、解决方法"></a>2、解决方法</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1、添加pg远程访问权限</span><br><span class="line">vim &lt;postgresql 数据目录&gt;\data\pg_hba.conf</span><br><span class="line">2、添加ip</span><br><span class="line"><span class="comment"># 在 TYPE DATABASE USER ADDRESS METHOD 下方添加</span></span><br><span class="line">host all all &lt;IP-address&gt;/&lt;mask-length&gt; md5</span><br><span class="line"></span><br><span class="line">注：IP-address 代表允许连入的 ip, 而 mask-length 代表子网掩码长度，最小值是 0, 最大值是 32。</span><br><span class="line">若要设定全部开放，则可设定为：</span><br><span class="line">host all all 0.0.0.0/0 md5</span><br><span class="line">若要设定允许连入的网址为:192.168.3.* ，则可设定为:</span><br><span class="line">host all all 192.168.3.0/24 md5</span><br><span class="line">3、修改listen_addresses</span><br><span class="line">设置&lt;postgresql 数据目录&gt;\data\postgresql.conf 中的 listen_addresses 与 port 设定与以 下相同:</span><br><span class="line">listen_addresses = <span class="string">'*'</span> </span><br><span class="line">port = 5432 </span><br><span class="line">4、重启pg数据库</span><br><span class="line">pg_ctl start [-w] [-s] [-D datadir] [-l filename] [-o options] [-p path]</span><br><span class="line">pg_ctl stop [-W] [-s] [-D datadir] [-m s[mart] | f[ast] | i[mmediate] ]</span><br><span class="line">pg_ctl restart [-w] [-s] [-D datadir] [-m s[mart] | f[ast] | i[mmediate] ] [-o options]</span><br><span class="line"></span><br><span class="line">pg_ctl restart -D &lt;PG 数据目录位置&gt;/data</span><br></pre></td></tr></table></figure>
+                <h3 id="1、报错信息"><a href="#1、报错信息" class="headerlink" title="1、报错信息"></a>1、报错信息</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">could not connect to server: Connection refused</span><br><span class="line">Is the server running on host host.domain.com and accepting</span><br><span class="line">TCP/IP connections on port 5432?</span><br></pre></td></tr></table></figure>
+<h3 id="2、解决方法"><a href="#2、解决方法" class="headerlink" title="2、解决方法"></a>2、解决方法</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">1、添加pg远程访问权限</span><br><span class="line">vim &lt;postgresql 数据目录&gt;\data\pg_hba.conf</span><br><span class="line">2、添加ip</span><br><span class="line"><span class="comment"># 在 TYPE DATABASE USER ADDRESS METHOD 下方添加</span></span><br><span class="line">host all all &lt;IP-address&gt;/&lt;mask-length&gt; md5</span><br><span class="line"></span><br><span class="line">注：IP-address 代表允许连入的 ip, 而 mask-length 代表子网掩码长度，最小值是 0, 最大值是 32。</span><br><span class="line">若要设定全部开放，则可设定为：</span><br><span class="line">host all all 0.0.0.0/0 md5</span><br><span class="line">若要设定允许连入的网址为:192.168.3.* ，则可设定为:</span><br><span class="line">host all all 192.168.3.0/24 md5</span><br><span class="line">3、修改listen_addresses</span><br><span class="line">设置&lt;postgresql 数据目录&gt;\data\postgresql.conf 中的 listen_addresses 与 port 设定与以 下相同:</span><br><span class="line">listen_addresses = <span class="string">'*'</span> </span><br><span class="line">port = 5432 </span><br><span class="line">4、重启pg数据库</span><br><span class="line">pg_ctl start [-w] [-s] [-D datadir] [-l filename] [-o options] [-p path]</span><br><span class="line">pg_ctl stop [-W] [-s] [-D datadir] [-m s[mart] | f[ast] | i[mmediate] ]</span><br><span class="line">pg_ctl restart [-w] [-s] [-D datadir] [-m s[mart] | f[ast] | i[mmediate] ] [-o options]</span><br><span class="line"></span><br><span class="line">pg_ctl restart -D &lt;PG 数据目录位置&gt;/data</span><br></pre></td></tr></table></figure>
             </div>
             <hr>
 
@@ -476,18 +476,17 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2019/10/08/trinity-linux-an-zhuang-bu-zou/">
+                <a href="/2019/10/08/trinity-fu-wu-qi-dong-ji-guan-bi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Trinity Linux 安装步骤">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Trinity服务启动及关闭">
                         
-                        <span class="card-title">Trinity Linux 安装步骤</span>
+                        <span class="card-title">Trinity服务启动及关闭</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">12Trinity Version：4.1.1.233Java Version：JAVA1.8
-一、安装java环境1234567891011121314151617# root用户1、下载jdkhttps://www.oracle.com</div>
+                    <div class="summary">一、启动Trinity服务# 启动顺序 JCS Server 服务 -&gt; JCS Agent 服务 -&gt; DIS Server 服务Trinity/JCSServer/bin/startup.shTrinity/JCSAgent</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-08
@@ -530,7 +529,7 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Kafka 基本操作创建topic12345./kafka-topics.sh --create --zookeeper host0:2181,host1:2181,host2:2181,host3:2181,host4:2181 --re</div>
+                    <div class="summary">Kafka 基本操作创建topic./kafka-topics.sh --create --zookeeper host0:2181,host1:2181,host2:2181,host3:2181,host4:2181 --replica</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-02

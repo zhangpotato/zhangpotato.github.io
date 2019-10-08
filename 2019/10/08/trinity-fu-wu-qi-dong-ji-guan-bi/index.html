@@ -6,7 +6,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Trinity服务启动及关闭, Potato博客">
-    <meta name="description" content="一、启动Trinity服务1234# 启动顺序 JCS Server 服务 -&amp;gt; JCS Agent 服务 -&amp;gt; DIS Server 服务Trinity/JCSServer/bin/startup.shTrinity/JCSA">
+    <meta name="description" content="一、启动Trinity服务# 启动顺序 JCS Server 服务 -&amp;gt; JCS Agent 服务 -&amp;gt; DIS Server 服务Trinity/JCSServer/bin/startup.shTrinity/JCSAgent">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -331,9 +331,9 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、启动Trinity服务"><a href="#一、启动Trinity服务" class="headerlink" title="一、启动Trinity服务"></a>一、启动Trinity服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动顺序 JCS Server 服务 -&gt; JCS Agent 服务 -&gt; DIS Server 服务</span></span><br><span class="line">Trinity/JCSServer/bin/startup.sh</span><br><span class="line">Trinity/JCSAgent/bin/startup.sh</span><br><span class="line">Trinity/DISServer/bin/startup.sh</span><br></pre></td></tr></table></figure>
-<h3 id="二、停止Trinity服务"><a href="#二、停止Trinity服务" class="headerlink" title="二、停止Trinity服务"></a>二、停止Trinity服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭顺序	DIS Server 服务 -&gt; JCS Agent 服务 -&gt; JCS Server 服务</span></span><br><span class="line">Trinity/DISServer/bin/shutdown.sh</span><br><span class="line">Trinity/JCSAgent/bin/shutdown.sh</span><br><span class="line">Trinity/JCSServer/bin/shutdown.sh</span><br></pre></td></tr></table></figure>
-<h3 id="三、检查Trinity服务"><a href="#三、检查Trinity服务" class="headerlink" title="三、检查Trinity服务"></a>三、检查Trinity服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep jcsserver.jar</span><br><span class="line">ps -ef|grep jcsagent.jar</span><br><span class="line">ps -ef|grep DISServer</span><br></pre></td></tr></table></figure>
+                <h3 id="一、启动Trinity服务"><a href="#一、启动Trinity服务" class="headerlink" title="一、启动Trinity服务"></a>一、启动Trinity服务</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动顺序 JCS Server 服务 -&gt; JCS Agent 服务 -&gt; DIS Server 服务</span></span><br><span class="line">Trinity/JCSServer/bin/startup.sh</span><br><span class="line">Trinity/JCSAgent/bin/startup.sh</span><br><span class="line">Trinity/DISServer/bin/startup.sh</span><br></pre></td></tr></table></figure>
+<h3 id="二、停止Trinity服务"><a href="#二、停止Trinity服务" class="headerlink" title="二、停止Trinity服务"></a>二、停止Trinity服务</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 关闭顺序	DIS Server 服务 -&gt; JCS Agent 服务 -&gt; JCS Server 服务</span></span><br><span class="line">Trinity/DISServer/bin/shutdown.sh</span><br><span class="line">Trinity/JCSAgent/bin/shutdown.sh</span><br><span class="line">Trinity/JCSServer/bin/shutdown.sh</span><br></pre></td></tr></table></figure>
+<h3 id="三、检查Trinity服务"><a href="#三、检查Trinity服务" class="headerlink" title="三、检查Trinity服务"></a>三、检查Trinity服务</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ps -ef|grep jcsserver.jar</span><br><span class="line">ps -ef|grep jcsagent.jar</span><br><span class="line">ps -ef|grep DISServer</span><br></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -496,17 +496,18 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2019/10/08/trinity-huo-qu-ji-qi-ma-fang-shi/">
+                <a href="/2019/10/08/trinity-geng-gai-fu-wu-ip/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Trinity获取机器码方式">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Trinity更改服务IP">
                         
-                        <span class="card-title">Trinity获取机器码方式</span>
+                        <span class="card-title">Trinity更改服务IP</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1、使用LicenseCMD.jar获取机器码12# 将 LicenseCMD.jar 置于 &lt;Trinity&gt;JCSServer/bin 目录下。(标灰处请依实际目录输入)# 执行指令 java -jar &lt;Trinit</div>
+                    <div class="summary">如要变更 Trinity 相关服务的 IP，请修改下列档案，并依底下范例红字所示，修改参数设定:
+1、Trinity/DISServer/cfg/dis.server.propertiesDIS_SERVER_IP=&lt;欲变更的 IP&</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-08
@@ -539,41 +540,28 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2019/10/08/trinity-geng-gai-fu-wu-ip/">
+                <a href="/2019/08/21/pgadmin-wu-fa-lian-jie-trinity-shu-ju-ku/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Trinity更改服务IP">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">Trinity更改服务IP</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">如要变更 Trinity 相关服务的 IP，请修改下列档案，并依底下范例红字所示，修改参数设定:
-1、Trinity/DISServer/cfg/dis.server.properties12DIS_SERVER_IP=&lt;欲变更的 I</div>
+                    <div class="summary">1、报错信息could not connect to server: Connection refusedIs the server running on host host.domain.com and acceptingTCP/IP c</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-08
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-21
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Trinity/" class="post-category" target="_blank">
-                                    Trinity
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Potato
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/ETL/" target="_blank">
-                        <span class="chip bg-color">ETL</span>
-                    </a>
-                    
                 </div>
                 
             </div>

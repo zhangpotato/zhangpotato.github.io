@@ -6,7 +6,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="搭建HDP集群报OPEN SSL问题解决方法, Potato博客">
-    <meta name="description" content="报错：123456789101112ERROR 2015-09-23 09:47:07,402 NetUtil.py:77 - [Errno 8] _ssl.c:492: EOF occurred in violation of proto">
+    <meta name="description" content="报错：ERROR 2015-09-23 09:47:07,402 NetUtil.py:77 - [Errno 8] _ssl.c:492: EOF occurred in violation of protocolERROR 2015-0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -335,9 +335,9 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="报错："><a href="#报错：" class="headerlink" title="报错："></a>报错：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ERROR 2015-09-23 09:47:07,402 NetUtil.py:77 - [Errno 8] _ssl.c:492: EOF occurred in violation of protocol</span><br><span class="line">ERROR 2015-09-23 09:47:07,402 NetUtil.py:78 - SSLError: Failed to connect. Please check openssl library versions.</span><br><span class="line">Refer to: https://bugzilla.redhat.com/show_bug.cgi?id=1022468 for more details.</span><br><span class="line">WARNING 2015-09-23 09:47:07,402 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...</span><br><span class="line">WARNING 2015-09-23 09:47:07,402 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...</span><br><span class="line">INFO 2015-09-23 09:47:14,746 main.py:74 - loglevel=logging.INFO</span><br><span class="line">INFO 2015-09-23 09:47:14,746 main.py:74 - loglevel=logging.INFO</span><br><span class="line">INFO 2015-09-23 09:47:17,403 NetUtil.py:59 - Connecting to https://test.org:8440/ca</span><br><span class="line">WARNING 2015-09-23 09:47:17,404 NetUtil.py:82 - Failed to connect to https://test.org:8440/ca due to [Errno 111] Connection refused</span><br><span class="line">WARNING 2015-09-23 09:47:17,404 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...</span><br><span class="line">WARNING 2015-09-23 09:47:17,404 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...</span><br><span class="line">ERROR 2015-09-23 09:47:19,780 main.py:315 - Fatal exception occurred:</span><br></pre></td></tr></table></figure>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ambari-agent/conf/ambari-agent.ini</span><br><span class="line">在[security]下添加</span><br><span class="line">force_https_protocol=PROTOCOL_TLSv1_2</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/python/cert-verification.cfg </span><br><span class="line">在[https] 下添加</span><br><span class="line">verify=disable</span><br></pre></td></tr></table></figure>
+                <h3 id="报错："><a href="#报错：" class="headerlink" title="报错："></a>报错：</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ERROR 2015-09-23 09:47:07,402 NetUtil.py:77 - [Errno 8] _ssl.c:492: EOF occurred in violation of protocol</span><br><span class="line">ERROR 2015-09-23 09:47:07,402 NetUtil.py:78 - SSLError: Failed to connect. Please check openssl library versions.</span><br><span class="line">Refer to: https://bugzilla.redhat.com/show_bug.cgi?id=1022468 for more details.</span><br><span class="line">WARNING 2015-09-23 09:47:07,402 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...</span><br><span class="line">WARNING 2015-09-23 09:47:07,402 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...</span><br><span class="line">INFO 2015-09-23 09:47:14,746 main.py:74 - loglevel=logging.INFO</span><br><span class="line">INFO 2015-09-23 09:47:14,746 main.py:74 - loglevel=logging.INFO</span><br><span class="line">INFO 2015-09-23 09:47:17,403 NetUtil.py:59 - Connecting to https://test.org:8440/ca</span><br><span class="line">WARNING 2015-09-23 09:47:17,404 NetUtil.py:82 - Failed to connect to https://test.org:8440/ca due to [Errno 111] Connection refused</span><br><span class="line">WARNING 2015-09-23 09:47:17,404 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...</span><br><span class="line">WARNING 2015-09-23 09:47:17,404 NetUtil.py:105 - Server at https://test.org:8440is not reachable, sleeping for 10 seconds...</span><br><span class="line">ERROR 2015-09-23 09:47:19,780 main.py:315 - Fatal exception occurred:</span><br></pre></td></tr></table></figure>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/ambari-agent/conf/ambari-agent.ini</span><br><span class="line">在[security]下添加</span><br><span class="line">force_https_protocol=PROTOCOL_TLSv1_2</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/python/cert-verification.cfg </span><br><span class="line">在[https] 下添加</span><br><span class="line">verify=disable</span><br></pre></td></tr></table></figure>
 <p>然后在Ambari界面点击retry进行重试操作</p>
 
             </div>
@@ -511,7 +511,7 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1、查询各表占用的空间123456SELECT   relname as "Table",   pg_size_pretty(pg_total_relation_size(relid)) As "Size",   pg_size_prett</div>
+                    <div class="summary">1、查询各表占用的空间SELECT   relname as "Table",   pg_size_pretty(pg_total_relation_size(relid)) As "Size",   pg_size_pretty(pg_t</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-09
@@ -558,13 +558,8 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1、集群结构192.168.0.60 host0
-192.168.0.61 host1
-192.168.0.62 host2
-192.168.0.63 host3
-192.168.0.64 host4
-
-2、问题状况#HDFS上显示存活的d</div>
+                    <div class="summary">1、集群结构192.168.0.60 host0192.168.0.61 host1192.168.0.62 host2192.168.0.63 host3192.168.0.64 host4
+2、问题状况#HDFS上显示存活的datano</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-19

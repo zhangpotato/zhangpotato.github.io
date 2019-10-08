@@ -43,11 +43,11 @@
   </entry>
   
   <entry>
-    <title>Trinity服务启动及关闭</title>
-    <link href="http://yoursite.com/2019/10/08/trinity-fu-wu-qi-dong-ji-guan-bi/"/>
-    <id>http://yoursite.com/2019/10/08/trinity-fu-wu-qi-dong-ji-guan-bi/</id>
+    <title>Trinity Linux 安装步骤</title>
+    <link href="http://yoursite.com/2019/10/08/trinity-linux-an-zhuang-bu-zou/"/>
+    <id>http://yoursite.com/2019/10/08/trinity-linux-an-zhuang-bu-zou/</id>
     <published>2019-10-08T04:21:00.000Z</published>
-    <updated>2019-10-08T03:37:38.344Z</updated>
+    <updated>2019-10-08T03:36:55.621Z</updated>
     
     <summary type="html">
     
@@ -55,7 +55,33 @@
       
         
         
-          &lt;h3 id=&quot;一、启动Trinity服务&quot;&gt;&lt;a href=&quot;#一、启动Trinity服务&quot; class=&quot;headerlink&quot; title=&quot;一、启动Trinity服务&quot;&gt;&lt;/a&gt;一、启动Trinity服务&lt;/h3&gt;&lt;figure class=&quot;highlight
+          &lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Trinity Version：4.1.1.233&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="Trinity" scheme="http://yoursite.com/categories/Trinity/"/>
+    
+    
+      <category term="ETL" scheme="http://yoursite.com/tags/ETL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Trinity修改PG数据库密码</title>
+    <link href="http://yoursite.com/2019/10/08/trinity-xiu-gai-pg-shu-ju-ku-mi-ma/"/>
+    <id>http://yoursite.com/2019/10/08/trinity-xiu-gai-pg-shu-ju-ku-mi-ma/</id>
+    <published>2019-10-08T04:21:00.000Z</published>
+    <updated>2019-10-08T03:39:21.406Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1、在PG数据库中修改Trinity用户的密码&quot;&gt;&lt;a href=&quot;#1、在PG数据库中修改Trinity用户的密码&quot; class=&quot;headerlink&quot;
         
       
     
@@ -96,11 +122,11 @@
   </entry>
   
   <entry>
-    <title>Trinity修改PG数据库密码</title>
-    <link href="http://yoursite.com/2019/10/08/trinity-xiu-gai-pg-shu-ju-ku-mi-ma/"/>
-    <id>http://yoursite.com/2019/10/08/trinity-xiu-gai-pg-shu-ju-ku-mi-ma/</id>
+    <title>Trinity服务启动及关闭</title>
+    <link href="http://yoursite.com/2019/10/08/trinity-fu-wu-qi-dong-ji-guan-bi/"/>
+    <id>http://yoursite.com/2019/10/08/trinity-fu-wu-qi-dong-ji-guan-bi/</id>
     <published>2019-10-08T04:21:00.000Z</published>
-    <updated>2019-10-08T03:39:21.406Z</updated>
+    <updated>2019-10-08T03:37:38.344Z</updated>
     
     <summary type="html">
     
@@ -108,33 +134,7 @@
       
         
         
-          &lt;h3 id=&quot;1、在PG数据库中修改Trinity用户的密码&quot;&gt;&lt;a href=&quot;#1、在PG数据库中修改Trinity用户的密码&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Trinity" scheme="http://yoursite.com/categories/Trinity/"/>
-    
-    
-      <category term="ETL" scheme="http://yoursite.com/tags/ETL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Trinity Linux 安装步骤</title>
-    <link href="http://yoursite.com/2019/10/08/trinity-linux-an-zhuang-bu-zou/"/>
-    <id>http://yoursite.com/2019/10/08/trinity-linux-an-zhuang-bu-zou/</id>
-    <published>2019-10-08T04:21:00.000Z</published>
-    <updated>2019-10-08T03:36:55.621Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span
+          &lt;h3 id=&quot;一、启动Trinity服务&quot;&gt;&lt;a href=&quot;#一、启动Trinity服务&quot; class=&quot;headerlink&quot; title=&quot;一、启动Trinity服务&quot;&gt;&lt;/a&gt;一、启动Trinity服务&lt;/h3&gt;&lt;figure class=&quot;highlight
         
       
     
@@ -222,40 +222,11 @@
   </entry>
   
   <entry>
-    <title>CDH5.14.2安装手册</title>
-    <link href="http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/"/>
-    <id>http://yoursite.com/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/</id>
-    <published>2019-06-04T03:37:00.000Z</published>
-    <updated>2019-06-04T05:51:59.767Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;一、基础环境配置&quot;&gt;&lt;a href=&quot;#一、基础环境配置&quot; class=&quot;headerlink&quot; title=&quot;一、基础环境配置&quot;&gt;&lt;/a&gt;一、基础环境配置&lt;/h2&gt;&lt;p&gt;1、修改主机名&lt;/p&gt;
-&lt;pre class=&quot; language-sh&quot;&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-      <category term="CDH" scheme="http://yoursite.com/categories/CDH/"/>
-    
-    
-      <category term="BigData" scheme="http://yoursite.com/tags/BigData/"/>
-    
-      <category term="CDH安装" scheme="http://yoursite.com/tags/CDH%E5%AE%89%E8%A3%85/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Linux常用命令</title>
     <link href="http://yoursite.com/2019/06/04/linux-chang-yong-ming-ling/"/>
     <id>http://yoursite.com/2019/06/04/linux-chang-yong-ming-ling/</id>
     <published>2019-06-04T03:37:00.000Z</published>
-    <updated>2019-06-04T03:41:59.959Z</updated>
+    <updated>2019-06-04T05:46:13.217Z</updated>
     
     <summary type="html">
     
@@ -425,7 +396,7 @@
       
         
         
-          &lt;h2 id=&quot;1、集群结构&quot;&gt;&lt;a href=&quot;#1、集群结构&quot; class=&quot;headerlink&quot; title=&quot;1、集群结构&quot;&gt;&lt;/a&gt;1、集群结构&lt;/h2&gt;&lt;pre class=&quot; language-sh&quot;&gt;&lt;code
+          &lt;h2 id=&quot;1、集群结构&quot;&gt;&lt;a href=&quot;#1、集群结构&quot; class=&quot;headerlink&quot; title=&quot;1、集群结构&quot;&gt;&lt;/a&gt;1、集群结构&lt;/h2&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
         
       
     
@@ -471,7 +442,7 @@
     <link href="http://yoursite.com/2019/01/29/yarn-register-dns/"/>
     <id>http://yoursite.com/2019/01/29/yarn-register-dns/</id>
     <published>2019-01-29T08:39:00.000Z</published>
-    <updated>2019-06-04T05:46:49.632Z</updated>
+    <updated>2019-10-08T03:39:26.911Z</updated>
     
     <summary type="html">
     
@@ -500,7 +471,7 @@
     <link href="http://yoursite.com/2019/01/29/hdp-an-zhuang-ji-chu-pei-zhi/"/>
     <id>http://yoursite.com/2019/01/29/hdp-an-zhuang-ji-chu-pei-zhi/</id>
     <published>2019-01-29T05:39:00.000Z</published>
-    <updated>2019-04-12T08:08:49.819Z</updated>
+    <updated>2019-06-04T05:46:12.094Z</updated>
     
     <summary type="html">
     

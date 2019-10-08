@@ -6,7 +6,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Potato博客">
-    <meta name="description" content="Kafka 基本操作创建topic12345./kafka-topics.sh --create --zookeeper host0:2181,host1:2181,host2:2181,host3:2181,host4:2181 --re">
+    <meta name="description" content="Kafka 基本操作创建topic./kafka-topics.sh --create --zookeeper host0:2181,host1:2181,host2:2181,host3:2181,host4:2181 --replica">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -313,10 +313,10 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Kafka-基本操作"><a href="#Kafka-基本操作" class="headerlink" title="Kafka 基本操作"></a>Kafka 基本操作</h1><h2 id="创建topic"><a href="#创建topic" class="headerlink" title="创建topic"></a>创建topic</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./kafka-topics.sh --create --zookeeper host0:2181,host1:2181,host2:2181,host3:2181,host4:2181 --replication-factor 1 --partitions 1 --topic <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#-replication-factor 1 数据副本数为1</span></span><br><span class="line"><span class="comment">#-partitions 1 分区数量</span></span><br><span class="line"><span class="comment">#--topic test topic name</span></span><br></pre></td></tr></table></figure>
-<h2 id="查看topic"><a href="#查看topic" class="headerlink" title="查看topic"></a>查看topic</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-topics.sh --list  --zookeeper host0:2181,host1:2181,host2:2181,host3:2181,host4:2181</span><br></pre></td></tr></table></figure>
-<h2 id="生产消息"><a href="#生产消息" class="headerlink" title="生产消息"></a>生产消息</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./kafka-console-producer.sh --broker-list host1:6667,host4:6667,host3:6667,host2:6667 --topic <span class="built_in">test</span></span><br><span class="line"><span class="comment">#--broker-list 为kafka broker所有节点的列表（集群版本）</span></span><br><span class="line"><span class="comment">#host1:6667 为kafka配置中listeners的配置端口号</span></span><br><span class="line"><span class="comment">#--topic test	消息发送的topic name</span></span><br></pre></td></tr></table></figure>
-<h2 id="消费消息"><a href="#消费消息" class="headerlink" title="消费消息"></a>消费消息</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-console-consumer.sh --zookeeper host0:2181,host1:2181,host2:2181,host3:2181,host4:2181 --topic <span class="built_in">test</span> --from-beginning</span><br></pre></td></tr></table></figure>
+                <h1 id="Kafka-基本操作"><a href="#Kafka-基本操作" class="headerlink" title="Kafka 基本操作"></a>Kafka 基本操作</h1><h2 id="创建topic"><a href="#创建topic" class="headerlink" title="创建topic"></a>创建topic</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">./kafka-topics.sh --create --zookeeper host0:2181,host1:2181,host2:2181,host3:2181,host4:2181 --replication-factor 1 --partitions 1 --topic <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#-replication-factor 1 数据副本数为1</span></span><br><span class="line"><span class="comment">#-partitions 1 分区数量</span></span><br><span class="line"><span class="comment">#--topic test topic name</span></span><br></pre></td></tr></table></figure>
+<h2 id="查看topic"><a href="#查看topic" class="headerlink" title="查看topic"></a>查看topic</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">./kafka-topics.sh --list  --zookeeper host0:2181,host1:2181,host2:2181,host3:2181,host4:2181</span><br></pre></td></tr></table></figure>
+<h2 id="生产消息"><a href="#生产消息" class="headerlink" title="生产消息"></a>生产消息</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">./kafka-console-producer.sh --broker-list host1:6667,host4:6667,host3:6667,host2:6667 --topic <span class="built_in">test</span></span><br><span class="line"><span class="comment">#--broker-list 为kafka broker所有节点的列表（集群版本）</span></span><br><span class="line"><span class="comment">#host1:6667 为kafka配置中listeners的配置端口号</span></span><br><span class="line"><span class="comment">#--topic test	消息发送的topic name</span></span><br></pre></td></tr></table></figure>
+<h2 id="消费消息"><a href="#消费消息" class="headerlink" title="消费消息"></a>消费消息</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">./kafka-console-consumer.sh --zookeeper host0:2181,host1:2181,host2:2181,host3:2181,host4:2181 --topic <span class="built_in">test</span> --from-beginning</span><br></pre></td></tr></table></figure>
 <h2 id="kafka-connect"><a href="#kafka-connect" class="headerlink" title="kafka connect"></a>kafka connect</h2><h2 id="kafka-Stream"><a href="#kafka-Stream" class="headerlink" title="kafka Stream"></a>kafka Stream</h2>
             </div>
             <hr>
@@ -489,7 +489,7 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">1、报错信息123could not connect to server: Connection refusedIs the server running on host host.domain.com and acceptingTCP/I</div>
+                    <div class="summary">1、报错信息could not connect to server: Connection refusedIs the server running on host host.domain.com and acceptingTCP/IP c</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-21

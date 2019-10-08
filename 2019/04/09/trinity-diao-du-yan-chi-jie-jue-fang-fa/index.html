@@ -6,7 +6,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Trinity调度延迟解决方法, Potato博客">
-    <meta name="description" content="1、查询各表占用的空间123456SELECT   relname as &#34;Table&#34;,   pg_size_pretty(pg_total_relation_size(relid)) As &#34;Size&#34;,   pg_size_prett">
+    <meta name="description" content="1、查询各表占用的空间SELECT   relname as &#34;Table&#34;,   pg_size_pretty(pg_total_relation_size(relid)) As &#34;Size&#34;,   pg_size_pretty(pg_t">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -335,8 +335,8 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、查询各表占用的空间"><a href="#1、查询各表占用的空间" class="headerlink" title="1、查询各表占用的空间"></a>1、查询各表占用的空间</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">   relname <span class="keyword">as</span> <span class="string">"Table"</span>,</span><br><span class="line">   pg_size_pretty(pg_total_relation_size(relid)) <span class="keyword">As</span> <span class="string">"Size"</span>,</span><br><span class="line">   pg_size_pretty(pg_total_relation_size(relid) - pg_relation_size(relid)) <span class="keyword">as</span> <span class="string">"External Size"</span></span><br><span class="line"><span class="keyword">FROM</span> pg_catalog.pg_statio_user_tables <span class="keyword">ORDER</span> <span class="keyword">BY</span> pg_total_relation_size(relid) <span class="keyword">DESC</span>;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h3 id="2、需要维护的table"><a href="#2、需要维护的table" class="headerlink" title="2、需要维护的table"></a>2、需要维护的table</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">task, taskdependencyrule, jobexecution, jobexecutionschedule, jobtxdate</span><br></pre></td></tr></table></figure>
+                <h3 id="1、查询各表占用的空间"><a href="#1、查询各表占用的空间" class="headerlink" title="1、查询各表占用的空间"></a>1、查询各表占用的空间</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">   relname <span class="keyword">as</span> <span class="string">"Table"</span>,</span><br><span class="line">   pg_size_pretty(pg_total_relation_size(relid)) <span class="keyword">As</span> <span class="string">"Size"</span>,</span><br><span class="line">   pg_size_pretty(pg_total_relation_size(relid) - pg_relation_size(relid)) <span class="keyword">as</span> <span class="string">"External Size"</span></span><br><span class="line"><span class="keyword">FROM</span> pg_catalog.pg_statio_user_tables <span class="keyword">ORDER</span> <span class="keyword">BY</span> pg_total_relation_size(relid) <span class="keyword">DESC</span>;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="2、需要维护的table"><a href="#2、需要维护的table" class="headerlink" title="2、需要维护的table"></a>2、需要维护的table</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">task, taskdependencyrule, jobexecution, jobexecutionschedule, jobtxdate</span><br></pre></td></tr></table></figure>
 <h3 id="3、执行vacuum操作"><a href="#3、执行vacuum操作" class="headerlink" title="3、执行vacuum操作"></a>3、执行vacuum操作</h3><p><img src="/images/Trinity_vacuum/1.jpg" alt=""></p>
 <p>右键需要维护的table-&gt;选择Maintenance-&gt;ANALYZE-&gt;ok</p>
 <p><img src="/images/Trinity_vacuum/2.jpg" alt=""></p>
@@ -558,7 +558,7 @@
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">报错：123456789101112ERROR 2015-09-23 09:47:07,402 NetUtil.py:77 - [Errno 8] _ssl.c:492: EOF occurred in violation of proto</div>
+                    <div class="summary">报错：ERROR 2015-09-23 09:47:07,402 NetUtil.py:77 - [Errno 8] _ssl.c:492: EOF occurred in violation of protocolERROR 2015-0</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-27
