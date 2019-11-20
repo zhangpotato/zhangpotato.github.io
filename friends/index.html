@@ -103,17 +103,6 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/friends" class="waves-effect waves-light">
       
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
@@ -199,17 +188,6 @@
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			Contact
 		</a>
           
         </li>
@@ -608,6 +586,32 @@
         </div>
         <div class="card">
 
+            
+            <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'd3a7a4e6a57c06da2dcf',
+        clientSecret: '857899a3d1c9bc4f1ae32244ee313856ce37bc6a',
+        repo: 'zhangpotato.github.io',
+        owner: 'zhangpotato',
+        admin: ["zhangpotato"],
+        id: '2019-01-16T12-37-40',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
             
 
             
