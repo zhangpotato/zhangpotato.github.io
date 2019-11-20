@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
-    
+
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
@@ -30,7 +29,7 @@ eval
 export
 将HDFS目录导出到">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
@@ -39,101 +38,121 @@ export
     <title>Sqoop基础教程 | Potato博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-
-    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
-</head>
 
 <body>
-
-<header class="navbar-fixed">
+    <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="container">
-            <div class="nav-wrapper">
-                <div class="brand-logo">
-                    <a href="/" class="waves-effect waves-light">
-                        
-                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
-                        
-                        <span class="logo-span">Potato博客</span>
-                    </a>
-                </div>
-                
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Potato博客</span>
+                </a>
+            </div>
+            
 
-<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
-<ul class="right">
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
     
-    <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">
-            
-            <i class="fa fa-home"></i>
-            
-            <span>首页</span>
-        </a>
-    </li>
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
     
-    <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">
-            
-            <i class="fa fa-tags"></i>
-            
-            <span>标签</span>
-        </a>
-    </li>
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
     
-    <li class="hide-on-med-and-down">
-        <a href="/categories" class="waves-effect waves-light">
-            
-            <i class="fa fa-bookmark"></i>
-            
-            <span>分类</span>
-        </a>
-    </li>
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
     
-    <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">
-            
-            <i class="fa fa-archive"></i>
-            
-            <span>归档</span>
-        </a>
-    </li>
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
     
-    <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">
-            
-            <i class="fa fa-user-circle-o"></i>
-            
-            <span>关于</span>
-        </a>
-    </li>
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
     
-    <li class="hide-on-med-and-down">
-        <a href="/friends" class="waves-effect waves-light">
-            
-            <i class="fa fa-address-book"></i>
-            
-            <span>友情链接</span>
-        </a>
-    </li>
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
     
-    <li>
-        <a id="toggleSearch" class="waves-effect waves-light">
-            <i id="searchIcon" class="mdi-action-search"></i>
-        </a>
-    </li>
-
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
 </ul>
 
-<div class="side-nav" id="mobile-nav">
+<div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
         
@@ -151,91 +170,98 @@ export
 
     <ul class="menu-list mobile-menu-list">
         
-        <li>
-            <a href="/" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-home"></i>
-                
-                首页
-            </a>
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
         </li>
         
-        <li>
-            <a href="/tags" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-tags"></i>
-                
-                标签
-            </a>
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
         </li>
         
-        <li>
-            <a href="/categories" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-bookmark"></i>
-                
-                分类
-            </a>
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
         </li>
         
-        <li>
-            <a href="/archives" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-archive"></i>
-                
-                归档
-            </a>
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
         </li>
         
-        <li>
-            <a href="/about" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-user-circle-o"></i>
-                
-                关于
-            </a>
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
         </li>
         
-        <li>
-            <a href="/friends" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-address-book"></i>
-                
-                友情链接
-            </a>
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
         </li>
         
         
         <li><div class="divider"></div></li>
         <li>
             <a href="https://github.com/zhangpotato" class="waves-effect waves-light" target="_blank">
-                <i class="fa fa-github-square fa-fw"></i>Fork Me
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
         
     </ul>
-
-    <div class="social-link"><a href="https://github.com/zhangpotato" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-<!-- <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a> -->
-<!-- 
-<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-    <i class="fa fa-rss"></i>
-</a>
- --></div>
 </div>
 
-            </div>
         </div>
 
         
-        <style>
+            <style>
     .nav-transparent .github-corner {
         display: none !important;
     }
@@ -289,14 +315,28 @@ export
 </a>
         
     </nav>
+
 </header>
 
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
-    <div class="container">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
@@ -311,54 +351,176 @@ export
 
 
 
-<main class="container content">
+
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
-            
-            <div class="article-tag">
-                
-                <a href="/tags/BigData/" target="_blank">
-                    <span class="chip bg-color">BigData</span>
-                </a>
-                
-                <a href="/tags/ETL/" target="_blank">
-                    <span class="chip bg-color">ETL</span>
-                </a>
-                
-                <a href="/tags/Sqoop/" target="_blank">
-                    <span class="chip bg-color">Sqoop</span>
-                </a>
-                
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/BigData/">
+                                <span class="chip bg-color">BigData</span>
+                            </a>
+                        
+                            <a href="/tags/ETL/">
+                                <span class="chip bg-color">ETL</span>
+                            </a>
+                        
+                            <a href="/tags/Sqoop/">
+                                <span class="chip bg-color">Sqoop</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/BigData/" class="post-category">
+                                BigData
+                            </a>
+                        
+                    </div>
+                    
+                </div>
             </div>
-            
+
             <div class="post-info">
                 
-                <span class="post-cate">
-                <!--<span class="post-cate" style="margin-right: 0px">-->
-                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                    
-                    <a href="/categories/BigData/" class="post-category" target="_blank">
-                        BigData
-                    </a>
-                    
-                </span>
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-07-23
+                </div>
                 
 
-                <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2019-07-23
-                </span>
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-07-23
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    25 分
+                </div>
+                
 				
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
 				
-                    <span id="busuanzi_container_page_pv" class="post-read">
-                    <i class="fa fa-eye fa-fw"></i>阅读 <span id="busuanzi_value_page_pv"></span>
-				
-            </span></div>
+            </div>
+            
         </div>
-        <hr>
+        <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="一、Sqoop导入"><a href="#一、Sqoop导入" class="headerlink" title="一、Sqoop导入"></a>一、Sqoop导入</h1><h2 id="1、Sqoop参数使用方式"><a href="#1、Sqoop参数使用方式" class="headerlink" title="1、Sqoop参数使用方式"></a>1、Sqoop参数使用方式</h2><table>
@@ -867,8 +1029,8 @@ sqoop import ... --map-column-java id = String，value = Integer
 <td>如果指定，则创建缺少的HBase表</td>
 </tr>
 <tr>
-<td>–hbase-row-key <col></td>
-<td>指定要用作行键的输入列，复合键必须要用逗号进行分隔</td>
+<td>–hbase-row-key </td></tr></tbody><colgroup><col></colgroup>
+<tbody><tr><td>指定要用作行键的输入列，复合键必须要用逗号进行分隔</td>
 </tr>
 <tr>
 <td>–hbase-table <table-name></table-name></td>
@@ -901,8 +1063,8 @@ sqoop import ... --map-column-java id = String，value = Integer
 <td>如果指定，则创建缺少的Accumulo表</td>
 </tr>
 <tr>
-<td>–accumulo-row-key <col></td>
-<td>指定要用作行键的输入列</td>
+<td>–accumulo-row-key </td></tr></tbody><colgroup><col></colgroup>
+<tbody><tr><td>指定要用作行键的输入列</td>
 </tr>
 <tr>
 <td>–accumulo-visibility <vis></vis></td>
@@ -1060,7 +1222,7 @@ sqoop import ... --map-column-java id = String，value = Integer
 </tr>
 <tr>
 <td>–mysql-delimiters</td>
-<td>使用MySQL的默认分隔符集：fields: ‘,’ lines:<code>\n</code> escaped-by:<code>\</code> optional-enclosed-by:<code>&#39;</code></td>
+<td>使用MySQL的默认分隔符集：fields: ‘,’ lines:<code>\n</code> escaped-by:<code>\</code> optional-enclosed-by:<code>'</code></td>
 </tr>
 <tr>
 <td>–optionally-enclosed-by <char></char></td>
@@ -1069,7 +1231,7 @@ sqoop import ... --map-column-java id = String，value = Integer
 </tbody>
 </table>
 <h2 id="4、Sqoop常用操作"><a href="#4、Sqoop常用操作" class="headerlink" title="4、Sqoop常用操作"></a>4、Sqoop常用操作</h2><p>从外部数据库导入到Hadoop上时用import，反之用export。</p>
-<h3 id="A、MySQL-gt-HDFS"><a href="#A、MySQL-gt-HDFS" class="headerlink" title="A、MySQL-&gt;HDFS"></a>A、MySQL-&gt;HDFS</h3><pre class=" language-sh"><code class="language-sh">#--target-dir /user/sqoop/hive hive文件夹要不存在或使用--delete-target-dir删除已存在的文件夹
+<h3 id="A、MySQL-gt-HDFS"><a href="#A、MySQL-gt-HDFS" class="headerlink" title="A、MySQL->HDFS"></a>A、MySQL-&gt;HDFS</h3><pre class=" language-sh"><code class="language-sh">#--target-dir /user/sqoop/hive hive文件夹要不存在或使用--delete-target-dir删除已存在的文件夹
 sqoop import --connect jdbc:mysql://host0:3306/hive --username root --password 123456 \
 --table VERSION --columns "name,age" --where "age>18" \
 --default-character-set = utf8 \
@@ -1084,7 +1246,7 @@ sqoop import --connect jdbc:mysql://host0:3306/hive --username root --password 1
 --check-column id \     #指定增量导入时的参考列
 --last-value 10                #上次导入后的值
 </code></pre>
-<h3 id="B、MySQL-gt-Hive"><a href="#B、MySQL-gt-Hive" class="headerlink" title="B、MySQL-&gt;Hive"></a>B、MySQL-&gt;Hive</h3><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--hive中创建表</span>
+<h3 id="B、MySQL-gt-Hive"><a href="#B、MySQL-gt-Hive" class="headerlink" title="B、MySQL->Hive"></a>B、MySQL-&gt;Hive</h3><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--hive中创建表</span>
 <span class="token keyword">use</span> <span class="token keyword">default</span><span class="token punctuation">;</span>
 <span class="token keyword">drop</span> <span class="token keyword">table</span> <span class="token keyword">if</span> <span class="token keyword">exists</span> <span class="token keyword">default</span><span class="token punctuation">.</span>hive_bbs_product_snappy <span class="token punctuation">;</span>
 <span class="token keyword">create</span> <span class="token keyword">table</span> <span class="token keyword">default</span><span class="token punctuation">.</span>hive_bbs_product_snappy<span class="token punctuation">(</span>
@@ -1112,7 +1274,7 @@ sqoop import --connect jdbc:mysql://host0:3306/hive --username root --password 1
 --check-column id \     #指定增量导入时的参考列
 --last-value 10                #上次导入后的值
 </code></pre>
-<h3 id="C、MySQL-gt-HBase"><a href="#C、MySQL-gt-HBase" class="headerlink" title="C、MySQL-&gt;HBase"></a>C、MySQL-&gt;HBase</h3><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--mysql创建表</span>
+<h3 id="C、MySQL-gt-HBase"><a href="#C、MySQL-gt-HBase" class="headerlink" title="C、MySQL->HBase"></a>C、MySQL-&gt;HBase</h3><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">--mysql创建表</span>
 <span class="token keyword">create</span> <span class="token keyword">table</span> tohdfs<span class="token punctuation">(</span>
 id <span class="token keyword">int</span><span class="token punctuation">,</span>
 name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -1143,13 +1305,13 @@ sqoop import --connect jdbc:mysql://host0:3306/hive --username root --password 1
 --hbase-row-key id \
 --hbase-bulkload
 </code></pre>
-<h3 id="D、HDFS-gt-MySQL"><a href="#D、HDFS-gt-MySQL" class="headerlink" title="D、HDFS-&gt;MySQL"></a>D、HDFS-&gt;MySQL</h3><pre class=" language-sh"><code class="language-sh">sqoop export --connect jdbc:mysql://host0:3306/hive --username root --password 123456 \
+<h3 id="D、HDFS-gt-MySQL"><a href="#D、HDFS-gt-MySQL" class="headerlink" title="D、HDFS->MySQL"></a>D、HDFS-&gt;MySQL</h3><pre class=" language-sh"><code class="language-sh">sqoop export --connect jdbc:mysql://host0:3306/hive --username root --password 123456 \
 --table tohdfs \
 --export-dir /tmp/datathree/  \                    #HDFS的目录位置
 -m 1 \
 --input-fields-terminated-by '\0001'
 </code></pre>
-<h3 id="E、Hive-gt-MySQL"><a href="#E、Hive-gt-MySQL" class="headerlink" title="E、Hive-&gt;MySQL"></a>E、Hive-&gt;MySQL</h3><pre class=" language-sh"><code class="language-sh">#方法一为将Hive表所在的数据位置（HDFS）导入到MySQL中
+<h3 id="E、Hive-gt-MySQL"><a href="#E、Hive-gt-MySQL" class="headerlink" title="E、Hive->MySQL"></a>E、Hive-&gt;MySQL</h3><pre class=" language-sh"><code class="language-sh">#方法一为将Hive表所在的数据位置（HDFS）导入到MySQL中
 sqoop export --connect jdbc:mysql://host0:3306/hive --username root --password 123456 \
 --table wht_test2 \
 --export-dir /user/hive/warehouse/wht_test1 \
@@ -1157,7 +1319,7 @@ sqoop export --connect jdbc:mysql://host0:3306/hive --username root --password 1
 -m 1
 #--fields-terminated-by '\t' \                        #HDFS中被导出的文件字段的间隔符
 </code></pre>
-<h3 id="F、HBase-gt-MySQL"><a href="#F、HBase-gt-MySQL" class="headerlink" title="F、HBase-&gt;MySQL"></a>F、HBase-&gt;MySQL</h3><pre class=" language-sh"><code class="language-sh">#HBASE->Hive映射表->Hive内部表->MySQL
+<h3 id="F、HBase-gt-MySQL"><a href="#F、HBase-gt-MySQL" class="headerlink" title="F、HBase->MySQL"></a>F、HBase-&gt;MySQL</h3><pre class=" language-sh"><code class="language-sh">#HBASE->Hive映射表->Hive内部表->MySQL
 #1、MySQL创建表
 create table test.employee(
 rowkey int(11),
@@ -1187,18 +1349,18 @@ sqoop export --connect jdbc:mysql://host0:3306/test --username root --password 1
 --input-null-string '\\N' \
 --input-null-non-string '\\N'
 </code></pre>
-<h3 id="G、Oracle-gt-HDFS"><a href="#G、Oracle-gt-HDFS" class="headerlink" title="G、Oracle-&gt;HDFS"></a>G、Oracle-&gt;HDFS</h3><pre class=" language-sh"><code class="language-sh">sqoop import --connect jdbc:oracle:thin:@IPAddress:databaseName \
+<h3 id="G、Oracle-gt-HDFS"><a href="#G、Oracle-gt-HDFS" class="headerlink" title="G、Oracle->HDFS"></a>G、Oracle-&gt;HDFS</h3><pre class=" language-sh"><code class="language-sh">sqoop import --connect jdbc:oracle:thin:@IPAddress:databaseName \
 --username userName --password password \
 --table TABLENAME \
 --target-dir /user/operate \
 -m 1 --where "where子句 and 根据需要添加"
 </code></pre>
-<h3 id="H、Oracle-gt-Hive"><a href="#H、Oracle-gt-Hive" class="headerlink" title="H、Oracle-&gt;Hive"></a>H、Oracle-&gt;Hive</h3><pre class=" language-sh"><code class="language-sh">sqoop import --connect jdbc:oracle:thin:@IPAddress:1521:databaseName \
+<h3 id="H、Oracle-gt-Hive"><a href="#H、Oracle-gt-Hive" class="headerlink" title="H、Oracle->Hive"></a>H、Oracle-&gt;Hive</h3><pre class=" language-sh"><code class="language-sh">sqoop import --connect jdbc:oracle:thin:@IPAddress:1521:databaseName \
 --username userName --password password \
 --table TABLENAME  \
 -m 1 --hive-import --hive-database test
 </code></pre>
-<h3 id="I、HDFS-gt-Oracle"><a href="#I、HDFS-gt-Oracle" class="headerlink" title="I、HDFS-&gt;Oracle"></a>I、HDFS-&gt;Oracle</h3><pre class=" language-sh"><code class="language-sh">sqoop export --connect jdbc:oracle:thin:@//192.168.27.235:1521/ORCL \
+<h3 id="I、HDFS-gt-Oracle"><a href="#I、HDFS-gt-Oracle" class="headerlink" title="I、HDFS->Oracle"></a>I、HDFS-&gt;Oracle</h3><pre class=" language-sh"><code class="language-sh">sqoop export --connect jdbc:oracle:thin:@//192.168.27.235:1521/ORCL \
 --username scott --password liujiyu \
 --table empty \
 --export-dir '/liujiyu/nihao/part-m-00000' \
@@ -1315,8 +1477,8 @@ sqoop export --connect jdbc:mysql://host0:3306/test --username root --password 1
 <td>指定要从中加载记录类的jar的名称。</td>
 </tr>
 <tr>
-<td>–merge-key <col></td>
-<td>指定要用作合并键的列的名称。</td>
+<td>–merge-key </td></tr></tbody><colgroup><col></colgroup>
+<tbody><tr><td>指定要用作合并键的列的名称。</td>
 </tr>
 <tr>
 <td>–new-data <path></path></td>
@@ -1396,19 +1558,128 @@ LONG    VARCHAR2
 </code></pre>
 <h3 id="数据导出到Oracle"><a href="#数据导出到Oracle" class="headerlink" title="数据导出到Oracle"></a>数据导出到Oracle</h3><pre class=" language-sh"><code class="language-sh">sqoop export --direct --connect … --table OracleTableName --export-dir /user/username/tablename
 </code></pre>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr>
 
             
-            <style>
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com" rel="external nofollow noreferrer">Potato</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com/2019/07/23/sqoop-ji-chu-jiao-cheng/">http://yoursite.com/2019/07/23/sqoop-ji-chu-jiao-cheng/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="http://yoursite.com" target="_blank">Potato</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/BigData/">
+                                    <span class="chip bg-color">BigData</span>
+                                </a>
+                            
+                                <a href="/tags/ETL/">
+                                    <span class="chip bg-color">ETL</span>
+                                </a>
+                            
+                                <a href="/tags/Sqoop/">
+                                    <span class="chip bg-color">Sqoop</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
     #reward {
         margin: 40px 0;
         text-align: center;
     }
 
     #reward .reward-link {
-        font-size: 1.88rem;
+        font-size: 1.4rem;
+        line-height: 38px;
     }
 
     #reward .btn-floating:hover {
@@ -1439,6 +1710,14 @@ LONG    VARCHAR2
         cursor: pointer;
     }
 
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
     #rewardModal .reward-tabs {
         margin: 0 auto;
         width: 210px;
@@ -1448,6 +1727,10 @@ LONG    VARCHAR2
         height: 38px;
         margin: 10px auto;
         padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
     }
 
     .reward-tabs .tabs .tab {
@@ -1461,17 +1744,18 @@ LONG    VARCHAR2
     }
 
     .reward-tabs .tab a:hover {
+        background-color: #ccc;
         color: #fff;
     }
 
     .reward-tabs .wechat-tab .active {
-        color: #fff;
-        background-color: #22AB38;
+        color: #fff !important;
+        background-color: #22AB38 !important;
     }
 
     .reward-tabs .alipay-tab .active {
-        color: #fff;
-        background-color: #019FE8;
+        color: #fff !important;
+        background-color: #019FE8 !important;
     }
 
     .reward-tabs .reward-img {
@@ -1481,24 +1765,24 @@ LONG    VARCHAR2
 </style>
 
 <div id="reward">
-    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
 
     <!-- Modal Structure -->
     <div id="rewardModal" class="modal">
         <div class="modal-content">
-            <a class="close"><i class="fa fa-close"></i></a>
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
             <h4 class="reward-title">你的赏识是我前进的动力</h4>
             <div class="reward-content">
                 <div class="reward-tabs">
-                    <ul class="tabs">
-                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
-                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
                     <div id="alipay">
                         <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -1508,35 +1792,10 @@ LONG    VARCHAR2
 
 <script>
     $(function () {
-        $('#reward .reward-link').on('click', function () {
-            $('#rewardModal').openModal();
-        });
-
-        $('#rewardModal .close').on('click', function () {
-            $('#rewardModal').closeModal();
-        });
+        $('.tabs').tabs();
     });
 </script>
             
-
-            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-
-<div id="article-share">
-    
-    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
-    
-</div>
-
-<script src="/libs/share/js/social-share.min.js"></script>
-
-            <div class="reprint">
-                <p>
-                    <span class="reprint-tip">转载请注明: </span>
-                    <a href="http://yoursite.com" class="b-link-green">Potato博客</a>
-                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/07/23/sqoop-ji-chu-jiao-cheng/" class="b-link-green">Sqoop基础教程</a>
-                </p>
-            </div>
         </div>
     </div>
 
@@ -1556,7 +1815,8 @@ LONG    VARCHAR2
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
                 <a href="/2019/08/02/kafka-ji-ben-cao-zuo/">
                     <div class="card-image">
@@ -1568,14 +1828,18 @@ LONG    VARCHAR2
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Kafka 基本操作创建topic./kafka-topics.sh --create --zookeeper host0:2181,host1:2181,host2:2181,host3:2181,host4:2181 --replica</div>
+                    <div class="summary block-with-text">
+                        
+                            Kafka 基本操作创建topic./kafka-topics.sh --create --zookeeper host0:2181,host1:2181,host2:2181,host3:2181,host4:2181 --replica
+                        
+                    </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-02
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-08-02
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
+                            <i class="fas fa-user fa-fw"></i>
                             Potato
                             
                         </span>
@@ -1587,7 +1851,9 @@ LONG    VARCHAR2
         
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/">
                     <div class="card-image">
@@ -1599,22 +1865,26 @@ LONG    VARCHAR2
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">一、基础环境配置1、修改主机名#操作系统为CentOS7
+                    <div class="summary block-with-text">
+                        
+                            一、基础环境配置1、修改主机名#操作系统为CentOS7
 #192.168.0.220节点上（root用户）
 vim /etc/hostname
 host0
 #192.168.0.221节点上
 vim /etc/hostname
-host1</div>
+host1
+                        
+                    </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-06-04
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CDH/" class="post-category" target="_blank">
+                            <a href="/categories/CDH/" class="post-category">
                                     CDH
                                 </a>
                             
@@ -1625,11 +1895,11 @@ host1</div>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/BigData/" target="_blank">
+                    <a href="/tags/BigData/">
                         <span class="chip bg-color">BigData</span>
                     </a>
                     
-                    <a href="/tags/CDH安装/" target="_blank">
+                    <a href="/tags/CDH安装/">
                         <span class="chip bg-color">CDH安装</span>
                     </a>
                     
@@ -1640,43 +1910,126 @@ host1</div>
         
     </div>
 </article>
+
 </div>
 
 
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1,h2, h3, h4'
+        });
 
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
 
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
 
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
 
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: Potato博客<br />'
-            + '作者: Potato<br />'
-            + '链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
 
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
     });
 </script>
 
@@ -1685,50 +2038,113 @@ host1</div>
 </main>
 
 
-<footer class="page-footer bg-color">
+
+    <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            本站基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
-
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="http://yoursite.com" target="_blank">Potato</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
             
-    		
-                <br>
-                <span id="busuanzi_container_site_pv">
-                    本站总访问量 <span id="busuanzi_value_site_pv" style="color: #fff;"></span> 次,&nbsp;
-                </span>
-    			<span id="busuanzi_container_site_uv">
-                    访客数 <span id="busuanzi_value_site_uv" style="color: #fff;"></span> 人.
-                </span>
-    		
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "11";
+                    var startDate = "18";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/zhangpotato" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-<!-- <a href="mailto:chenjiayin1990@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a> -->
-<!-- 
-<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-    <i class="fa fa-rss"></i>
-</a>
- --></div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
     </div>
 </footer>
 
 <div class="progress-bar"></div>
 
 
-<!-- 搜索遮罩框 -->
+    <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title">搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
         </div>
         <div id="searchResult"></div>
     </div>
@@ -1736,32 +2152,69 @@ host1</div>
 
 <script src="/js/search.js"></script>
 <script type="text/javascript">
+$(function () {
     searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
 </script>
-<!-- 回到顶部按钮 -->
+    <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
     <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fa fa-angle-up"></i>
+        <i class="fas fa-arrow-up"></i>
     </a>
 </div>
 
 
-<script src="/libs/materialize/js/materialize.min.js"></script>
-<script src="/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/libs/aos/aos.js"></script>
-<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-
-    <script src="/libs/others/clicklove.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
 
+    
+
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
 
 </body>
+
 </html>
