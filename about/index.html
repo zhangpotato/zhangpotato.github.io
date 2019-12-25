@@ -338,14 +338,14 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">7</a></span>
+    <span class="count"><a href="/categories">4</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">11</a></span>
+    <span class="count"><a href="/tags">9</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -367,14 +367,14 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">7</a></span>
+    <span class="count"><a href="/categories">4</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">11</a></span>
+    <span class="count"><a href="/tags">9</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -536,7 +536,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"HDP","value":0},{"name":"数据库","value":0},{"name":"Trinity","value":8},{"name":"CDH","value":0},{"name":"Splice Engine","value":1},{"name":"BigData","value":6},{"name":"MySQL","value":3}],
+                data: [{"name":"BigData","value":6},{"name":"MySQL","value":3},{"name":"Splice Engine","value":1},{"name":"Trinity","value":8}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -560,7 +560,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["ETL","Trinity","BigData","Hadoop问题","MySQL","CDH安装","HDP安装","Splice Engine优化","Sqoop","HDP问题"]
+                data: ["ETL","Trinity","BigData","Hadoop问题","MySQL","CDH安装","HDP安装","Splice Engine优化","Sqoop"]
             }
         ],
         yAxis: [
@@ -573,7 +573,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [9,8,7,3,3,1,1,1,1,0],
+                data: [9,8,7,3,3,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -844,40 +844,14 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/BigData/">
-                <span class="chip center-align waves-effect waves-light chip-default">BigData</span>
-            </a>
-            
-            
-            
-            <a href="/tags/HDP问题/">
-                <span class="chip center-align waves-effect waves-light chip-default">HDP问题</span>
-            </a>
-            
-            
-            
-            <a href="/tags/MySQL优化/">
-                <span class="chip center-align waves-effect waves-light chip-default">MySQL优化</span>
-            </a>
-            
-            
-            
-            <a href="/tags/ETL/">
-                <span class="chip center-align waves-effect waves-light chip-default">ETL</span>
-            </a>
-            
-            
-            
-            
-            
-            <a href="/tags/Hadoop问题/">
-                <span class="chip center-align waves-effect waves-light chip-default">Hadoop问题</span>
-            </a>
-            
-            
-            
             <a href="/tags/CDH安装/">
                 <span class="chip center-align waves-effect waves-light chip-default">CDH安装</span>
+            </a>
+            
+            
+            
+            <a href="/tags/BigData/">
+                <span class="chip center-align waves-effect waves-light chip-default">BigData</span>
             </a>
             
             
@@ -888,17 +862,31 @@
             
             
             
+            <a href="/tags/Hadoop问题/">
+                <span class="chip center-align waves-effect waves-light chip-default">Hadoop问题</span>
+            </a>
+            
+            
+            
+            
+            
             <a href="/tags/Splice-Engine优化/">
                 <span class="chip center-align waves-effect waves-light chip-default">Splice Engine优化</span>
             </a>
             
             
             
+            <a href="/tags/ETL/">
+                <span class="chip center-align waves-effect waves-light chip-default">ETL</span>
+            </a>
+            
             
             
             <a href="/tags/Sqoop/">
                 <span class="chip center-align waves-effect waves-light chip-default">Sqoop</span>
             </a>
+            
+            
             
             
         </div>
