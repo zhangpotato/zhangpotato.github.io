@@ -4,11 +4,38 @@
   
     
     <entry>
-      <title>Trinity（三代）获取机器码方式</title>
-      <link href="/2019/10/08/trinity-huo-qu-ji-qi-ma-fang-shi/"/>
-      <url>/2019/10/08/trinity-huo-qu-ji-qi-ma-fang-shi/</url>
+      <title>Trinity External Command执行报Can not find SU_PROGRAM setting错误</title>
+      <link href="/2019/12/25/trinity-external-command-zhi-xing-bao-can-not-find-su-program-setting-cuo-wu/"/>
+      <url>/2019/12/25/trinity-external-command-zhi-xing-bao-can-not-find-su-program-setting-cuo-wu/</url>
       
-        <content type="html"><![CDATA[<h3 id="1、使用LicenseCMD-jar获取机器码"><a href="#1、使用LicenseCMD-jar获取机器码" class="headerlink" title="1、使用LicenseCMD.jar获取机器码"></a>1、使用LicenseCMD.jar获取机器码</h3><pre class=" language-sh"><code class="language-sh"># 将 LicenseCMD.jar 置于 <Trinity>JCSServer/bin 目录下。(标灰处请依实际目录输入)# 执行指令 java -jar <Trinity>\JCSServer\bin\LicenseCMD.jar -m，即可取得 Machine Code。(标灰处请依实际目录输入)</code></pre><h3 id="2、激活License"><a href="#2、激活License" class="headerlink" title="2、激活License"></a>2、激活License</h3><pre class=" language-sh"><code class="language-sh">1、将 License.key 置于 <Trinity>\JCSServer\cfg 目录下。(标灰处请依实际目录输入)2、使用命令激活keyjava -jar   /JCSServer/bin/LicenseCMD.jar -i key目录/key名称3、输入密码（密码位于passwd.txt文件中）# 注：若 LicenseCMD.jar 逾期，则显示「LicensCMD was expired」警示讯息。</code></pre><h3 id="3、检查License内容"><a href="#3、检查License内容" class="headerlink" title="3、检查License内容"></a>3、检查License内容</h3><pre class=" language-sh"><code class="language-sh">1、执行命令，文件位置根据实际情况输入java -jar <Trinity>/JCSServer/bin/LicenseCMD.jar -s2、返回信息待补充</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在使用Trinity的External Command远程调用一个脚本并指定OS Account时报以下错误</p><p><img src="https://raw.githubusercontent.com/zhangpotato/blog-image/master/Trinity%20External%20Command/Command-1.png" style="zoom: 33%;"></p><pre class=" language-shell"><code class="language-shell">Initial step process failCan not find SU_PROGRAM setting in jcsagent conf</code></pre><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="1、配置JCSAgent-Conf"><a href="#1、配置JCSAgent-Conf" class="headerlink" title="1、配置JCSAgent Conf"></a>1、配置JCSAgent Conf</h3><pre class=" language-shell"><code class="language-shell">#在Trinity用户下执行cd Trinity/JCSAgent/cfgvim jcsagent.conf#在末尾添加以下内容SU_PROGRAM=runuser_linuxSU_ALLOW=SU_DISALLOW=#只要设置SU_PROGRAM就可以执行</code></pre><h3 id="2、将runuser-linux文件放在JCSAgent-bin目录下"><a href="#2、将runuser-linux文件放在JCSAgent-bin目录下" class="headerlink" title="2、将runuser_linux文件放在JCSAgent/bin目录下"></a>2、将runuser_linux文件放在JCSAgent/bin目录下</h3><pre class=" language-shell"><code class="language-shell">#在Trinity用户下执行cp runuser_linux Trinity/JCSAgent/binsudo chown root:trinity runuser_linuxsudo chmod 750 runuser_linuxsudo chmod +s runuser_linux</code></pre><h3 id="3、目前支持的OS环境"><a href="#3、目前支持的OS环境" class="headerlink" title="3、目前支持的OS环境"></a>3、目前支持的OS环境</h3><pre class=" language-shell"><code class="language-shell">CentOS 6.xCentOS 7.xUbuntu</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Trinity </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ETL </tag>
+            
+            <tag> Trinity </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Trinity Linux 安装步骤</title>
+      <link href="/2019/10/08/trinity-linux-an-zhuang-bu-zou/"/>
+      <url>/2019/10/08/trinity-linux-an-zhuang-bu-zou/</url>
+      
+        <content type="html"><![CDATA[<pre class=" language-sh"><code class="language-sh">Trinity Version：4.1.1.233Java Version：JAVA1.8</code></pre><h2 id="一、安装java环境"><a href="#一、安装java环境" class="headerlink" title="一、安装java环境"></a>一、安装java环境</h2><pre class=" language-sh"><code class="language-sh"># root用户1、下载jdkhttps://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html2、解压jdk并安装tar -xvzf jdk-8u221-linux-x64.tar.gz -C /usr/cd /usrmv jdk-1.8.0_221 java3、配置环境变量vim /etc/profileexport JAVA_HOME=/usr/share/javaexport JRE_HOME=/usr/share/java/jreexport CLASSPATH=.:${JRE_HOME}/lib/rt.jar:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jarexport PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin4、生效配置source /etc/profile5、检验Java是否生效java -version</code></pre><h2 id="二、安装PG（Postgresql）"><a href="#二、安装PG（Postgresql）" class="headerlink" title="二、安装PG（Postgresql）"></a>二、安装PG（Postgresql）</h2><pre class=" language-sh"><code class="language-sh"># root用户下1、运行安装文件./postgresql-9.5.10-1-linux-x64.run --mode text2、选择安装目录Please specify the directory where PostgreSQL will be installed.Installation Directory [/opt/PostgreSQL/9.5]:(按 Enter 使用预设)3、选择数据存储位置Please select a directory under which to store your data.Data Directory [/opt/PostgreSQL/9.5/data]:(按 Enter 使用预设)4、输入数据库的密码Please provide a password for the database superuser (postgres).Password :trinityRetype password : trinity5、选择端口号Please select the port number the server should listen on.Port [5432]: (按 Enter 使用预设)6、选择语言[16] en_US.utf8Please choose an option [1] :167、确认开始安装Setup is now ready to begin installing PostgreSQL on your computer.Do you want to continue? [Y/n]:Y8、完成安装Please wait while Setup installs PostgreSQL on your computer.Installing0% ______________ 50% ______________ 100% #########################################-------------------------------------------------------------------- Setup has finished installing PostgreSQL on your computer.9、取消 Launch Stack BuilderLaunch Stack Builder at exit?Stack Builder may be used to download and install additional tools, drivers and applications to complement your PostgreSQL installation. [Y/n]:n</code></pre><h2 id="三、初始化Trinity数据库"><a href="#三、初始化Trinity数据库" class="headerlink" title="三、初始化Trinity数据库"></a>三、初始化Trinity数据库</h2><pre class=" language-sh"><code class="language-sh"># root用户su - postgres/opt/PostgreSQL/9.5/bin/psql -h ip1、创建userCREATE USER trinity WITH PASSWORD 'trinity';2、创建数据库CREATE DATABASE trinity OWNER trinity;3、切换用户测试/opt/PostgreSQL/9.2/bin/psql -U trinity</code></pre><h2 id="四、执行Trinity安装程序"><a href="#四、执行Trinity安装程序" class="headerlink" title="四、执行Trinity安装程序"></a>四、执行Trinity安装程序</h2><pre class=" language-sh"><code class="language-sh"># trinity用户1、执行安装程序java -jar TrinityInstaller-v4.1.1.233.jar -console2、选择安装的产品选取需要安装的产品，输入对应的产品号码(默认为全选)，当产品被选取之后，会显示*号，输入 0 进行下一个步骤.。Trinity Product List:[*]1. JCS Server[*]2. JCS Agent[*]3. DIS Server[*]4. Trinity Repositorypress 0 to next step.Please select install trinity product:03、输入安装位置Please input install Product Path(Default: /home/Users/Trinity):4、选取所要使用的 IP，这里的范例选择 127.0.0.1。IP List:[ ] 1. 192.168.10.129[ ] 2. 127.0.0.1Please select IP, press 0 to next step:25、连接PG数据库Please input PostgreSQL info:Host(localhost):Use default: ipPort(5432):Use default: 5432Database Name(trinity):Use default: trinityUser Name(trinity):Use default: trinitypassword(trinity):Use default: trinityIs drop table?[y/n]Use defeclt: yUI Server Port[8080]:6、进行安装Install Product:Trinity JCS ServerTrinity JCS AgentTrinity DIS ServiceInstall Path:    /home/Users/TrinityInstall IP:     127.0.0.1Database Host:    ipDatabase Port:    5432Database Name:    trinityDatabase User:    trinityDatabase Password:    trinity7、取消license激活Import licence file? [y/n]n</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -112,11 +139,11 @@
     
     
     <entry>
-      <title>Trinity Linux 安装步骤</title>
-      <link href="/2019/10/08/trinity-linux-an-zhuang-bu-zou/"/>
-      <url>/2019/10/08/trinity-linux-an-zhuang-bu-zou/</url>
+      <title>Trinity（三代）获取机器码方式</title>
+      <link href="/2019/10/08/trinity-huo-qu-ji-qi-ma-fang-shi/"/>
+      <url>/2019/10/08/trinity-huo-qu-ji-qi-ma-fang-shi/</url>
       
-        <content type="html"><![CDATA[<pre class=" language-sh"><code class="language-sh">Trinity Version：4.1.1.233Java Version：JAVA1.8</code></pre><h2 id="一、安装java环境"><a href="#一、安装java环境" class="headerlink" title="一、安装java环境"></a>一、安装java环境</h2><pre class=" language-sh"><code class="language-sh"># root用户1、下载jdkhttps://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html2、解压jdk并安装tar -xvzf jdk-8u221-linux-x64.tar.gz -C /usr/cd /usrmv jdk-1.8.0_221 java3、配置环境变量vim /etc/profileexport JAVA_HOME=/usr/share/javaexport JRE_HOME=/usr/share/java/jreexport CLASSPATH=.:${JRE_HOME}/lib/rt.jar:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jarexport PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin4、生效配置source /etc/profile5、检验Java是否生效java -version</code></pre><h2 id="二、安装PG（Postgresql）"><a href="#二、安装PG（Postgresql）" class="headerlink" title="二、安装PG（Postgresql）"></a>二、安装PG（Postgresql）</h2><pre class=" language-sh"><code class="language-sh"># root用户下1、运行安装文件./postgresql-9.5.10-1-linux-x64.run --mode text2、选择安装目录Please specify the directory where PostgreSQL will be installed.Installation Directory [/opt/PostgreSQL/9.5]:(按 Enter 使用预设)3、选择数据存储位置Please select a directory under which to store your data.Data Directory [/opt/PostgreSQL/9.5/data]:(按 Enter 使用预设)4、输入数据库的密码Please provide a password for the database superuser (postgres).Password :trinityRetype password : trinity5、选择端口号Please select the port number the server should listen on.Port [5432]: (按 Enter 使用预设)6、选择语言[16] en_US.utf8Please choose an option [1] :167、确认开始安装Setup is now ready to begin installing PostgreSQL on your computer.Do you want to continue? [Y/n]:Y8、完成安装Please wait while Setup installs PostgreSQL on your computer.Installing0% ______________ 50% ______________ 100% #########################################-------------------------------------------------------------------- Setup has finished installing PostgreSQL on your computer.9、取消 Launch Stack BuilderLaunch Stack Builder at exit?Stack Builder may be used to download and install additional tools, drivers and applications to complement your PostgreSQL installation. [Y/n]:n</code></pre><h2 id="三、初始化Trinity数据库"><a href="#三、初始化Trinity数据库" class="headerlink" title="三、初始化Trinity数据库"></a>三、初始化Trinity数据库</h2><pre class=" language-sh"><code class="language-sh"># root用户su - postgres/opt/PostgreSQL/9.5/bin/psql -h ip1、创建userCREATE USER trinity WITH PASSWORD 'trinity';2、创建数据库CREATE DATABASE trinity OWNER trinity;3、切换用户测试/opt/PostgreSQL/9.2/bin/psql -U trinity</code></pre><h2 id="四、执行Trinity安装程序"><a href="#四、执行Trinity安装程序" class="headerlink" title="四、执行Trinity安装程序"></a>四、执行Trinity安装程序</h2><pre class=" language-sh"><code class="language-sh"># trinity用户1、执行安装程序java -jar TrinityInstaller-v4.1.1.233.jar -console2、选择安装的产品选取需要安装的产品，输入对应的产品号码(默认为全选)，当产品被选取之后，会显示*号，输入 0 进行下一个步骤.。Trinity Product List:[*]1. JCS Server[*]2. JCS Agent[*]3. DIS Server[*]4. Trinity Repositorypress 0 to next step.Please select install trinity product:03、输入安装位置Please input install Product Path(Default: /home/Users/Trinity):4、选取所要使用的 IP，这里的范例选择 127.0.0.1。IP List:[ ] 1. 192.168.10.129[ ] 2. 127.0.0.1Please select IP, press 0 to next step:25、连接PG数据库Please input PostgreSQL info:Host(localhost):Use default: ipPort(5432):Use default: 5432Database Name(trinity):Use default: trinityUser Name(trinity):Use default: trinitypassword(trinity):Use default: trinityIs drop table?[y/n]Use defeclt: yUI Server Port[8080]:6、进行安装Install Product:Trinity JCS ServerTrinity JCS AgentTrinity DIS ServiceInstall Path:    /home/Users/TrinityInstall IP:     127.0.0.1Database Host:    ipDatabase Port:    5432Database Name:    trinityDatabase User:    trinityDatabase Password:    trinity7、取消license激活Import licence file? [y/n]n</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h3 id="1、使用LicenseCMD-jar获取机器码"><a href="#1、使用LicenseCMD-jar获取机器码" class="headerlink" title="1、使用LicenseCMD.jar获取机器码"></a>1、使用LicenseCMD.jar获取机器码</h3><pre class=" language-sh"><code class="language-sh"># 将 LicenseCMD.jar 置于 <Trinity>JCSServer/bin 目录下。(标灰处请依实际目录输入)# 执行指令 java -jar <Trinity>\JCSServer\bin\LicenseCMD.jar -m，即可取得 Machine Code。(标灰处请依实际目录输入)</code></pre><h3 id="2、激活License"><a href="#2、激活License" class="headerlink" title="2、激活License"></a>2、激活License</h3><pre class=" language-sh"><code class="language-sh">1、将 License.key 置于 <Trinity>\JCSServer\cfg 目录下。(标灰处请依实际目录输入)2、使用命令激活keyjava -jar   /JCSServer/bin/LicenseCMD.jar -i key目录/key名称3、输入密码（密码位于passwd.txt文件中）# 注：若 LicenseCMD.jar 逾期，则显示「LicensCMD was expired」警示讯息。</code></pre><h3 id="3、检查License内容"><a href="#3、检查License内容" class="headerlink" title="3、检查License内容"></a>3、检查License内容</h3><pre class=" language-sh"><code class="language-sh">1、执行命令，文件位置根据实际情况输入java -jar <Trinity>/JCSServer/bin/LicenseCMD.jar -s2、返回信息待补充</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -159,6 +186,8 @@
             
             <tag> ETL </tag>
             
+            <tag> Sqoop </tag>
+            
         </tags>
       
     </entry>
@@ -175,7 +204,7 @@
       
       <categories>
           
-          <category> CDH </category>
+          <category> BigData </category>
           
       </categories>
       
@@ -202,14 +231,14 @@
       
       <categories>
           
-          <category> 数据库 </category>
+          <category> MySQL </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> MySQL优化 </tag>
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -227,14 +256,14 @@
       
       <categories>
           
-          <category> 数据库 </category>
+          <category> MySQL </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> MySQL优化 </tag>
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -252,14 +281,14 @@
       
       <categories>
           
-          <category> 数据库 </category>
+          <category> MySQL </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> MySQL优化 </tag>
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -304,7 +333,7 @@
       
       <categories>
           
-          <category> HDP </category>
+          <category> BigData </category>
           
       </categories>
       
@@ -313,7 +342,7 @@
             
             <tag> BigData </tag>
             
-            <tag> HDP问题 </tag>
+            <tag> Hadoop问题 </tag>
             
         </tags>
       
@@ -349,6 +378,33 @@
     
     
     <entry>
+      <title>HDFS WEB UI上缺少datanode的问题解决方法</title>
+      <link href="/2019/03/19/web-ui-shang-que-shao-datanode/"/>
+      <url>/2019/03/19/web-ui-shang-que-shao-datanode/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1、集群结构"><a href="#1、集群结构" class="headerlink" title="1、集群结构"></a>1、集群结构</h2><pre class=" language-sh"><code class="language-sh">192.168.0.60 host0192.168.0.61 host1192.168.0.62 host2192.168.0.63 host3192.168.0.64 host4</code></pre><h2 id="2、问题状况"><a href="#2、问题状况" class="headerlink" title="2、问题状况"></a>2、问题状况</h2><pre class=" language-sh"><code class="language-sh">#HDFS上显示存活的datanode个数为4个#HDFS WEB UI上显示的datanode个数为三个#缺少host4节点的datanode</code></pre><h2 id="3、问题解决思路"><a href="#3、问题解决思路" class="headerlink" title="3、问题解决思路"></a>3、问题解决思路</h2><pre class=" language-sh"><code class="language-sh">1、检查namenode与host4是否可以ping通2、如果不可以ping通，检查host4上的hosts文件，以及网络文件配置3、如果可以ping通，则检查host4当前的ip地址，有可能在免密配置完成后，重启主机，ip发生变化，此时192.168.168.0.64的地址仍然可以ping通，但是服务却不能连接，因此会导致在WEB UI上无法显示datanode，只需要修改网络配置文件，设置为静态IP即可，然后重启network。4、停止Hadoop所有服务，然后重启Hadoop集群，即可在WEB UI上查看到host4的datanode信息。</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> BigData </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> BigData </tag>
+            
+            <tag> Hadoop问题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Splice Engine历史拉链测试总结</title>
       <link href="/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/"/>
       <url>/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/</url>
@@ -376,16 +432,16 @@
     
     
     <entry>
-      <title>HDFS WEB UI上缺少datanode的问题解决方法</title>
-      <link href="/2019/03/19/web-ui-shang-que-shao-datanode/"/>
-      <url>/2019/03/19/web-ui-shang-que-shao-datanode/</url>
+      <title>Yarn Register DNS 端口占用</title>
+      <link href="/2019/01/29/yarn-register-dns/"/>
+      <url>/2019/01/29/yarn-register-dns/</url>
       
-        <content type="html"><![CDATA[<h2 id="1、集群结构"><a href="#1、集群结构" class="headerlink" title="1、集群结构"></a>1、集群结构</h2><pre class=" language-sh"><code class="language-sh">192.168.0.60 host0192.168.0.61 host1192.168.0.62 host2192.168.0.63 host3192.168.0.64 host4</code></pre><h2 id="2、问题状况"><a href="#2、问题状况" class="headerlink" title="2、问题状况"></a>2、问题状况</h2><pre class=" language-sh"><code class="language-sh">#HDFS上显示存活的datanode个数为4个#HDFS WEB UI上显示的datanode个数为三个#缺少host4节点的datanode</code></pre><h2 id="3、问题解决思路"><a href="#3、问题解决思路" class="headerlink" title="3、问题解决思路"></a>3、问题解决思路</h2><pre class=" language-sh"><code class="language-sh">1、检查namenode与host4是否可以ping通2、如果不可以ping通，检查host4上的hosts文件，以及网络文件配置3、如果可以ping通，则检查host4当前的ip地址，有可能在免密配置完成后，重启主机，ip发生变化，此时192.168.168.0.64的地址仍然可以ping通，但是服务却不能连接，因此会导致在WEB UI上无法显示datanode，只需要修改网络配置文件，设置为静态IP即可，然后重启network。4、停止Hadoop所有服务，然后重启Hadoop集群，即可在WEB UI上查看到host4的datanode信息。</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<p>如果在安装时看到与YARN Registry DNS Bind Port相关的错误。可以参考以下步骤操作：</p><h2 id="1、打开Ambari管理界面并进入YARN管理界面"><a href="#1、打开Ambari管理界面并进入YARN管理界面" class="headerlink" title="1、打开Ambari管理界面并进入YARN管理界面"></a>1、打开Ambari管理界面并进入YARN管理界面</h2><p><img src="https://raw.githubusercontent.com/zhangpotato/blog-image/master/Yarn_Register_DNS/1.png" alt=""></p><h2 id="2、点击CONFIGS，进入配置界面"><a href="#2、点击CONFIGS，进入配置界面" class="headerlink" title="2、点击CONFIGS，进入配置界面"></a>2、点击CONFIGS，进入配置界面</h2><p><img src="https://raw.githubusercontent.com/zhangpotato/blog-image/master/Yarn_Register_DNS/2.png" alt=""></p><h2 id="3、点击ADVANCED进入高级设置中修改DNS端口号"><a href="#3、点击ADVANCED进入高级设置中修改DNS端口号" class="headerlink" title="3、点击ADVANCED进入高级设置中修改DNS端口号"></a>3、点击ADVANCED进入高级设置中修改DNS端口号</h2><p><img src="https://raw.githubusercontent.com/zhangpotato/blog-image/master/Yarn_Register_DNS/3.png" alt=""></p><p><strong>将53修改成其他不被占用的端口即可</strong></p><h2 id="4、重启集群，YARN正常启动"><a href="#4、重启集群，YARN正常启动" class="headerlink" title="4、重启集群，YARN正常启动"></a>4、重启集群，YARN正常启动</h2><p><img src="https://raw.githubusercontent.com/zhangpotato/blog-image/master/Yarn_Register_DNS/4.png" alt=""></p><p>参考文献：<a href="https://community.hortonworks.com/articles/225841/yarn-registry-dns-port-conflict-issue.html" target="_blank" rel="noopener">Hortonworks</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
           
-          <category> HDP </category>
+          <category> BigData </category>
           
       </categories>
       
@@ -403,33 +459,6 @@
     
     
     <entry>
-      <title>Yarn Register DNS 端口占用</title>
-      <link href="/2019/01/29/yarn-register-dns/"/>
-      <url>/2019/01/29/yarn-register-dns/</url>
-      
-        <content type="html"><![CDATA[<p>如果在安装时看到与YARN Registry DNS Bind Port相关的错误。可以参考以下步骤操作：</p><h2 id="1、打开Ambari管理界面并进入YARN管理界面"><a href="#1、打开Ambari管理界面并进入YARN管理界面" class="headerlink" title="1、打开Ambari管理界面并进入YARN管理界面"></a>1、打开Ambari管理界面并进入YARN管理界面</h2><p><img src="https://raw.githubusercontent.com/zhangpotato/blog-image/master/Yarn_Register_DNS/1.png" alt=""></p><h2 id="2、点击CONFIGS，进入配置界面"><a href="#2、点击CONFIGS，进入配置界面" class="headerlink" title="2、点击CONFIGS，进入配置界面"></a>2、点击CONFIGS，进入配置界面</h2><p><img src="https://raw.githubusercontent.com/zhangpotato/blog-image/master/Yarn_Register_DNS/2.png" alt=""></p><h2 id="3、点击ADVANCED进入高级设置中修改DNS端口号"><a href="#3、点击ADVANCED进入高级设置中修改DNS端口号" class="headerlink" title="3、点击ADVANCED进入高级设置中修改DNS端口号"></a>3、点击ADVANCED进入高级设置中修改DNS端口号</h2><p><img src="https://raw.githubusercontent.com/zhangpotato/blog-image/master/Yarn_Register_DNS/3.png" alt=""></p><p><strong>将53修改成其他不被占用的端口即可</strong></p><h2 id="4、重启集群，YARN正常启动"><a href="#4、重启集群，YARN正常启动" class="headerlink" title="4、重启集群，YARN正常启动"></a>4、重启集群，YARN正常启动</h2><p><img src="https://raw.githubusercontent.com/zhangpotato/blog-image/master/Yarn_Register_DNS/4.png" alt=""></p><p>参考文献：<a href="https://community.hortonworks.com/articles/225841/yarn-registry-dns-port-conflict-issue.html" target="_blank" rel="noopener">Hortonworks</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> HDP </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> BigData </tag>
-            
-            <tag> HDP问题 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>HDP安装——基础环境配置</title>
       <link href="/2019/01/29/hdp-an-zhuang-ji-chu-pei-zhi/"/>
       <url>/2019/01/29/hdp-an-zhuang-ji-chu-pei-zhi/</url>
@@ -439,7 +468,7 @@
       
       <categories>
           
-          <category> HDP </category>
+          <category> BigData </category>
           
       </categories>
       

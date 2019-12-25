@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhangpotato.github.io/"/>
-  <updated>2019-11-20T07:44:43.142Z</updated>
+  <updated>2019-12-25T07:53:41.384Z</updated>
   <id>https://zhangpotato.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Trinity（三代）获取机器码方式</title>
-    <link href="https://zhangpotato.github.io/2019/10/08/trinity-huo-qu-ji-qi-ma-fang-shi/"/>
-    <id>https://zhangpotato.github.io/2019/10/08/trinity-huo-qu-ji-qi-ma-fang-shi/</id>
-    <published>2019-10-08T04:21:00.000Z</published>
-    <updated>2019-11-20T07:44:43.142Z</updated>
+    <title>Trinity External Command执行报Can not find SU_PROGRAM setting错误</title>
+    <link href="https://zhangpotato.github.io/2019/12/25/trinity-external-command-zhi-xing-bao-can-not-find-su-program-setting-cuo-wu/"/>
+    <id>https://zhangpotato.github.io/2019/12/25/trinity-external-command-zhi-xing-bao-can-not-find-su-program-setting-cuo-wu/</id>
+    <published>2019-12-25T07:21:00.000Z</published>
+    <updated>2019-12-25T07:53:41.384Z</updated>
     
     <summary type="html">
     
@@ -29,92 +29,7 @@
       
         
         
-          &lt;h3 id=&quot;1、使用LicenseCMD-jar获取机器码&quot;&gt;&lt;a href=&quot;#1、使用LicenseCMD-jar获取机器码&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Trinity" scheme="https://zhangpotato.github.io/categories/Trinity/"/>
-    
-    
-      <category term="ETL" scheme="https://zhangpotato.github.io/tags/ETL/"/>
-    
-      <category term="Trinity" scheme="https://zhangpotato.github.io/tags/Trinity/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Trinity修改PG数据库密码</title>
-    <link href="https://zhangpotato.github.io/2019/10/08/trinity-xiu-gai-pg-shu-ju-ku-mi-ma/"/>
-    <id>https://zhangpotato.github.io/2019/10/08/trinity-xiu-gai-pg-shu-ju-ku-mi-ma/</id>
-    <published>2019-10-08T04:21:00.000Z</published>
-    <updated>2019-11-20T07:36:38.369Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;1、在PG数据库中修改Trinity用户的密码&quot;&gt;&lt;a href=&quot;#1、在PG数据库中修改Trinity用户的密码&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Trinity" scheme="https://zhangpotato.github.io/categories/Trinity/"/>
-    
-    
-      <category term="ETL" scheme="https://zhangpotato.github.io/tags/ETL/"/>
-    
-      <category term="Trinity" scheme="https://zhangpotato.github.io/tags/Trinity/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Trinity更改服务IP</title>
-    <link href="https://zhangpotato.github.io/2019/10/08/trinity-geng-gai-fu-wu-ip/"/>
-    <id>https://zhangpotato.github.io/2019/10/08/trinity-geng-gai-fu-wu-ip/</id>
-    <published>2019-10-08T04:21:00.000Z</published>
-    <updated>2019-11-20T07:35:33.501Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;如要变更 Trinity 相关服务的 IP，请修改下列档案，并依底下范例红字所示，修改参数设定:&lt;/p&gt;
-&lt;h3 id=&quot;1、Trinity-DISServer-cfg-dis-server-properties&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Trinity" scheme="https://zhangpotato.github.io/categories/Trinity/"/>
-    
-    
-      <category term="ETL" scheme="https://zhangpotato.github.io/tags/ETL/"/>
-    
-      <category term="Trinity" scheme="https://zhangpotato.github.io/tags/Trinity/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Trinity服务启动及关闭</title>
-    <link href="https://zhangpotato.github.io/2019/10/08/trinity-fu-wu-qi-dong-ji-guan-bi/"/>
-    <id>https://zhangpotato.github.io/2019/10/08/trinity-fu-wu-qi-dong-ji-guan-bi/</id>
-    <published>2019-10-08T04:21:00.000Z</published>
-    <updated>2019-11-20T07:34:35.136Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;一、启动Trinity服务&quot;&gt;&lt;a href=&quot;#一、启动Trinity服务&quot; class=&quot;headerlink&quot; title=&quot;一、启动Trinity服务&quot;&gt;&lt;/a&gt;一、启动Trinity服务&lt;/h3&gt;&lt;pre class=&quot;
+          &lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;p&gt;在使用Trinity的External Command远程调用一个脚本并指定OS
         
       
     
@@ -161,11 +76,124 @@ Java Version：JAVA1.8
   </entry>
   
   <entry>
+    <title>Trinity修改PG数据库密码</title>
+    <link href="https://zhangpotato.github.io/2019/10/08/trinity-xiu-gai-pg-shu-ju-ku-mi-ma/"/>
+    <id>https://zhangpotato.github.io/2019/10/08/trinity-xiu-gai-pg-shu-ju-ku-mi-ma/</id>
+    <published>2019-10-08T04:21:00.000Z</published>
+    <updated>2019-12-25T07:34:39.667Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1、在PG数据库中修改Trinity用户的密码&quot;&gt;&lt;a href=&quot;#1、在PG数据库中修改Trinity用户的密码&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Trinity" scheme="https://zhangpotato.github.io/categories/Trinity/"/>
+    
+    
+      <category term="ETL" scheme="https://zhangpotato.github.io/tags/ETL/"/>
+    
+      <category term="Trinity" scheme="https://zhangpotato.github.io/tags/Trinity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Trinity更改服务IP</title>
+    <link href="https://zhangpotato.github.io/2019/10/08/trinity-geng-gai-fu-wu-ip/"/>
+    <id>https://zhangpotato.github.io/2019/10/08/trinity-geng-gai-fu-wu-ip/</id>
+    <published>2019-10-08T04:21:00.000Z</published>
+    <updated>2019-12-25T07:34:50.608Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;如要变更 Trinity 相关服务的 IP，请修改下列档案，并依底下范例红字所示，修改参数设定:&lt;/p&gt;
+&lt;h3 id=&quot;1、Trinity-DISServer-cfg-dis-server-properties&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Trinity" scheme="https://zhangpotato.github.io/categories/Trinity/"/>
+    
+    
+      <category term="ETL" scheme="https://zhangpotato.github.io/tags/ETL/"/>
+    
+      <category term="Trinity" scheme="https://zhangpotato.github.io/tags/Trinity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Trinity服务启动及关闭</title>
+    <link href="https://zhangpotato.github.io/2019/10/08/trinity-fu-wu-qi-dong-ji-guan-bi/"/>
+    <id>https://zhangpotato.github.io/2019/10/08/trinity-fu-wu-qi-dong-ji-guan-bi/</id>
+    <published>2019-10-08T04:21:00.000Z</published>
+    <updated>2019-12-25T07:34:58.117Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;一、启动Trinity服务&quot;&gt;&lt;a href=&quot;#一、启动Trinity服务&quot; class=&quot;headerlink&quot; title=&quot;一、启动Trinity服务&quot;&gt;&lt;/a&gt;一、启动Trinity服务&lt;/h3&gt;&lt;pre class=&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Trinity" scheme="https://zhangpotato.github.io/categories/Trinity/"/>
+    
+    
+      <category term="ETL" scheme="https://zhangpotato.github.io/tags/ETL/"/>
+    
+      <category term="Trinity" scheme="https://zhangpotato.github.io/tags/Trinity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Trinity（三代）获取机器码方式</title>
+    <link href="https://zhangpotato.github.io/2019/10/08/trinity-huo-qu-ji-qi-ma-fang-shi/"/>
+    <id>https://zhangpotato.github.io/2019/10/08/trinity-huo-qu-ji-qi-ma-fang-shi/</id>
+    <published>2019-10-08T04:21:00.000Z</published>
+    <updated>2019-12-25T07:34:45.297Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1、使用LicenseCMD-jar获取机器码&quot;&gt;&lt;a href=&quot;#1、使用LicenseCMD-jar获取机器码&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Trinity" scheme="https://zhangpotato.github.io/categories/Trinity/"/>
+    
+    
+      <category term="ETL" scheme="https://zhangpotato.github.io/tags/ETL/"/>
+    
+      <category term="Trinity" scheme="https://zhangpotato.github.io/tags/Trinity/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Sqoop基础教程</title>
     <link href="https://zhangpotato.github.io/2019/07/23/sqoop-ji-chu-jiao-cheng/"/>
     <id>https://zhangpotato.github.io/2019/07/23/sqoop-ji-chu-jiao-cheng/</id>
     <published>2019-07-23T04:21:00.000Z</published>
-    <updated>2019-11-20T07:33:18.558Z</updated>
+    <updated>2019-12-25T07:41:26.383Z</updated>
     
     <summary type="html">
     
@@ -186,6 +214,8 @@ Java Version：JAVA1.8
     
       <category term="ETL" scheme="https://zhangpotato.github.io/tags/ETL/"/>
     
+      <category term="Sqoop" scheme="https://zhangpotato.github.io/tags/Sqoop/"/>
+    
   </entry>
   
   <entry>
@@ -193,7 +223,7 @@ Java Version：JAVA1.8
     <link href="https://zhangpotato.github.io/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/"/>
     <id>https://zhangpotato.github.io/2019/06/04/cdh5.14.2-an-zhuang-shou-ce/</id>
     <published>2019-06-04T03:37:00.000Z</published>
-    <updated>2019-11-20T07:01:29.238Z</updated>
+    <updated>2019-12-25T07:47:27.744Z</updated>
     
     <summary type="html">
     
@@ -207,7 +237,7 @@ Java Version：JAVA1.8
     
     </summary>
     
-      <category term="CDH" scheme="https://zhangpotato.github.io/categories/CDH/"/>
+      <category term="BigData" scheme="https://zhangpotato.github.io/categories/BigData/"/>
     
     
       <category term="BigData" scheme="https://zhangpotato.github.io/tags/BigData/"/>
@@ -221,7 +251,7 @@ Java Version：JAVA1.8
     <link href="https://zhangpotato.github.io/2019/04/18/sql-yu-ju-bu-hui-hong-fa-suo-yin-de-yuan-yin/"/>
     <id>https://zhangpotato.github.io/2019/04/18/sql-yu-ju-bu-hui-hong-fa-suo-yin-de-yuan-yin/</id>
     <published>2019-04-18T08:11:00.000Z</published>
-    <updated>2019-11-20T07:29:14.886Z</updated>
+    <updated>2019-12-25T07:46:36.553Z</updated>
     
     <summary type="html">
     
@@ -235,10 +265,10 @@ Java Version：JAVA1.8
     
     </summary>
     
-      <category term="数据库" scheme="https://zhangpotato.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="MySQL" scheme="https://zhangpotato.github.io/categories/MySQL/"/>
     
     
-      <category term="MySQL优化" scheme="https://zhangpotato.github.io/tags/MySQL%E4%BC%98%E5%8C%96/"/>
+      <category term="MySQL" scheme="https://zhangpotato.github.io/tags/MySQL/"/>
     
   </entry>
   
@@ -247,7 +277,7 @@ Java Version：JAVA1.8
     <link href="https://zhangpotato.github.io/2019/04/12/sql-yu-ju-you-hua/"/>
     <id>https://zhangpotato.github.io/2019/04/12/sql-yu-ju-you-hua/</id>
     <published>2019-04-12T08:03:00.000Z</published>
-    <updated>2019-11-20T07:05:26.048Z</updated>
+    <updated>2019-12-25T07:46:30.661Z</updated>
     
     <summary type="html">
     
@@ -261,10 +291,10 @@ Java Version：JAVA1.8
     
     </summary>
     
-      <category term="数据库" scheme="https://zhangpotato.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="MySQL" scheme="https://zhangpotato.github.io/categories/MySQL/"/>
     
     
-      <category term="MySQL优化" scheme="https://zhangpotato.github.io/tags/MySQL%E4%BC%98%E5%8C%96/"/>
+      <category term="MySQL" scheme="https://zhangpotato.github.io/tags/MySQL/"/>
     
   </entry>
   
@@ -273,7 +303,7 @@ Java Version：JAVA1.8
     <link href="https://zhangpotato.github.io/2019/04/11/sql-zong-he-you-hua/"/>
     <id>https://zhangpotato.github.io/2019/04/11/sql-zong-he-you-hua/</id>
     <published>2019-04-11T08:03:00.000Z</published>
-    <updated>2019-11-20T07:21:22.833Z</updated>
+    <updated>2019-12-25T07:46:11.008Z</updated>
     
     <summary type="html">
     
@@ -287,10 +317,10 @@ Java Version：JAVA1.8
     
     </summary>
     
-      <category term="数据库" scheme="https://zhangpotato.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="MySQL" scheme="https://zhangpotato.github.io/categories/MySQL/"/>
     
     
-      <category term="MySQL优化" scheme="https://zhangpotato.github.io/tags/MySQL%E4%BC%98%E5%8C%96/"/>
+      <category term="MySQL" scheme="https://zhangpotato.github.io/tags/MySQL/"/>
     
   </entry>
   
@@ -299,7 +329,7 @@ Java Version：JAVA1.8
     <link href="https://zhangpotato.github.io/2019/04/09/trinity-diao-du-yan-chi-jie-jue-fang-fa/"/>
     <id>https://zhangpotato.github.io/2019/04/09/trinity-diao-du-yan-chi-jie-jue-fang-fa/</id>
     <published>2019-04-09T09:15:00.000Z</published>
-    <updated>2019-11-20T07:43:22.606Z</updated>
+    <updated>2019-12-25T07:35:04.858Z</updated>
     
     <summary type="html">
     
@@ -327,7 +357,7 @@ Java Version：JAVA1.8
     <link href="https://zhangpotato.github.io/2019/03/27/open-ssl-bao-cuo/"/>
     <id>https://zhangpotato.github.io/2019/03/27/open-ssl-bao-cuo/</id>
     <published>2019-03-27T01:27:00.000Z</published>
-    <updated>2019-11-20T07:37:19.173Z</updated>
+    <updated>2019-12-25T07:46:58.686Z</updated>
     
     <summary type="html">
     
@@ -341,12 +371,12 @@ Java Version：JAVA1.8
     
     </summary>
     
-      <category term="HDP" scheme="https://zhangpotato.github.io/categories/HDP/"/>
+      <category term="BigData" scheme="https://zhangpotato.github.io/categories/BigData/"/>
     
     
       <category term="BigData" scheme="https://zhangpotato.github.io/tags/BigData/"/>
     
-      <category term="HDP问题" scheme="https://zhangpotato.github.io/tags/HDP%E9%97%AE%E9%A2%98/"/>
+      <category term="Hadoop问题" scheme="https://zhangpotato.github.io/tags/Hadoop%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
@@ -379,11 +409,39 @@ Java Version：JAVA1.8
   </entry>
   
   <entry>
+    <title>HDFS WEB UI上缺少datanode的问题解决方法</title>
+    <link href="https://zhangpotato.github.io/2019/03/19/web-ui-shang-que-shao-datanode/"/>
+    <id>https://zhangpotato.github.io/2019/03/19/web-ui-shang-que-shao-datanode/</id>
+    <published>2019-03-19T06:25:00.000Z</published>
+    <updated>2019-12-25T07:45:29.685Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、集群结构&quot;&gt;&lt;a href=&quot;#1、集群结构&quot; class=&quot;headerlink&quot; title=&quot;1、集群结构&quot;&gt;&lt;/a&gt;1、集群结构&lt;/h2&gt;&lt;pre class=&quot; language-sh&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+      <category term="BigData" scheme="https://zhangpotato.github.io/categories/BigData/"/>
+    
+    
+      <category term="BigData" scheme="https://zhangpotato.github.io/tags/BigData/"/>
+    
+      <category term="Hadoop问题" scheme="https://zhangpotato.github.io/tags/Hadoop%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Splice Engine历史拉链测试总结</title>
     <link href="https://zhangpotato.github.io/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/"/>
     <id>https://zhangpotato.github.io/2019/03/19/splice-engine-li-shi-la-lian-ce-shi-zong-jie/</id>
     <published>2019-03-19T06:25:00.000Z</published>
-    <updated>2019-11-20T07:47:23.202Z</updated>
+    <updated>2019-12-25T07:35:47.398Z</updated>
     
     <summary type="html">
     
@@ -407,39 +465,11 @@ Java Version：JAVA1.8
   </entry>
   
   <entry>
-    <title>HDFS WEB UI上缺少datanode的问题解决方法</title>
-    <link href="https://zhangpotato.github.io/2019/03/19/web-ui-shang-que-shao-datanode/"/>
-    <id>https://zhangpotato.github.io/2019/03/19/web-ui-shang-que-shao-datanode/</id>
-    <published>2019-03-19T06:25:00.000Z</published>
-    <updated>2019-11-20T07:38:06.985Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1、集群结构&quot;&gt;&lt;a href=&quot;#1、集群结构&quot; class=&quot;headerlink&quot; title=&quot;1、集群结构&quot;&gt;&lt;/a&gt;1、集群结构&lt;/h2&gt;&lt;pre class=&quot; language-sh&quot;&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-      <category term="HDP" scheme="https://zhangpotato.github.io/categories/HDP/"/>
-    
-    
-      <category term="BigData" scheme="https://zhangpotato.github.io/tags/BigData/"/>
-    
-      <category term="Hadoop问题" scheme="https://zhangpotato.github.io/tags/Hadoop%E9%97%AE%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Yarn Register DNS 端口占用</title>
     <link href="https://zhangpotato.github.io/2019/01/29/yarn-register-dns/"/>
     <id>https://zhangpotato.github.io/2019/01/29/yarn-register-dns/</id>
     <published>2019-01-29T08:39:00.000Z</published>
-    <updated>2019-11-20T07:42:00.487Z</updated>
+    <updated>2019-12-25T07:45:08.477Z</updated>
     
     <summary type="html">
     
@@ -454,12 +484,12 @@ Java Version：JAVA1.8
     
     </summary>
     
-      <category term="HDP" scheme="https://zhangpotato.github.io/categories/HDP/"/>
+      <category term="BigData" scheme="https://zhangpotato.github.io/categories/BigData/"/>
     
     
       <category term="BigData" scheme="https://zhangpotato.github.io/tags/BigData/"/>
     
-      <category term="HDP问题" scheme="https://zhangpotato.github.io/tags/HDP%E9%97%AE%E9%A2%98/"/>
+      <category term="Hadoop问题" scheme="https://zhangpotato.github.io/tags/Hadoop%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
@@ -468,7 +498,7 @@ Java Version：JAVA1.8
     <link href="https://zhangpotato.github.io/2019/01/29/hdp-an-zhuang-ji-chu-pei-zhi/"/>
     <id>https://zhangpotato.github.io/2019/01/29/hdp-an-zhuang-ji-chu-pei-zhi/</id>
     <published>2019-01-29T05:39:00.000Z</published>
-    <updated>2019-11-20T07:04:33.980Z</updated>
+    <updated>2019-12-25T07:47:04.498Z</updated>
     
     <summary type="html">
     
@@ -482,7 +512,7 @@ Java Version：JAVA1.8
     
     </summary>
     
-      <category term="HDP" scheme="https://zhangpotato.github.io/categories/HDP/"/>
+      <category term="BigData" scheme="https://zhangpotato.github.io/categories/BigData/"/>
     
     
       <category term="BigData" scheme="https://zhangpotato.github.io/tags/BigData/"/>

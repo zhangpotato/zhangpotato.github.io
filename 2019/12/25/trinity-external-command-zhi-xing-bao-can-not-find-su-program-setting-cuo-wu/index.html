@@ -4,10 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="pgadmin无法连接PG中的Trinity库, Potato博客">
-    <meta name="description" content="1、报错信息could not connect to server: Connection refused
-Is the server running on host host.domain.com and accepting
-TCP/IP">
+    <meta name="keywords" content="Trinity External Command执行报Can not find SU_PROGRAM setting错误, Potato博客">
+    <meta name="description" content="问题描述在使用Trinity的External Command远程调用一个脚本并指定OS Account时报以下错误
+
+Initial step process fail
+Can not find SU_PROGRAM setting in">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +16,7 @@ TCP/IP">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>pgadmin无法连接PG中的Trinity库 | Potato博客</title>
+    <title>Trinity External Command执行报Can not find SU_PROGRAM setting错误 | Potato博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -293,13 +294,13 @@ TCP/IP">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        pgadmin无法连接PG中的Trinity库
+                        Trinity External Command执行报Can not find SU_PROGRAM setting错误
                     </div>
                 </div>
             </div>
@@ -440,21 +441,21 @@ TCP/IP">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-27
+                    2019-12-25
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-11-20
+                    2019-12-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    276
+                    189
                 </div>
                 
 
@@ -477,32 +478,30 @@ TCP/IP">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、报错信息"><a href="#1、报错信息" class="headerlink" title="1、报错信息"></a>1、报错信息</h3><pre class=" language-sh"><code class="language-sh">could not connect to server: Connection refused
-Is the server running on host host.domain.com and accepting
-TCP/IP connections on port 5432?
+                <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在使用Trinity的External Command远程调用一个脚本并指定OS Account时报以下错误</p>
+<p><img src="https://raw.githubusercontent.com/zhangpotato/blog-image/master/Trinity%20External%20Command/Command-1.png" style="zoom: 33%;"></p>
+<pre class=" language-shell"><code class="language-shell">Initial step process fail
+Can not find SU_PROGRAM setting in jcsagent conf
 </code></pre>
-<h3 id="2、解决方法"><a href="#2、解决方法" class="headerlink" title="2、解决方法"></a>2、解决方法</h3><pre class=" language-sh"><code class="language-sh">1、添加pg远程访问权限
-vim <postgresql 数据目录="">\data\pg_hba.conf
-2、添加ip
-# 在 TYPE DATABASE USER ADDRESS METHOD 下方添加
-host all all <ip-address>/<mask-length> md5
-
-注：IP-address 代表允许连入的 ip, 而 mask-length 代表子网掩码长度，最小值是 0, 最大值是 32。
-若要设定全部开放，则可设定为：
-host all all 0.0.0.0/0 md5
-若要设定允许连入的网址为:192.168.3.* ，则可设定为:
-host all all 192.168.3.0/24 md5
-3、修改listen_addresses
-设置<postgresql 数据目录="">\data\postgresql.conf 中的 listen_addresses 与 port 设定与以 下相同:
-listen_addresses = '*' 
-port = 5432 
-4、重启pg数据库
-pg_ctl start [-w] [-s] [-D datadir] [-l filename] [-o options] [-p path]
-pg_ctl stop [-W] [-s] [-D datadir] [-m s[mart] | f[ast] | i[mmediate] ]
-pg_ctl restart [-w] [-s] [-D datadir] [-m s[mart] | f[ast] | i[mmediate] ] [-o options]
-
-pg_ctl restart -D <pg 数据目录位置="">/data
-</pg></postgresql></mask-length></ip-address></postgresql></code></pre>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="1、配置JCSAgent-Conf"><a href="#1、配置JCSAgent-Conf" class="headerlink" title="1、配置JCSAgent Conf"></a>1、配置JCSAgent Conf</h3><pre class=" language-shell"><code class="language-shell">#在Trinity用户下执行
+cd Trinity/JCSAgent/cfg
+vim jcsagent.conf
+#在末尾添加以下内容
+SU_PROGRAM=runuser_linux
+SU_ALLOW=
+SU_DISALLOW=
+#只要设置SU_PROGRAM就可以执行
+</code></pre>
+<h3 id="2、将runuser-linux文件放在JCSAgent-bin目录下"><a href="#2、将runuser-linux文件放在JCSAgent-bin目录下" class="headerlink" title="2、将runuser_linux文件放在JCSAgent/bin目录下"></a>2、将runuser_linux文件放在JCSAgent/bin目录下</h3><pre class=" language-shell"><code class="language-shell">#在Trinity用户下执行
+cp runuser_linux Trinity/JCSAgent/bin
+sudo chown root:trinity runuser_linux
+sudo chmod 750 runuser_linux
+sudo chmod +s runuser_linux
+</code></pre>
+<h3 id="3、目前支持的OS环境"><a href="#3、目前支持的OS环境" class="headerlink" title="3、目前支持的OS环境"></a>3、目前支持的OS环境</h3><pre class=" language-shell"><code class="language-shell">CentOS 6.x
+CentOS 7.x
+Ubuntu
+</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -546,7 +545,7 @@ pg_ctl restart -D <pg 数据目录位置="">/data
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zhangpotato.github.io/2019/03/27/pgadmin-wu-fa-lian-jie-trinity-shu-ju-ku/">https://zhangpotato.github.io/2019/03/27/pgadmin-wu-fa-lian-jie-trinity-shu-ju-ku/</a>
+                    <a href="https://zhangpotato.github.io/2019/12/25/trinity-external-command-zhi-xing-bao-can-not-find-su-program-setting-cuo-wu/">https://zhangpotato.github.io/2019/12/25/trinity-external-command-zhi-xing-bao-can-not-find-su-program-setting-cuo-wu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -760,7 +759,7 @@ pg_ctl restart -D <pg 数据目录位置="">/data
         repo: 'zhangpotato.github.io',
         owner: 'zhangpotato',
         admin: ["zhangpotato"],
-        id: '2019-03-27T09-27-00',
+        id: '2019-12-25T15-21-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -783,48 +782,50 @@ pg_ctl restart -D <pg 数据目录位置="">/data
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/03/27/open-ssl-bao-cuo/">
+                <a href="/2019/12/25/trinity-external-command-zhi-xing-bao-can-not-find-su-program-setting-cuo-wu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="搭建HDP集群报OPEN SSL问题解决方法">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Trinity External Command执行报Can not find SU_PROGRAM setting错误">
                         
-                        <span class="card-title">搭建HDP集群报OPEN SSL问题解决方法</span>
+                        <span class="card-title">Trinity External Command执行报Can not find SU_PROGRAM setting错误</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            HDP安装过程中报OPEN SSL问题
+                            Trinity External Command执行报错
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-03-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/BigData/" class="post-category">
-                                    BigData
+                            <a href="/categories/Trinity/" class="post-category">
+                                    Trinity
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/BigData/">
-                        <span class="chip bg-color">BigData</span>
+                    <a href="/tags/ETL/">
+                        <span class="chip bg-color">ETL</span>
                     </a>
                     
-                    <a href="/tags/Hadoop问题/">
-                        <span class="chip bg-color">Hadoop问题</span>
+                    <a href="/tags/Trinity/">
+                        <span class="chip bg-color">Trinity</span>
                     </a>
                     
                 </div>
@@ -838,31 +839,31 @@ pg_ctl restart -D <pg 数据目录位置="">/data
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/03/19/web-ui-shang-que-shao-datanode/">
+                <a href="/2019/10/08/trinity-linux-an-zhuang-bu-zou/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="HDFS WEB UI上缺少datanode的问题解决方法">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Trinity Linux 安装步骤">
                         
-                        <span class="card-title">HDFS WEB UI上缺少datanode的问题解决方法</span>
+                        <span class="card-title">Trinity Linux 安装步骤</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            修复HDFS WEB UI上缺少datanode的问题
+                            Trinity Linux 安装步骤
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-03-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/BigData/" class="post-category">
-                                    BigData
+                            <a href="/categories/Trinity/" class="post-category">
+                                    Trinity
                                 </a>
                             
                             
@@ -872,12 +873,12 @@ pg_ctl restart -D <pg 数据目录位置="">/data
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/BigData/">
-                        <span class="chip bg-color">BigData</span>
+                    <a href="/tags/ETL/">
+                        <span class="chip bg-color">ETL</span>
                     </a>
                     
-                    <a href="/tags/Hadoop问题/">
-                        <span class="chip bg-color">Hadoop问题</span>
+                    <a href="/tags/Trinity/">
+                        <span class="chip bg-color">Trinity</span>
                     </a>
                     
                 </div>
